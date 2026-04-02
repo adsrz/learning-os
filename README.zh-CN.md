@@ -61,6 +61,8 @@
   解释公开安全的执行面。
 - [agent/skills/workflow-routed-study-pass/SKILL.md](agent/skills/workflow-routed-study-pass/SKILL.md)
   一个最小 skill，展示如何跑一次 bounded、source-aware 的 study pass。
+- [agent/skills/research-source-intake/SKILL.md](agent/skills/research-source-intake/SKILL.md)
+  一个更具体的 intake skill，用来处理论文、报告和抓取文章。
 - [docs/run-with-codex.md](docs/run-with-codex.md)
   说明如何把这个仓库真正当成 Codex harness 来运行。
 
@@ -75,6 +77,7 @@
 然后阅读核心说明：
 
 - [docs/run-with-codex.md](docs/run-with-codex.md)
+- [docs/demo-flow.md](docs/demo-flow.md)
 - [docs/ai-harness.md](docs/ai-harness.md)
 - [docs/agent-architecture.md](docs/agent-architecture.md)
 - [docs/public-setup.md](docs/public-setup.md)
@@ -100,12 +103,16 @@
   public/private 边界规则与文件职责。
 - [agent/README.md](agent/README.md)
   harness 的最小公开 agent layer。
+- [templates/project-template](templates/project-template)
+  用于 durable write-back 的最小项目骨架。
 - [docs/ai-harness.md](docs/ai-harness.md)
   解释这个项目为什么是 harness，而不是普通学习仓库。
 - [docs/agent-architecture.md](docs/agent-architecture.md)
   harness loop 与公开版 agent architecture。
 - [docs/run-with-codex.md](docs/run-with-codex.md)
   说明如何把这个仓库作为 Codex harness 来运行。
+- [docs/demo-flow.md](docs/demo-flow.md)
+  一条从 source intake 到 write-back 的真实公开流程。
 - [docs/architecture.md](docs/architecture.md)
   仓库如何拆分成 harness、examples 与 local-source layers。
 - [docs/workflow-modes.md](docs/workflow-modes.md)

@@ -20,6 +20,7 @@
 
 - Keep the repo focused on reusable learning workflows rather than one personal library.
 - Keep the minimal public-safe `agent/` layer understandable and usable as a harness skeleton.
+- Keep project templates small, reusable, and clearly aimed at durable write-back.
 - Preserve the four workflow modes:
   - `single-book deep reading`
   - `multi-book synthesis`
@@ -38,3 +39,4 @@
 - One rule should have one real home.
 - README should stay attractive and clear, not turn into an internal ops dump.
 - Do not expand the repo into a personal live-state archive.
+- Do not turn public templates into private-state mirrors.

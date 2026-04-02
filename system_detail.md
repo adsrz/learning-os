@@ -25,6 +25,10 @@
   - public architecture of source intake, routing, validation, and write-back
 - `docs/run-with-codex.md`
   - operator-facing guide for using the harness with Codex
+- `docs/demo-flow.md`
+  - public-safe example flow from source intake to durable write-back
+- `templates/project-template/*`
+  - minimal reusable write-back targets for local projects
 - `docs/architecture.md`
   - public repo architecture and layer split
 - `docs/workflow-modes.md`

@@ -61,6 +61,8 @@ The public repo now ships with a minimal `agent` layer instead of only high-leve
   Explains the public-safe execution surface.
 - [agent/skills/workflow-routed-study-pass/SKILL.md](agent/skills/workflow-routed-study-pass/SKILL.md)
   A minimal skill that shows how to run one bounded, source-aware study pass.
+- [agent/skills/research-source-intake/SKILL.md](agent/skills/research-source-intake/SKILL.md)
+  A more concrete intake skill for papers, reports, and captured articles.
 - [docs/run-with-codex.md](docs/run-with-codex.md)
   Shows how to use this repo with Codex as an actual harness.
 
@@ -75,6 +77,7 @@ Run the public repo checks:
 Then read the core docs:
 
 - [docs/run-with-codex.md](docs/run-with-codex.md)
+- [docs/demo-flow.md](docs/demo-flow.md)
 - [docs/ai-harness.md](docs/ai-harness.md)
 - [docs/agent-architecture.md](docs/agent-architecture.md)
 - [docs/public-setup.md](docs/public-setup.md)
@@ -100,12 +103,16 @@ When you want to use your own materials:
   Public/private boundary rules and file responsibilities.
 - [agent/README.md](agent/README.md)
   Minimal public-safe agent layer for the harness.
+- [templates/project-template](templates/project-template)
+  Minimal reusable project skeleton for durable write-back.
 - [docs/ai-harness.md](docs/ai-harness.md)
   What makes this project a harness rather than a generic study repo.
 - [docs/agent-architecture.md](docs/agent-architecture.md)
   The harness loop and public-facing agent architecture.
 - [docs/run-with-codex.md](docs/run-with-codex.md)
   How to operate the repo as a Codex-driven harness.
+- [docs/demo-flow.md](docs/demo-flow.md)
+  A real public-safe flow from source intake to write-back.
 - [docs/architecture.md](docs/architecture.md)
   How the repo is split into harness, examples, and local-source layers.
 - [docs/workflow-modes.md](docs/workflow-modes.md)

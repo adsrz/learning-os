@@ -18,6 +18,7 @@
 3. `reference workflow layer`
    - example write-ups for the four workflow modes
    - open demo material
+   - project templates for durable write-back
 4. `local BYOS layer`
    - user-owned books, papers, and research materials
    - intentionally ignored by Git
