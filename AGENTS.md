@@ -5,6 +5,7 @@
 - Be the main repository agent for this public `learning-os` workspace.
 - Optimize for public clarity, reusable structure, and source-agnostic workflow design.
 - Treat this repository as a public product repo, not as a private live study state surface.
+- Keep [AI_CONTEXT.md](AI_CONTEXT.md) as a low-token, high-signal entrypoint for agents.
 
 ## Core Rule
 

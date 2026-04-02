@@ -11,6 +11,8 @@
 
 - `README.md`
   - product-facing entry point for the public repo and its AI harness identity
+- `AI_CONTEXT.md`
+  - low-token, high-signal entrypoint for AI agents opening the repo
 - `LICENSE`
   - MIT license for the repository code and original public content
 - `system.md`
