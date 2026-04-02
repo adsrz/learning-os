@@ -15,12 +15,18 @@
   - low-token, high-signal entrypoint for AI agents opening the repo
 - `ai-context.json`
   - machine-readable repo contract for AI onboarding
+- `task-router.json`
+  - machine-readable task routing contract from task type to workflow mode and skill
+- `writeback-map.json`
+  - machine-readable write-back contract by workflow mode
 - `LICENSE`
   - MIT license for the repository code and original public content
 - `system.md`
   - high-level identity and stable principles
 - `agent/README.md`
   - minimal public-safe agent surface for the harness
+- `agent/skills/index.json`
+  - machine-readable registry of public-safe skills
 - `agent/skills/*/SKILL.md`
   - example public-safe skill surfaces that show how bounded agent work should run
 - `docs/ai-harness.md`

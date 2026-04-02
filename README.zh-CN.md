@@ -63,6 +63,10 @@
   给 AI 快速理解仓库用的最短入口。
 - [ai-context.json](ai-context.json)
   给 agent onboarding 用的 machine-readable 仓库上下文。
+- [task-router.json](task-router.json)
+  从 task type 到 workflow mode 和 skill 的 machine-readable 路由表。
+- [writeback-map.json](writeback-map.json)
+  按 workflow mode 固定写回目标的 machine-readable contract。
 - [agent/README.md](agent/README.md)
   解释公开安全的执行面。
 - [agent/skills/workflow-routed-study-pass/SKILL.md](agent/skills/workflow-routed-study-pass/SKILL.md)

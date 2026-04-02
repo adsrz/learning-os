@@ -1,0 +1,112 @@
+{
+  "version": "1.0",
+  "default_read_set": [
+    "AI_CONTEXT.md",
+    "ai-context.json",
+    "AGENTS.md",
+    "system.md",
+    "agent/README.md"
+  ],
+  "task_types": {
+    "setup-or-local-source-import": {
+      "workflow_mode": null,
+      "primary_skill": null,
+      "minimal_read_set": [
+        "docs/public-setup.md",
+        "docs/bring-your-own-sources.md",
+        "docs/run-with-codex.md"
+      ],
+      "write_back_targets": [],
+      "use_when": [
+        "repo setup",
+        "local source import",
+        "BYOS configuration",
+        "clean-clone validation"
+      ]
+    },
+    "research-source-intake": {
+      "workflow_mode": "research / paper workflow",
+      "primary_skill": "agent/skills/research-source-intake/SKILL.md",
+      "minimal_read_set": [
+        "agent/skills/research-source-intake/SKILL.md",
+        "docs/demo-flow.md",
+        "examples/research-intake-packet",
+        "templates/project-template/README.md"
+      ],
+      "write_back_targets": [
+        "project.md",
+        "session-log.md",
+        "open-questions.md",
+        "distinctions.md"
+      ],
+      "use_when": [
+        "new paper or report arrives",
+        "captured article needs classification",
+        "source must be routed before deeper study"
+      ]
+    },
+    "single-book-study-pass": {
+      "workflow_mode": "single-book deep reading",
+      "primary_skill": "agent/skills/workflow-routed-study-pass/SKILL.md",
+      "minimal_read_set": [
+        "agent/skills/workflow-routed-study-pass/SKILL.md",
+        "docs/workflow-modes.md",
+        "examples/single-book-packet",
+        "templates/project-template/README.md"
+      ],
+      "write_back_targets": [
+        "project.md",
+        "session-log.md",
+        "open-questions.md",
+        "distinctions.md"
+      ],
+      "use_when": [
+        "one source should own the packet",
+        "deep reading without broadening",
+        "mechanism-first single-source work"
+      ]
+    },
+    "multi-book-synthesis-pass": {
+      "workflow_mode": "multi-book synthesis",
+      "primary_skill": "agent/skills/workflow-routed-study-pass/SKILL.md",
+      "minimal_read_set": [
+        "agent/skills/workflow-routed-study-pass/SKILL.md",
+        "docs/workflow-modes.md",
+        "examples/multi-book-packet",
+        "templates/project-template/README.md"
+      ],
+      "write_back_targets": [
+        "project.md",
+        "session-log.md",
+        "open-questions.md",
+        "distinctions.md"
+      ],
+      "use_when": [
+        "more than one source is in scope",
+        "synthesis is required",
+        "source overlap and tension must both be preserved"
+      ]
+    },
+    "thesis-reading-pass": {
+      "workflow_mode": "thesis / non-textbook reading",
+      "primary_skill": "agent/skills/workflow-routed-study-pass/SKILL.md",
+      "minimal_read_set": [
+        "agent/skills/workflow-routed-study-pass/SKILL.md",
+        "docs/workflow-modes.md",
+        "docs/examples/thesis-reading.md",
+        "templates/project-template/README.md"
+      ],
+      "write_back_targets": [
+        "project.md",
+        "session-log.md",
+        "open-questions.md",
+        "distinctions.md"
+      ],
+      "use_when": [
+        "argument-heavy source",
+        "theory-first reading",
+        "non-textbook packet"
+      ]
+    }
+  }
+}

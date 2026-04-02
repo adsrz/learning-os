@@ -25,6 +25,30 @@ if ($null -eq $aiContext.fast_read_order) {
 if ($null -eq $aiContext.workflow_modes) {
     throw "ai-context.json is missing workflow_modes"
 }
+$taskRouterPath = Join-Path $repoRoot "task-router.json"
+$taskRouter = Get-Content -Raw -Path $taskRouterPath | ConvertFrom-Json
+if ($null -eq $taskRouter.version) {
+    throw "task-router.json is missing version"
+}
+if ($null -eq $taskRouter.task_types) {
+    throw "task-router.json is missing task_types"
+}
+$writebackMapPath = Join-Path $repoRoot "writeback-map.json"
+$writebackMap = Get-Content -Raw -Path $writebackMapPath | ConvertFrom-Json
+if ($null -eq $writebackMap.version) {
+    throw "writeback-map.json is missing version"
+}
+if ($null -eq $writebackMap.workflow_modes) {
+    throw "writeback-map.json is missing workflow_modes"
+}
+$skillIndexPath = Join-Path $repoRoot "agent/skills/index.json"
+$skillIndex = Get-Content -Raw -Path $skillIndexPath | ConvertFrom-Json
+if ($null -eq $skillIndex.version) {
+    throw "agent/skills/index.json is missing version"
+}
+if ($null -eq $skillIndex.skills) {
+    throw "agent/skills/index.json is missing skills"
+}
 
 [ordered]@{
     status = "success"
@@ -32,6 +56,9 @@ if ($null -eq $aiContext.workflow_modes) {
     checks = @(
         "powershell-parse",
         "source-manifest-template-json",
-        "ai-context-json"
+        "ai-context-json",
+        "task-router-json",
+        "writeback-map-json",
+        "skill-index-json"
     )
 } | ConvertTo-Json -Depth 4

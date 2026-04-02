@@ -1,0 +1,58 @@
+{
+  "version": "1.0",
+  "default_targets": [
+    "project.md",
+    "session-log.md",
+    "open-questions.md",
+    "distinctions.md"
+  ],
+  "workflow_modes": {
+    "single-book deep reading": {
+      "required_targets": [
+        "project.md",
+        "session-log.md"
+      ],
+      "recommended_targets": [
+        "open-questions.md",
+        "distinctions.md"
+      ],
+      "completion_rule": "One source should remain visibly authoritative and the packet should preserve the next mechanism questions.",
+      "example_packet": "examples/single-book-packet"
+    },
+    "multi-book synthesis": {
+      "required_targets": [
+        "project.md",
+        "session-log.md",
+        "open-questions.md",
+        "distinctions.md"
+      ],
+      "recommended_targets": [],
+      "completion_rule": "The packet should preserve both shared structure and source-specific tension instead of flattening differences.",
+      "example_packet": "examples/multi-book-packet"
+    },
+    "thesis / non-textbook reading": {
+      "required_targets": [
+        "project.md",
+        "session-log.md"
+      ],
+      "recommended_targets": [
+        "open-questions.md",
+        "distinctions.md"
+      ],
+      "completion_rule": "The packet should preserve thesis structure and conceptual pressure points, not only chapter progression.",
+      "example_packet": null
+    },
+    "research / paper workflow": {
+      "required_targets": [
+        "project.md",
+        "session-log.md"
+      ],
+      "recommended_targets": [
+        "open-questions.md",
+        "distinctions.md"
+      ],
+      "completion_rule": "The packet should record source classification, routing evidence, and the next durable study target.",
+      "example_packet": "examples/research-intake-packet"
+    }
+  }
+}

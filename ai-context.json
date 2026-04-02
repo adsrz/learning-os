@@ -43,6 +43,11 @@
     "agent/skills/workflow-routed-study-pass/SKILL.md",
     "agent/skills/research-source-intake/SKILL.md"
   ],
+  "machine_contracts": [
+    "task-router.json",
+    "writeback-map.json",
+    "agent/skills/index.json"
+  ],
   "durable_write_back_targets": [
     "project.md",
     "session-log.md",

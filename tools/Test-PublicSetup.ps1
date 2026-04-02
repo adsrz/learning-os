@@ -21,6 +21,8 @@ $requiredRepoFiles = @(
     "README.md",
     "AI_CONTEXT.md",
     "ai-context.json",
+    "task-router.json",
+    "writeback-map.json",
     "LICENSE",
     "system.md",
     "system_detail.md",
@@ -30,10 +32,12 @@ $requiredRepoFiles = @(
     "docs/bring-your-own-sources.md",
     "docs/source-manifest.template.json",
     "samples/open/demo-source.md",
+    "samples/open/demo-source-2.md",
     "tools/Test-All.ps1",
     "tools/Test-Lint.ps1",
     "tools/Test-PublicSetup.ps1",
-    "tools/Import-LocalSources.ps1"
+    "tools/Import-LocalSources.ps1",
+    "agent/skills/index.json"
 )
 
 foreach ($relativePath in $requiredRepoFiles) {

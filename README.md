@@ -63,6 +63,10 @@ The public repo now ships with a minimal `agent` layer instead of only high-leve
   The shortest AI-optimized entrypoint for understanding the repo.
 - [ai-context.json](ai-context.json)
   Machine-readable repo context for agent onboarding.
+- [task-router.json](task-router.json)
+  Machine-readable routing contract from task type to workflow mode and skill.
+- [writeback-map.json](writeback-map.json)
+  Machine-readable write-back contract by workflow mode.
 - [agent/README.md](agent/README.md)
   Explains the public-safe execution surface.
 - [agent/skills/workflow-routed-study-pass/SKILL.md](agent/skills/workflow-routed-study-pass/SKILL.md)

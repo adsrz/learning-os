@@ -5,6 +5,9 @@ This file is the shortest safe entrypoint for an AI agent opening `Learning OS`.
 Machine-readable companion:
 
 - [ai-context.json](ai-context.json)
+- [task-router.json](task-router.json)
+- [writeback-map.json](writeback-map.json)
+- [agent/skills/index.json](agent/skills/index.json)
 
 ## Identity
 
@@ -53,6 +56,12 @@ If the task is about real packet shape or write-back, also read:
 
 - [agent/skills/workflow-routed-study-pass/SKILL.md](agent/skills/workflow-routed-study-pass/SKILL.md)
 - [agent/skills/research-source-intake/SKILL.md](agent/skills/research-source-intake/SKILL.md)
+
+## Machine Contracts
+
+- [task-router.json](task-router.json)
+- [writeback-map.json](writeback-map.json)
+- [agent/skills/index.json](agent/skills/index.json)
 
 ## Durable Write-Back Targets
 

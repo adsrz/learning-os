@@ -1,0 +1,64 @@
+{
+  "version": "1.0",
+  "skills": [
+    {
+      "id": "workflow-routed-study-pass",
+      "path": "agent/skills/workflow-routed-study-pass/SKILL.md",
+      "workflow_modes": [
+        "single-book deep reading",
+        "multi-book synthesis",
+        "thesis / non-textbook reading",
+        "research / paper workflow"
+      ],
+      "use_when": [
+        "a bounded source-aware study pass is needed",
+        "workflow mode is already known or can be inferred",
+        "the task should produce durable outputs beyond chat"
+      ],
+      "requires": [
+        "explicit workflow mode",
+        "explicit source boundary"
+      ],
+      "outputs": [
+        "explanation or synthesis",
+        "source boundary note",
+        "suggested durable write-back"
+      ],
+      "write_back_targets": [
+        "project.md",
+        "session-log.md",
+        "open-questions.md",
+        "distinctions.md"
+      ]
+    },
+    {
+      "id": "research-source-intake",
+      "path": "agent/skills/research-source-intake/SKILL.md",
+      "workflow_modes": [
+        "research / paper workflow"
+      ],
+      "use_when": [
+        "a new paper, report, or captured article arrives",
+        "the source needs classification before study",
+        "routing evidence must be recorded before a deeper pass"
+      ],
+      "requires": [
+        "visible local metadata or inspected source span"
+      ],
+      "outputs": [
+        "source classification",
+        "workflow routing",
+        "evidence inspected",
+        "boundary note",
+        "suggested write-back",
+        "next study packet"
+      ],
+      "write_back_targets": [
+        "project.md",
+        "session-log.md",
+        "open-questions.md",
+        "distinctions.md"
+      ]
+    }
+  ]
+}
