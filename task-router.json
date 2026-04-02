@@ -24,6 +24,31 @@
         "clean-clone validation"
       ]
     },
+    "github-submission-or-public-packaging": {
+      "workflow_mode": null,
+      "primary_skill": null,
+      "minimal_read_set": [
+        "projects/README.md",
+        "projects/github-submission-cold-path/project.md",
+        "projects/github-submission-cold-path/submission-record.md",
+        "README.md",
+        "system_detail.md"
+      ],
+      "write_back_targets": [
+        "projects/github-submission-cold-path/project.md",
+        "projects/github-submission-cold-path/session-log.md",
+        "projects/github-submission-cold-path/open-questions.md",
+        "projects/github-submission-cold-path/distinctions.md",
+        "projects/github-submission-cold-path/submission-record.md"
+      ],
+      "use_when": [
+        "GitHub submission packaging",
+        "public repo positioning",
+        "README or metadata refresh",
+        "release-safe repo identity update",
+        "AI-facing onboarding surface changes"
+      ]
+    },
     "research-source-intake": {
       "workflow_mode": "research / paper workflow",
       "primary_skill": "agent/skills/research-source-intake/SKILL.md",

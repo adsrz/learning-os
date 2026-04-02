@@ -39,6 +39,10 @@
   - public-safe example flow from source intake to durable write-back
 - `templates/project-template/*`
   - minimal reusable write-back targets for local projects
+- `projects/README.md`
+  - explains the tracked project area for public-safe repo-owned cold-path work
+- `projects/github-submission-cold-path/*`
+  - durable cold-path record for GitHub submission, public packaging, and release-safe repo identity
 - `examples/*`
   - worked public-safe packets that show the result after a bounded harness pass
 - `docs/architecture.md`

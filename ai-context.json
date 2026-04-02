@@ -19,6 +19,13 @@
       "docs/public-setup.md",
       "docs/bring-your-own-sources.md"
     ],
+    "github_submission_or_public_packaging": [
+      "projects/README.md",
+      "projects/github-submission-cold-path/project.md",
+      "projects/github-submission-cold-path/submission-record.md",
+      "README.md",
+      "system_detail.md"
+    ],
     "packet_shape_or_write_back": [
       "templates/project-template/README.md",
       "examples/research-intake-packet",

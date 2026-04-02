@@ -12,6 +12,8 @@ An AI-native, local-first learning harness for deep reading, synthesis, thesis-s
 
 For AI agents that need the shortest high-signal entrypoint, start with [AI_CONTEXT.md](AI_CONTEXT.md). If a machine-readable entrypoint is better, use [ai-context.json](ai-context.json).
 
+For public packaging, GitHub submission, and release-safe identity work, use the cold-path project at [projects/github-submission-cold-path](projects/github-submission-cold-path).
+
 ## Quick View
 
 ```text
@@ -132,6 +134,8 @@ When you want to use your own materials:
   Minimal public-safe agent layer for the harness.
 - [templates/project-template](templates/project-template)
   Minimal reusable project skeleton for durable write-back.
+- [projects/github-submission-cold-path](projects/github-submission-cold-path)
+  Cold-path project that records public submission state, repo identity, and packaging decisions without polluting the hot study lane.
 - [examples/research-intake-packet](examples/research-intake-packet)
   A worked public-safe example packet after one bounded harness pass.
 - [examples/single-book-packet](examples/single-book-packet)

@@ -21,6 +21,7 @@
     - project templates for durable write-back
     - worked example packets
     - multiple open samples for synthesis demos
+    - tracked cold-path project for GitHub submission and public packaging memory
 4. `local BYOS layer`
    - user-owned books, papers, and research materials
    - intentionally ignored by Git

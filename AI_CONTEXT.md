@@ -37,6 +37,12 @@ If the task is about real packet shape or write-back, also read:
 10. [examples/single-book-packet](examples/single-book-packet)
 11. [examples/multi-book-packet](examples/multi-book-packet)
 
+If the task is about GitHub submission, public packaging, or release-safe repo identity, also read:
+
+12. [projects/README.md](projects/README.md)
+13. [projects/github-submission-cold-path/project.md](projects/github-submission-cold-path/project.md)
+14. [projects/github-submission-cold-path/submission-record.md](projects/github-submission-cold-path/submission-record.md)
+
 ## Core Contract
 
 - sources must be explicit
