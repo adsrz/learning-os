@@ -39,6 +39,7 @@ The public repo includes:
 - harness docs
 - minimal public-safe agent skills
 - project templates for write-back
+- worked example packets
 - validators
 - import helpers
 - examples

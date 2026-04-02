@@ -30,6 +30,8 @@ Show one realistic harness loop without depending on a private book library.
    - `session-log.md`
    - `open-questions.md`
    - `distinctions.md`
+8. Compare your result with the worked public-safe example:
+   - [examples/research-intake-packet](../examples/research-intake-packet)
 
 ## Example Outcome
 
@@ -40,6 +42,7 @@ A good demo pass should leave you with:
 - one session log entry
 - at least one open question
 - at least one durable distinction
+- a project packet that roughly resembles the worked example
 
 ## Why This Matters
 

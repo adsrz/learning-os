@@ -29,6 +29,8 @@
   - public-safe example flow from source intake to durable write-back
 - `templates/project-template/*`
   - minimal reusable write-back targets for local projects
+- `examples/*`
+  - worked public-safe packets that show the result after a bounded harness pass
 - `docs/architecture.md`
   - public repo architecture and layer split
 - `docs/workflow-modes.md`

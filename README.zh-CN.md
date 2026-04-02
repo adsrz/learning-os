@@ -87,6 +87,7 @@
 你也可以先看开放示例：
 
 - [samples/open/demo-source.md](samples/open/demo-source.md)
+- [examples/research-intake-packet](examples/research-intake-packet)
 
 当你要接入自己的资料时：
 
@@ -105,6 +106,8 @@
   harness 的最小公开 agent layer。
 - [templates/project-template](templates/project-template)
   用于 durable write-back 的最小项目骨架。
+- [examples/research-intake-packet](examples/research-intake-packet)
+  一轮 bounded harness pass 之后的公开示例 packet。
 - [docs/ai-harness.md](docs/ai-harness.md)
   解释这个项目为什么是 harness，而不是普通学习仓库。
 - [docs/agent-architecture.md](docs/agent-architecture.md)

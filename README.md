@@ -87,6 +87,7 @@ Then read the core docs:
 Try the included open sample:
 
 - [samples/open/demo-source.md](samples/open/demo-source.md)
+- [examples/research-intake-packet](examples/research-intake-packet)
 
 When you want to use your own materials:
 
@@ -105,6 +106,8 @@ When you want to use your own materials:
   Minimal public-safe agent layer for the harness.
 - [templates/project-template](templates/project-template)
   Minimal reusable project skeleton for durable write-back.
+- [examples/research-intake-packet](examples/research-intake-packet)
+  A worked public-safe example packet after one bounded harness pass.
 - [docs/ai-harness.md](docs/ai-harness.md)
   What makes this project a harness rather than a generic study repo.
 - [docs/agent-architecture.md](docs/agent-architecture.md)
