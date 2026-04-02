@@ -29,7 +29,7 @@ The public harness is intentionally small:
 2. pick the workflow mode that fits the task
 3. run a bounded study pass with explicit source boundaries
 4. validate assumptions
-5. write back durable outputs into your own local project structure or fork
+5. write back durable outputs into your own local project structure outside the tracked public repo
 
 ## Start Here
 

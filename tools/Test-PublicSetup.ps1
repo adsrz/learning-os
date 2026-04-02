@@ -51,6 +51,7 @@ function Test-AllowedMaintainerStatePath {
 
 $repoRoot = Split-Path -Parent $PSScriptRoot
 $requiredRepoFiles = @(
+    "AGENTS.md",
     "README.md",
     "README.zh-CN.md",
     "AI_CONTEXT.md",
@@ -64,6 +65,8 @@ $requiredRepoFiles = @(
     "docs/workflow-modes.md",
     "docs/public-setup.md",
     "docs/bring-your-own-sources.md",
+    "docs/run-with-codex.md",
+    "docs/demo-flow.md",
     "docs/source-manifest.template.json",
     "samples/open/demo-source.md",
     "samples/open/demo-source-2.md",
@@ -71,7 +74,9 @@ $requiredRepoFiles = @(
     "tools/Test-Lint.ps1",
     "tools/Test-PublicSetup.ps1",
     "tools/Import-LocalSources.ps1",
-    "agent/skills/index.json"
+    "agent/README.md",
+    "agent/skills/index.json",
+    "templates/project-template/README.md"
 )
 
 foreach ($relativePath in $requiredRepoFiles) {
@@ -118,6 +123,21 @@ foreach ($relativePath in $forbiddenReferenceFiles) {
     }
 }
 
+$forkFreeWriteBackSurfaceFiles = @(
+    "README.md",
+    "README.zh-CN.md",
+    "AI_CONTEXT.md",
+    "agent/README.md",
+    "docs/run-with-codex.md",
+    "docs/demo-flow.md",
+    "templates/project-template/README.md"
+)
+
+foreach ($relativePath in $forkFreeWriteBackSurfaceFiles) {
+    $content = Get-Content -Raw -Path (Join-Path $repoRoot $relativePath)
+    Assert-Setup (-not [regex]::IsMatch($content, '(?i)\bfork\b')) ("Fork-based write-back guidance is forbidden on public onboarding surfaces: " + $relativePath)
+}
+
 $manifestPath = Join-Path $repoRoot "docs/source-manifest.template.json"
 $manifest = Get-Content -Raw -Path $manifestPath | ConvertFrom-Json
 Assert-Setup ($null -ne $manifest.version) "docs/source-manifest.template.json is missing version"
@@ -154,6 +174,7 @@ if (-not $RepoOnly) {
         "required public files",
         "forbidden maintainer-state file families",
         "forbidden maintainer-routing references",
+        "fork-free local write-back guidance",
         "source manifest template schema"
     )
     warnings = @($warnings)

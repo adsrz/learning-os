@@ -2,7 +2,7 @@
 
 This folder is a minimal public-safe project skeleton for `Learning OS`.
 
-Copy it when you want to start a new study packet or a new long-horizon project in your own fork or local workspace.
+Copy it when you want to start a new study packet or a new long-horizon project in your own local workspace.
 
 ## Included Files
 
