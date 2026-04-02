@@ -37,6 +37,7 @@ flowchart LR
 The public repo includes:
 
 - harness docs
+- minimal public-safe agent skills
 - validators
 - import helpers
 - examples

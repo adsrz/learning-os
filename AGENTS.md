@@ -19,6 +19,7 @@
 ## Main Duties
 
 - Keep the repo focused on reusable learning workflows rather than one personal library.
+- Keep the minimal public-safe `agent/` layer understandable and usable as a harness skeleton.
 - Preserve the four workflow modes:
   - `single-book deep reading`
   - `multi-book synthesis`
@@ -30,6 +31,7 @@
 
 - Use `.\tools\Test-All.cmd -RepoOnly` for clean-clone validation.
 - Use `.\tools\Test-All.cmd` when local BYOS source setup should also be checked.
+- Keep tracked agent docs and example skills public-safe.
 
 ## Guardrails
 

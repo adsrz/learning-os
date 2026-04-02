@@ -9,6 +9,7 @@
    - harness doctrine
    - source routing
    - agent architecture
+   - minimal public-safe agent skills
 2. `operator and validation layer`
    - setup docs
    - validators
@@ -33,6 +34,7 @@ The project should read as an `AI harness`, not merely as a study repo:
 - workflow routing is explicit
 - validation is explicit
 - durable write-back is explicit
+- the public execution layer is explicit
 
 ## Non-Goal
 

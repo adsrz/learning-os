@@ -15,10 +15,16 @@
   - MIT license for the repository code and original public content
 - `system.md`
   - high-level identity and stable principles
+- `agent/README.md`
+  - minimal public-safe agent surface for the harness
+- `agent/skills/*/SKILL.md`
+  - example public-safe skill surfaces that show how bounded agent work should run
 - `docs/ai-harness.md`
   - public explanation of the harness layer and why it is not just a study repo
 - `docs/agent-architecture.md`
   - public architecture of source intake, routing, validation, and write-back
+- `docs/run-with-codex.md`
+  - operator-facing guide for using the harness with Codex
 - `docs/architecture.md`
   - public repo architecture and layer split
 - `docs/workflow-modes.md`
