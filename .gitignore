@@ -1,0 +1,27 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Python / caches
+__pycache__/
+*.pyc
+.ruff_cache/
+.cache/
+
+# Local source roots
+sources/
+book/
+research_doc/
+
+# Local artifacts
+artifacts/**
+!artifacts/README.md
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Private overrides
+.study-local/

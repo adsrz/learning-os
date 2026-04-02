@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "source_id": "single-book-primary",
+      "title": "Primary source for a single-book deep reading project",
+      "class": "book",
+      "target_relative_path": "sources/books/single-book-primary.pdf",
+      "match_names": [
+        "single-book-primary.pdf"
+      ],
+      "required_for": [
+        "single-book-deep-reading"
+      ],
+      "notes": "Replace this template entry with your own source metadata. Use only lawfully obtained materials."
+    },
+    {
+      "source_id": "research-paper-1",
+      "title": "Primary source for a research workflow project",
+      "class": "research",
+      "target_relative_path": "sources/research/research-paper-1.pdf",
+      "match_names": [
+        "research-paper-1.pdf"
+      ],
+      "required_for": [
+        "research-workflow"
+      ],
+      "notes": "You can add multiple research entries as needed."
+    }
+  ]
+}

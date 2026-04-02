@@ -1,0 +1,57 @@
+# System Detail
+
+## Purpose
+
+- Define the public file responsibilities.
+- Keep the public/private boundary explicit.
+- Explain how the repo stays reusable without bundling copyrighted source materials.
+
+## Public File Responsibilities
+
+- `README.md`
+  - product-facing entry point for the public repo
+- `LICENSE`
+  - MIT license for the repository code and original public content
+- `system.md`
+  - high-level identity and stable principles
+- `docs/architecture.md`
+  - public repo architecture and layer split
+- `docs/workflow-modes.md`
+  - workflow-mode overview
+- `docs/public-setup.md`
+  - operator-facing setup path for this public repo
+- `docs/bring-your-own-sources.md`
+  - public boundary and local source import rules
+- `docs/source-manifest.template.json`
+  - template that maps source ids to expected local paths and workflow modes
+- `docs/examples/`
+  - public-safe example descriptions of the supported workflow modes
+- `samples/open/`
+  - open sample materials that let clean clones explore the system without private inputs
+- `tools/Test-Lint.ps1`
+  - repo-safe deterministic lint gate
+- `tools/Test-PublicSetup.ps1`
+  - public setup and local source-root validation
+- `tools/Test-All.ps1`
+  - single-command validation entry point
+- `tools/Import-LocalSources.ps1`
+  - helper for copying or moving user-owned local materials into ignored local source roots
+- `.github/workflows/*.yml`
+  - repo-visible CI for clean-clone validation
+
+## Private Boundary
+
+These surfaces are intentionally local-only and must stay out of tracked history:
+
+- `sources/`
+- `book/`
+- `research_doc/`
+- generated local artifacts beyond tracked placeholders
+- personal runtime logs
+- personal memory/state files
+- local absolute machine paths
+
+## License Boundary
+
+- The repository code and original public documentation are MIT-licensed.
+- Third-party books, papers, PDFs, slides, images, and other source materials are not included and are not covered by the repository license.

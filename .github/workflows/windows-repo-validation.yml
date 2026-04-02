@@ -1,0 +1,14 @@
+name: windows-repo-validation
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  repo-only:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Repo-only validation
+        shell: pwsh
+        run: .\tools\Test-All.ps1 -RepoOnly
