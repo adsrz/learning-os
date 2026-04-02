@@ -48,6 +48,7 @@ Those files tell Codex:
 6. Copy the project template into your own local `projects/` area so the agent has a clear write-back target.
 7. Compare your first packet against the worked public-safe example:
    - [examples/research-intake-packet](../examples/research-intake-packet)
+   - [examples/single-book-packet](../examples/single-book-packet)
 
 ## Suggested Prompt Pattern
 

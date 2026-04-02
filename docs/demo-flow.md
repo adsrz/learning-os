@@ -32,6 +32,7 @@ Show one realistic harness loop without depending on a private book library.
    - `distinctions.md`
 8. Compare your result with the worked public-safe example:
    - [examples/research-intake-packet](../examples/research-intake-packet)
+   - [examples/single-book-packet](../examples/single-book-packet)
 
 ## Example Outcome
 
@@ -43,6 +44,7 @@ A good demo pass should leave you with:
 - at least one open question
 - at least one durable distinction
 - a project packet that roughly resembles the worked example
+- a clear sense of how `research-intake` and `single-book` packets differ
 
 ## Why This Matters
 

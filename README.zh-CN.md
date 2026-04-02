@@ -15,6 +15,8 @@
 
 ![Learning OS social preview](docs/assets/learning-os-social-card-v4.png)
 
+![Learning OS terminal demo](docs/assets/terminal-demo.svg)
+
 ## 为什么它是一个 AI Harness
 
 很多 AI 学习方案，本质上只是“一个 prompt + 一堆笔记”。
@@ -88,6 +90,7 @@
 
 - [samples/open/demo-source.md](samples/open/demo-source.md)
 - [examples/research-intake-packet](examples/research-intake-packet)
+- [examples/single-book-packet](examples/single-book-packet)
 
 当你要接入自己的资料时：
 
@@ -108,6 +111,8 @@
   用于 durable write-back 的最小项目骨架。
 - [examples/research-intake-packet](examples/research-intake-packet)
   一轮 bounded harness pass 之后的公开示例 packet。
+- [examples/single-book-packet](examples/single-book-packet)
+  一个 `single-book deep reading` 的 source-owned 示例 packet。
 - [docs/ai-harness.md](docs/ai-harness.md)
   解释这个项目为什么是 harness，而不是普通学习仓库。
 - [docs/agent-architecture.md](docs/agent-architecture.md)

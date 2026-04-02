@@ -1,0 +1,34 @@
+<svg width="1280" height="760" viewBox="0 0 1280 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="760" rx="28" fill="#F5F1E7"/>
+  <rect x="48" y="46" width="1184" height="668" rx="24" fill="#13211D"/>
+  <rect x="48" y="46" width="1184" height="56" rx="24" fill="#1A2B25"/>
+  <circle cx="92" cy="74" r="9" fill="#E67373"/>
+  <circle cx="122" cy="74" r="9" fill="#E7C269"/>
+  <circle cx="152" cy="74" r="9" fill="#6BC48E"/>
+  <text x="192" y="81" fill="#D7E5DC" font-family="Consolas, 'Courier New', monospace" font-size="24">learning-os demo</text>
+
+  <text x="88" y="152" fill="#7AD2AA" font-family="Consolas, 'Courier New', monospace" font-size="26">$ .\tools\Test-All.cmd -RepoOnly</text>
+  <text x="88" y="196" fill="#DDEBE2" font-family="Consolas, 'Courier New', monospace" font-size="24">[validate] lint</text>
+  <text x="88" y="232" fill="#DDEBE2" font-family="Consolas, 'Courier New', monospace" font-size="24">{ "status": "success" }</text>
+  <text x="88" y="268" fill="#DDEBE2" font-family="Consolas, 'Courier New', monospace" font-size="24">[validate] public setup</text>
+  <text x="88" y="304" fill="#DDEBE2" font-family="Consolas, 'Courier New', monospace" font-size="24">{ "mode": "repo-only", "status": "success" }</text>
+
+  <text x="88" y="376" fill="#7AD2AA" font-family="Consolas, 'Courier New', monospace" font-size="26">$ .\tools\Import-LocalSources.cmd -SourceRoot C:\demo\sources</text>
+  <text x="88" y="420" fill="#DDEBE2" font-family="Consolas, 'Courier New', monospace" font-size="24">{ "matched": 1, "written_manifest": "sources/local-manifest.json" }</text>
+
+  <text x="88" y="492" fill="#7AD2AA" font-family="Consolas, 'Courier New', monospace" font-size="26">$ codex</text>
+  <text x="88" y="536" fill="#DDEBE2" font-family="Consolas, 'Courier New', monospace" font-size="24">Use the research-source-intake skill on the imported source.</text>
+  <text x="88" y="572" fill="#DDEBE2" font-family="Consolas, 'Courier New', monospace" font-size="24">Then route it into a bounded study pass and propose durable write-back.</text>
+
+  <rect x="748" y="144" width="408" height="430" rx="18" fill="#1C3029" stroke="#335347" stroke-width="2"/>
+  <text x="776" y="184" fill="#7AD2AA" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">Expected durable outputs</text>
+  <text x="776" y="232" fill="#E8F1EC" font-family="Segoe UI, Arial, sans-serif" font-size="22">- project.md</text>
+  <text x="776" y="276" fill="#E8F1EC" font-family="Segoe UI, Arial, sans-serif" font-size="22">- session-log.md</text>
+  <text x="776" y="320" fill="#E8F1EC" font-family="Segoe UI, Arial, sans-serif" font-size="22">- open-questions.md</text>
+  <text x="776" y="364" fill="#E8F1EC" font-family="Segoe UI, Arial, sans-serif" font-size="22">- distinctions.md</text>
+
+  <text x="776" y="438" fill="#B9D0C4" font-family="Segoe UI, Arial, sans-serif" font-size="20">The harness is not done when chat ends.</text>
+  <text x="776" y="472" fill="#B9D0C4" font-family="Segoe UI, Arial, sans-serif" font-size="20">It is done when useful state survives.</text>
+
+  <text x="88" y="658" fill="#B9D0C4" font-family="Segoe UI, Arial, sans-serif" font-size="24">AI-native, local-first learning harness</text>
+</svg>

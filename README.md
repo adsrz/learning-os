@@ -15,6 +15,8 @@ An AI-native, local-first learning harness for deep reading, synthesis, thesis-s
 
 ![Learning OS social preview](docs/assets/learning-os-social-card-v4.png)
 
+![Learning OS terminal demo](docs/assets/terminal-demo.svg)
+
 ## Why This Is An AI Harness
 
 Most AI study setups are just prompts pointed at a pile of notes.
@@ -88,6 +90,7 @@ Try the included open sample:
 
 - [samples/open/demo-source.md](samples/open/demo-source.md)
 - [examples/research-intake-packet](examples/research-intake-packet)
+- [examples/single-book-packet](examples/single-book-packet)
 
 When you want to use your own materials:
 
@@ -108,6 +111,8 @@ When you want to use your own materials:
   Minimal reusable project skeleton for durable write-back.
 - [examples/research-intake-packet](examples/research-intake-packet)
   A worked public-safe example packet after one bounded harness pass.
+- [examples/single-book-packet](examples/single-book-packet)
+  A worked source-owned packet for `single-book deep reading`.
 - [docs/ai-harness.md](docs/ai-harness.md)
   What makes this project a harness rather than a generic study repo.
 - [docs/agent-architecture.md](docs/agent-architecture.md)
