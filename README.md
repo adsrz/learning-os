@@ -13,7 +13,7 @@ An AI-native, local-first learning harness for deep reading, synthesis, thesis-s
 
 `Learning OS` is not just a study repo. It is a harness: it gives an AI agent explicit source boundaries, workflow routing, validation gates, and durable write-back so long-horizon learning can stay structured instead of collapsing into generic chat.
 
-For AI agents that need the shortest high-signal entrypoint, start with [AI_CONTEXT.md](AI_CONTEXT.md).
+For AI agents that need the shortest high-signal entrypoint, start with [AI_CONTEXT.md](AI_CONTEXT.md). If a machine-readable entrypoint is better, use [ai-context.json](ai-context.json).
 
 ![Learning OS hero overview](docs/assets/hero-overview.svg)
 
@@ -61,6 +61,8 @@ The public repo now ships with a minimal `agent` layer instead of only high-leve
 
 - [AI_CONTEXT.md](AI_CONTEXT.md)
   The shortest AI-optimized entrypoint for understanding the repo.
+- [ai-context.json](ai-context.json)
+  Machine-readable repo context for agent onboarding.
 - [agent/README.md](agent/README.md)
   Explains the public-safe execution surface.
 - [agent/skills/workflow-routed-study-pass/SKILL.md](agent/skills/workflow-routed-study-pass/SKILL.md)

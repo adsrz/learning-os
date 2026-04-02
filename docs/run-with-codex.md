@@ -7,6 +7,7 @@ This repo is designed to work as a local-first `AI harness`, not just as a stati
 When you open this repository in Codex, the important public surfaces are:
 
 - [AI_CONTEXT.md](../AI_CONTEXT.md)
+- [ai-context.json](../ai-context.json)
 - [AGENTS.md](../AGENTS.md)
 - [system.md](../system.md)
 - [system_detail.md](../system_detail.md)
@@ -24,7 +25,7 @@ Those files tell Codex:
 - workflow routing matters
 - durable write-back matters
 
-`AI_CONTEXT.md` is the preferred first read when you want the lowest-context-cost entrypoint.
+`AI_CONTEXT.md` is the preferred first read when you want the lowest-context-cost entrypoint. `ai-context.json` is the preferred first read when you want a machine-readable repo contract.
 
 ## Suggested Setup
 

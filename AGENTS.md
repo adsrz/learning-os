@@ -6,6 +6,7 @@
 - Optimize for public clarity, reusable structure, and source-agnostic workflow design.
 - Treat this repository as a public product repo, not as a private live study state surface.
 - Keep [AI_CONTEXT.md](AI_CONTEXT.md) as a low-token, high-signal entrypoint for agents.
+- Keep [ai-context.json](ai-context.json) aligned as the machine-readable companion entrypoint.
 
 ## Core Rule
 

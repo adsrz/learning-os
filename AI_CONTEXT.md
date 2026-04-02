@@ -2,6 +2,10 @@
 
 This file is the shortest safe entrypoint for an AI agent opening `Learning OS`.
 
+Machine-readable companion:
+
+- [ai-context.json](ai-context.json)
+
 ## Identity
 
 - `repo_type`: AI-native, local-first learning harness

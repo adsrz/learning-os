@@ -13,6 +13,8 @@
   - product-facing entry point for the public repo and its AI harness identity
 - `AI_CONTEXT.md`
   - low-token, high-signal entrypoint for AI agents opening the repo
+- `ai-context.json`
+  - machine-readable repo contract for AI onboarding
 - `LICENSE`
   - MIT license for the repository code and original public content
 - `system.md`

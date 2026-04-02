@@ -13,7 +13,7 @@
 
 `Learning OS` 不只是一个学习仓库。它本质上是一层 harness：给 AI agent 明确的 source 边界、工作流路由、验证 gate 与 durable write-back，让长期学习不会退化成一次性的泛化聊天。
 
-如果是 AI agent 需要用最短路径快速读懂仓库，先看 [AI_CONTEXT.md](AI_CONTEXT.md)。
+如果是 AI agent 需要用最短路径快速读懂仓库，先看 [AI_CONTEXT.md](AI_CONTEXT.md)。如果更适合 machine-readable 入口，就直接读 [ai-context.json](ai-context.json)。
 
 ![Learning OS hero overview](docs/assets/hero-overview.svg)
 
@@ -61,6 +61,8 @@
 
 - [AI_CONTEXT.md](AI_CONTEXT.md)
   给 AI 快速理解仓库用的最短入口。
+- [ai-context.json](ai-context.json)
+  给 agent onboarding 用的 machine-readable 仓库上下文。
 - [agent/README.md](agent/README.md)
   解释公开安全的执行面。
 - [agent/skills/workflow-routed-study-pass/SKILL.md](agent/skills/workflow-routed-study-pass/SKILL.md)

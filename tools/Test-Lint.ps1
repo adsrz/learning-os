@@ -14,12 +14,24 @@ foreach ($file in $ps1Files) {
 
 $manifestPath = Join-Path $repoRoot "docs/source-manifest.template.json"
 $null = Get-Content -Raw -Path $manifestPath | ConvertFrom-Json
+$aiContextPath = Join-Path $repoRoot "ai-context.json"
+$aiContext = Get-Content -Raw -Path $aiContextPath | ConvertFrom-Json
+if ($null -eq $aiContext.version) {
+    throw "ai-context.json is missing version"
+}
+if ($null -eq $aiContext.fast_read_order) {
+    throw "ai-context.json is missing fast_read_order"
+}
+if ($null -eq $aiContext.workflow_modes) {
+    throw "ai-context.json is missing workflow_modes"
+}
 
 [ordered]@{
     status = "success"
     powershell_files_checked = $ps1Files.Count
     checks = @(
         "powershell-parse",
-        "source-manifest-template-json"
+        "source-manifest-template-json",
+        "ai-context-json"
     )
 } | ConvertTo-Json -Depth 4

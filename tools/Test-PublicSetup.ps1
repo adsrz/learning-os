@@ -19,6 +19,8 @@ function Assert-Setup {
 $repoRoot = Split-Path -Parent $PSScriptRoot
 $requiredRepoFiles = @(
     "README.md",
+    "AI_CONTEXT.md",
+    "ai-context.json",
     "LICENSE",
     "system.md",
     "system_detail.md",

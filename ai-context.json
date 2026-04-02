@@ -1,0 +1,66 @@
+{
+  "version": "1.0",
+  "repo_type": "ai-native-local-first-learning-harness",
+  "primary_goal": "run source-aware study workflows and preserve durable write-back",
+  "not_this": [
+    "private-source-archive",
+    "generic-chat-notebook",
+    "public-redistribution-repo"
+  ],
+  "fast_read_order": [
+    "AGENTS.md",
+    "system.md",
+    "agent/README.md",
+    "docs/agent-architecture.md",
+    "docs/run-with-codex.md"
+  ],
+  "task_specific_reads": {
+    "setup_or_local_sources": [
+      "docs/public-setup.md",
+      "docs/bring-your-own-sources.md"
+    ],
+    "packet_shape_or_write_back": [
+      "templates/project-template/README.md",
+      "examples/research-intake-packet",
+      "examples/single-book-packet",
+      "examples/multi-book-packet"
+    ]
+  },
+  "core_contract": [
+    "sources-must-be-explicit",
+    "workflow-mode-must-be-explicit",
+    "local-private-boundaries-must-stay-explicit",
+    "write-back-matters-as-much-as-the-explanation",
+    "bounded-passes-over-vague-broad-chat"
+  ],
+  "workflow_modes": [
+    "single-book deep reading",
+    "multi-book synthesis",
+    "thesis / non-textbook reading",
+    "research / paper workflow"
+  ],
+  "key_agent_surfaces": [
+    "agent/skills/workflow-routed-study-pass/SKILL.md",
+    "agent/skills/research-source-intake/SKILL.md"
+  ],
+  "durable_write_back_targets": [
+    "project.md",
+    "session-log.md",
+    "open-questions.md",
+    "distinctions.md"
+  ],
+  "hard_boundaries": [
+    "sources/",
+    "book/",
+    "research_doc/",
+    "private books, papers, PDFs, slides, or captured materials",
+    "personal runtime state",
+    "local absolute machine paths"
+  ],
+  "commands": {
+    "validate_repo_only": ".\\tools\\Test-All.cmd -RepoOnly",
+    "import_local_sources": ".\\tools\\Import-LocalSources.cmd -SourceRoot C:\\path\\to\\your\\files",
+    "validate_local_setup": ".\\tools\\Test-PublicSetup.cmd"
+  },
+  "completion_rule": "The repo is not finished when the agent produces an answer. It is finished when the answer has a clear workflow owner, a clear source boundary, and a durable write-back target."
+}
