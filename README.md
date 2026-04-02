@@ -13,6 +13,8 @@ A local-first learning operating system for deep reading, synthesis, thesis-styl
 
 `Learning OS` is not a note dump and not a personal vault template. It is a reusable study protocol for people who want continuity, structure, explicit source handling, and validation-backed repo hygiene.
 
+![Learning OS social preview](docs/assets/learning-os-social-card-v2.png)
+
 ## Why This Exists
 
 Most study repos can store notes. Very few can run a serious learning process.
@@ -50,6 +52,12 @@ These are reference workflows, not a fixed canon. The system is source-agnostic.
   The repo is built around repeatable learning workflows, not around one subject or one reading list.
 - `Example-backed`
   The included examples show how the workflow modes can be applied to serious study programs.
+
+## At A Glance
+
+```text
+Bring your own sources -> map them into local ignored roots -> validate setup -> run a source-aware study workflow -> keep durable write-back
+```
 
 ## Quick Start
 
