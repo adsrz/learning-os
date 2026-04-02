@@ -4,10 +4,7 @@
 
 # Learning OS
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
-![Type](https://img.shields.io/badge/Type-AI%20Harness-1f6feb)
-![Model](https://img.shields.io/badge/Mode-Local--First-0b6bcb)
-![Sources](https://img.shields.io/badge/Sources-BYOS-0a7f5a)
+`Type: AI Harness` `Mode: Local-First` `Sources: BYOS` `License: MIT`
 
 An AI-native, local-first learning harness for deep reading, synthesis, thesis-style reading, and research workflows.
 
@@ -15,7 +12,23 @@ An AI-native, local-first learning harness for deep reading, synthesis, thesis-s
 
 For AI agents that need the shortest high-signal entrypoint, start with [AI_CONTEXT.md](AI_CONTEXT.md). If a machine-readable entrypoint is better, use [ai-context.json](ai-context.json).
 
-![Learning OS hero overview](docs/assets/hero-overview.svg)
+## Quick View
+
+```text
+Input      -> local sources or open samples
+Routing    -> task-router.json
+Execution  -> public-safe skills under agent/skills
+Write-back -> project.md / session-log.md / open-questions.md / distinctions.md
+Validation -> .\tools\Test-All.cmd -RepoOnly
+```
+
+## Minimal CLI Path
+
+```powershell
+.\tools\Test-All.cmd -RepoOnly
+.\tools\Import-LocalSources.cmd -SourceRoot C:\path\to\your\files
+.\tools\Test-PublicSetup.cmd
+```
 
 ## Why This Is An AI Harness
 
@@ -125,8 +138,6 @@ When you want to use your own materials:
   A worked source-owned packet for `single-book deep reading`.
 - [examples/multi-book-packet](examples/multi-book-packet)
   A worked packet that preserves overlap and tension across two sources.
-- [docs/assets/terminal-demo.svg](docs/assets/terminal-demo.svg)
-  A terminal-style onboarding asset for the repo.
 - [docs/ai-harness.md](docs/ai-harness.md)
   What makes this project a harness rather than a generic study repo.
 - [docs/agent-architecture.md](docs/agent-architecture.md)

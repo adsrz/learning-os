@@ -63,8 +63,6 @@
   - single-command validation entry point
 - `tools/Import-LocalSources.ps1`
   - helper for copying or moving user-owned local materials into ignored local source roots
-- `tools/Export-SocialPreview.ps1`
-  - helper for regenerating the public social-preview asset
 - `.github/workflows/*.yml`
   - repo-visible CI for clean-clone validation
 

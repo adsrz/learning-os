@@ -4,10 +4,7 @@
 
 # Learning OS
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
-![Type](https://img.shields.io/badge/Type-AI%20Harness-1f6feb)
-![Model](https://img.shields.io/badge/Mode-Local--First-0b6bcb)
-![Sources](https://img.shields.io/badge/Sources-BYOS-0a7f5a)
+`Type: AI Harness` `Mode: Local-First` `Sources: BYOS` `License: MIT`
 
 一个面向深度阅读、综合学习、论述型阅读与研究工作流的 `AI-native`、`local-first` 学习 harness。
 
@@ -15,7 +12,23 @@
 
 如果是 AI agent 需要用最短路径快速读懂仓库，先看 [AI_CONTEXT.md](AI_CONTEXT.md)。如果更适合 machine-readable 入口，就直接读 [ai-context.json](ai-context.json)。
 
-![Learning OS hero overview](docs/assets/hero-overview.svg)
+## 快速概览
+
+```text
+Input      -> 本地 sources 或开放 sample
+Routing    -> task-router.json
+Execution  -> agent/skills 下的 public-safe skills
+Write-back -> project.md / session-log.md / open-questions.md / distinctions.md
+Validation -> .\tools\Test-All.cmd -RepoOnly
+```
+
+## 最小命令路径
+
+```powershell
+.\tools\Test-All.cmd -RepoOnly
+.\tools\Import-LocalSources.cmd -SourceRoot C:\path\to\your\files
+.\tools\Test-PublicSetup.cmd
+```
 
 ## 为什么它是一个 AI Harness
 
@@ -125,8 +138,6 @@
   一个 `single-book deep reading` 的 source-owned 示例 packet。
 - [examples/multi-book-packet](examples/multi-book-packet)
   一个保留 source overlap 与 tension 的 `multi-book synthesis` 示例 packet。
-- [docs/assets/terminal-demo.svg](docs/assets/terminal-demo.svg)
-  一个终端风格的 onboarding 展示资产。
 - [docs/ai-harness.md](docs/ai-harness.md)
   解释这个项目为什么是 harness，而不是普通学习仓库。
 - [docs/agent-architecture.md](docs/agent-architecture.md)
