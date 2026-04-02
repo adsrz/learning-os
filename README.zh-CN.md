@@ -15,11 +15,12 @@
 ## 快速概览
 
 ```text
-Input      -> 本地 sources 或开放 sample
-Routing    -> task-router.json
-Execution  -> agent/skills 下的 public-safe skills
-Write-back -> 你的本地 packet 文件（project.md / session-log.md / open-questions.md / distinctions.md）
-Validation -> .\tools\Test-All.cmd -RepoOnly
+Shared layer -> AI_CONTEXT.md / ai-context.json / AGENTS.md
+Overlay      -> teaching 或 system-ops
+Routing      -> task-router.json
+Execution    -> agent/skills 下的 public-safe skills
+Validation   -> .\tools\Test-All.cmd -RepoOnly
+Write-back   -> teaching 工作写回你的本地 packet 文件
 ```
 
 ## 最小命令路径
@@ -47,7 +48,18 @@ Validation -> .\tools\Test-All.cmd -RepoOnly
 - `Local-first operation`
   这套系统默认运行在你自己的本地文件和你自己合法获得的 sources 上。
 
-## 它支持什么
+## 路由模型
+
+这套 harness 暴露两个主 overlay：
+
+- `Teaching overlay`
+  负责 source-aware 的学习工作。进入这个 overlay 后，再路由到四种 workflow mode 之一。
+- `System-ops overlay`
+  负责 setup、本地 source 导入、validation、public/private 边界检查，以及公开仓库内的 repo-safe 维护。
+
+这个拆分很重要：不是所有任务都应该被压成一次 study pass。
+
+## Teaching Workflow Modes
 
 当前 harness 提供 4 种可复用 workflow mode：
 
@@ -77,11 +89,13 @@ Validation -> .\tools\Test-All.cmd -RepoOnly
 - [ai-context.json](ai-context.json)
   给 agent onboarding 用的 machine-readable 仓库上下文。
 - [task-router.json](task-router.json)
-  从 task type 到 workflow mode 和 skill 的 machine-readable 路由表。
+  从 task type 到 primary overlay、workflow mode 和 skill 的 machine-readable 路由表。
 - [writeback-map.json](writeback-map.json)
-  按 workflow mode 固定写回目标的 machine-readable contract。
+  为 `teaching` workflow modes 固定写回目标的 machine-readable contract。
 - [agent/README.md](agent/README.md)
   解释公开安全的执行面。
+- [agent/skills/repo-ops-and-validation/SKILL.md](agent/skills/repo-ops-and-validation/SKILL.md)
+  一个最小 `system-ops` skill，用来处理 setup、validation、边界检查和 repo-safe 维护。
 - [agent/skills/workflow-routed-study-pass/SKILL.md](agent/skills/workflow-routed-study-pass/SKILL.md)
   一个最小 skill，展示如何跑一次 bounded、source-aware 的 study pass。
 - [agent/skills/research-source-intake/SKILL.md](agent/skills/research-source-intake/SKILL.md)
@@ -130,6 +144,8 @@ Validation -> .\tools\Test-All.cmd -RepoOnly
   public/private 边界规则与文件职责。
 - [agent/README.md](agent/README.md)
   harness 的最小公开 agent layer。
+- [agent/skills/repo-ops-and-validation/SKILL.md](agent/skills/repo-ops-and-validation/SKILL.md)
+  面向 setup 和边界敏感仓库工作的公开 `system-ops` skill。
 - [templates/project-template](templates/project-template)
   用于 durable write-back 的最小项目骨架。
 - [examples/research-intake-packet](examples/research-intake-packet)

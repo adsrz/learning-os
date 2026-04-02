@@ -1,11 +1,19 @@
 {
-  "version": "1.2",
+  "version": "1.3",
   "repo_type": "ai-native-local-first-learning-harness",
   "primary_goal": "run source-aware study workflows and preserve durable write-back",
+  "packet_model": "shared-layer-plus-exactly-one-primary-overlay",
   "not_this": [
     "private-source-archive",
     "generic-chat-notebook",
     "public-redistribution-repo"
+  ],
+  "shared_read_set": [
+    "AI_CONTEXT.md",
+    "ai-context.json",
+    "AGENTS.md",
+    "system.md",
+    "agent/README.md"
   ],
   "fast_read_order": [
     "AGENTS.md",
@@ -14,7 +22,38 @@
     "docs/agent-architecture.md",
     "docs/run-with-codex.md"
   ],
+  "primary_overlays": {
+    "teaching": {
+      "owns": [
+        "source-aware study work",
+        "workflow-mode selection",
+        "durable local project write-back"
+      ],
+      "workflow_modes": [
+        "single-book deep reading",
+        "multi-book synthesis",
+        "thesis / non-textbook reading",
+        "research / paper workflow"
+      ]
+    },
+    "system-ops": {
+      "owns": [
+        "setup",
+        "local source import",
+        "validation",
+        "public/private boundary checks",
+        "repo-safe harness maintenance"
+      ],
+      "workflow_modes": []
+    }
+  },
   "task_specific_reads": {
+    "system_or_repo_ops": [
+      "agent/skills/repo-ops-and-validation/SKILL.md",
+      "docs/public-setup.md",
+      "system_detail.md",
+      "docs/run-with-codex.md"
+    ],
     "setup_or_local_sources": [
       "docs/public-setup.md",
       "docs/bring-your-own-sources.md"
@@ -27,8 +66,9 @@
     ]
   },
   "core_contract": [
+    "primary-overlay-must-be-explicit",
     "sources-must-be-explicit",
-    "workflow-mode-must-be-explicit",
+    "workflow-mode-must-be-explicit-for-teaching-tasks",
     "local-private-boundaries-must-stay-explicit",
     "write-back-matters-as-much-as-the-explanation",
     "bounded-passes-over-vague-broad-chat"
@@ -40,6 +80,7 @@
     "research / paper workflow"
   ],
   "key_agent_surfaces": [
+    "agent/skills/repo-ops-and-validation/SKILL.md",
     "agent/skills/workflow-routed-study-pass/SKILL.md",
     "agent/skills/research-source-intake/SKILL.md"
   ],
@@ -72,5 +113,5 @@
     "import_local_sources": ".\\tools\\Import-LocalSources.cmd -SourceRoot C:\\path\\to\\your\\files",
     "validate_local_setup": ".\\tools\\Test-PublicSetup.cmd"
   },
-  "completion_rule": "The repo is not finished when the agent produces an answer. It is finished when the answer has a clear workflow owner, a clear source boundary, and a durable write-back target."
+  "completion_rule": "The repo is not finished when the agent produces an answer. It is finished when the task has a clear overlay owner, a clear source boundary, and either a durable write-back target or a validated repo-safe result."
 }

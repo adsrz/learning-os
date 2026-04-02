@@ -21,18 +21,21 @@ Show one realistic harness loop without depending on a private book library.
    - copy [templates/project-template](../templates/project-template)
    - keep that copied folder in your own local project area, not in the tracked public repo
    - rename it for your actual packet or demo project
-4. Decide the workflow owner.
+4. Decide the primary overlay first.
+   - for source-aware learning work, use `teaching`
+   - for setup, validation, or boundary checks, use `system-ops`
+5. Decide the workflow owner inside `teaching`.
    - for a single open article, the likely owner is usually `research / paper workflow`
-5. Run a bounded intake pass.
+6. Run a bounded intake pass.
    - use [agent/skills/research-source-intake/SKILL.md](../agent/skills/research-source-intake/SKILL.md)
-6. Route into a bounded study pass.
+7. Route into a bounded study pass.
    - use [agent/skills/workflow-routed-study-pass/SKILL.md](../agent/skills/workflow-routed-study-pass/SKILL.md)
-7. Write the durable result back into:
+8. Write the durable result back into:
    - `project.md`
    - `session-log.md`
    - `open-questions.md`
    - `distinctions.md`
-8. Compare your result with the worked public-safe example:
+9. Compare your result with the worked public-safe example:
    - [examples/research-intake-packet](../examples/research-intake-packet)
    - [examples/single-book-packet](../examples/single-book-packet)
    - [examples/multi-book-packet](../examples/multi-book-packet)
@@ -41,6 +44,7 @@ Show one realistic harness loop without depending on a private book library.
 
 A good demo pass should leave you with:
 
+- a declared primary overlay
 - a declared workflow mode
 - an explicit source boundary
 - one session log entry

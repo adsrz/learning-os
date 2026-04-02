@@ -14,6 +14,7 @@ Machine-readable companion:
 - `repo_type`: AI-native, local-first learning harness
 - `primary_goal`: run source-aware study workflows and preserve durable write-back
 - `not_this`: not a private source archive, not a generic chat notebook, not a public redistribution repo
+- `packet_model`: shared layer plus exactly one primary overlay
 
 ## Fast Read Order
 
@@ -27,25 +28,39 @@ Read in this order when context is limited:
 
 If the task is about setup or local sources, also read:
 
-6. [docs/public-setup.md](docs/public-setup.md)
-7. [docs/bring-your-own-sources.md](docs/bring-your-own-sources.md)
+6. [agent/skills/repo-ops-and-validation/SKILL.md](agent/skills/repo-ops-and-validation/SKILL.md)
+7. [docs/public-setup.md](docs/public-setup.md)
+8. [docs/bring-your-own-sources.md](docs/bring-your-own-sources.md)
 
 If the task is about real packet shape or write-back, also read:
 
-8. [templates/project-template/README.md](templates/project-template/README.md)
-9. [examples/research-intake-packet](examples/research-intake-packet)
-10. [examples/single-book-packet](examples/single-book-packet)
-11. [examples/multi-book-packet](examples/multi-book-packet)
+9. [templates/project-template/README.md](templates/project-template/README.md)
+10. [examples/research-intake-packet](examples/research-intake-packet)
+11. [examples/single-book-packet](examples/single-book-packet)
+12. [examples/multi-book-packet](examples/multi-book-packet)
 
 ## Core Contract
 
+- primary overlay must be explicit
 - sources must be explicit
-- workflow mode must be explicit
+- workflow mode must be explicit for teaching tasks
 - local/private boundaries must stay explicit
 - write-back matters as much as the explanation
 - bounded passes are preferred over vague, over-broadened chat
 
-## Workflow Modes
+## Primary Overlays
+
+- `teaching`
+  - source-aware learning work
+  - routes into one workflow mode
+- `system-ops`
+  - setup
+  - local source import
+  - validation
+  - public/private boundary checks
+  - repo-safe harness maintenance
+
+## Teaching Workflow Modes
 
 - `single-book deep reading`
 - `multi-book synthesis`
@@ -54,6 +69,7 @@ If the task is about real packet shape or write-back, also read:
 
 ## Key Agent Surfaces
 
+- [agent/skills/repo-ops-and-validation/SKILL.md](agent/skills/repo-ops-and-validation/SKILL.md)
 - [agent/skills/workflow-routed-study-pass/SKILL.md](agent/skills/workflow-routed-study-pass/SKILL.md)
 - [agent/skills/research-source-intake/SKILL.md](agent/skills/research-source-intake/SKILL.md)
 
@@ -107,4 +123,4 @@ Local source import:
 
 This repo is not finished when the agent produces an answer.
 
-It is finished when the answer has a clear workflow owner, a clear source boundary, and a durable write-back target.
+It is finished when the task has a clear overlay owner, a clear source boundary, and either a durable write-back target or a validated repo-safe result.

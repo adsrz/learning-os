@@ -15,11 +15,12 @@ For AI agents that need the shortest high-signal entrypoint, start with [AI_CONT
 ## Quick View
 
 ```text
-Input      -> local sources or open samples
-Routing    -> task-router.json
-Execution  -> public-safe skills under agent/skills
-Write-back -> your local packet files (project.md / session-log.md / open-questions.md / distinctions.md)
-Validation -> .\tools\Test-All.cmd -RepoOnly
+Shared layer -> AI_CONTEXT.md / ai-context.json / AGENTS.md
+Overlay      -> teaching or system-ops
+Routing      -> task-router.json
+Execution    -> public-safe skills under agent/skills
+Validation   -> .\tools\Test-All.cmd -RepoOnly
+Write-back   -> local packet files for teaching work
 ```
 
 ## Minimal CLI Path
@@ -47,7 +48,18 @@ Most AI study setups are just prompts pointed at a pile of notes.
 - `Local-first operation`
   The system is designed to run against your own files and your own lawfully obtained sources.
 
-## What It Supports
+## Routing Model
+
+The harness exposes two primary overlays:
+
+- `Teaching overlay`
+  Owns source-aware learning work. Once the task is in this overlay, route it into one of the four workflow modes.
+- `System-ops overlay`
+  Owns setup, local-source import, validation, public/private boundary checks, and repo-safe harness maintenance.
+
+That split is important: not every task should be flattened into a study pass.
+
+## Teaching Workflow Modes
 
 The harness currently ships with four reusable workflow modes:
 
@@ -77,11 +89,13 @@ The public repo now ships with a minimal `agent` layer instead of only high-leve
 - [ai-context.json](ai-context.json)
   Machine-readable repo context for agent onboarding.
 - [task-router.json](task-router.json)
-  Machine-readable routing contract from task type to workflow mode and skill.
+  Machine-readable routing contract from task type to primary overlay, workflow mode, and skill.
 - [writeback-map.json](writeback-map.json)
-  Machine-readable write-back contract by workflow mode.
+  Machine-readable write-back contract for `teaching` workflow modes.
 - [agent/README.md](agent/README.md)
   Explains the public-safe execution surface.
+- [agent/skills/repo-ops-and-validation/SKILL.md](agent/skills/repo-ops-and-validation/SKILL.md)
+  A minimal `system-ops` skill for setup, validation, boundary checks, and repo-safe maintenance.
 - [agent/skills/workflow-routed-study-pass/SKILL.md](agent/skills/workflow-routed-study-pass/SKILL.md)
   A minimal skill that shows how to run one bounded, source-aware study pass.
 - [agent/skills/research-source-intake/SKILL.md](agent/skills/research-source-intake/SKILL.md)
@@ -130,6 +144,8 @@ When you want to use your own materials:
   Public/private boundary rules and file responsibilities.
 - [agent/README.md](agent/README.md)
   Minimal public-safe agent layer for the harness.
+- [agent/skills/repo-ops-and-validation/SKILL.md](agent/skills/repo-ops-and-validation/SKILL.md)
+  Public-safe `system-ops` skill for setup and boundary-sensitive repo work.
 - [templates/project-template](templates/project-template)
   Minimal reusable project skeleton for durable write-back.
 - [examples/research-intake-packet](examples/research-intake-packet)

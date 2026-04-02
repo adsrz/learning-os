@@ -1,5 +1,5 @@
 {
-  "version": "1.2",
+  "version": "1.3",
   "default_target_scope": "user-local-project",
   "default_target_tracked_repo": false,
   "default_target_template_root": "templates/project-template",

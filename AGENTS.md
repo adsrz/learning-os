@@ -13,6 +13,21 @@
 - Do not introduce private source materials, personal runtime state, local machine paths, or user-specific logs into the tracked public repo.
 - Treat this repository as the pushed public result surface. Maintainer-only packaging state, submission prep, and release working notes belong outside this tracked repo.
 
+## Routing Rule
+
+- Read the shared layer first:
+  - [AI_CONTEXT.md](AI_CONTEXT.md)
+  - [ai-context.json](ai-context.json)
+  - [AGENTS.md](AGENTS.md)
+  - [system.md](system.md)
+- Then choose exactly one primary overlay for the live task:
+  - `teaching`
+    - source-aware study work
+    - must route into one of the four workflow modes
+  - `system-ops`
+    - setup, local-source import, validation, public/private boundary checks, and repo-safe harness maintenance
+- Do not force `system-ops` tasks into a study workflow mode just because the repository is about learning.
+
 ## Public Boundary
 
 - `sources/`, `book/`, and `research_doc/` are local ignored roots.
@@ -22,13 +37,15 @@
 ## Main Duties
 
 - Keep the repo focused on reusable learning workflows rather than one personal library.
+- Keep the public routing model explicit as `shared layer + exactly one primary overlay`.
 - Keep the minimal public-safe `agent/` layer understandable and usable as a harness skeleton.
 - Keep project templates small, reusable, and clearly aimed at durable write-back.
-- Preserve the four workflow modes:
+- Preserve the four workflow modes under the `teaching` overlay:
   - `single-book deep reading`
   - `multi-book synthesis`
   - `thesis / non-textbook reading`
   - `research / paper workflow`
+- Keep `system-ops` surfaces narrow, public-safe, and executable.
 - Prefer clear public docs, templates, and validators over private-state mirroring.
 
 ## Validation

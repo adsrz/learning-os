@@ -2,7 +2,9 @@
 
 This folder is a minimal public-safe project skeleton for `Learning OS`.
 
-Copy it when you want to start a new study packet or a new long-horizon project in your own local workspace.
+Copy it when you want to start a new `teaching` packet or a new long-horizon study project in your own local workspace.
+
+This template is for durable study write-back. It is not the target surface for `system-ops` tasks such as setup, validation, or public boundary checks.
 
 ## Included Files
 

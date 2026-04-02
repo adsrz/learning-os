@@ -1,5 +1,9 @@
 # Workflow Modes
 
+These modes belong to the `teaching` overlay.
+
+Setup, validation, public/private boundary checks, and repo maintenance belong to `system-ops` and should not be forced into one of these study modes.
+
 ## Single-Book Deep Reading
 
 - one primary source

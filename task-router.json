@@ -1,5 +1,12 @@
 {
-  "version": "1.2",
+  "version": "1.3",
+  "shared_read_set": [
+    "AI_CONTEXT.md",
+    "ai-context.json",
+    "AGENTS.md",
+    "system.md",
+    "agent/README.md"
+  ],
   "default_read_set": [
     "AI_CONTEXT.md",
     "ai-context.json",
@@ -7,14 +14,35 @@
     "system.md",
     "agent/README.md"
   ],
+  "primary_overlays": {
+    "teaching": {
+      "use_for": [
+        "source-aware study work",
+        "workflow-mode-routed packets",
+        "durable local project write-back"
+      ]
+    },
+    "system-ops": {
+      "use_for": [
+        "setup",
+        "local source import",
+        "validation",
+        "public/private boundary checks",
+        "repo-safe harness maintenance"
+      ]
+    }
+  },
   "task_types": {
     "setup-or-local-source-import": {
+      "primary_overlay": "system-ops",
       "workflow_mode": null,
-      "primary_skill": null,
+      "primary_skill": "agent/skills/repo-ops-and-validation/SKILL.md",
       "minimal_read_set": [
+        "agent/skills/repo-ops-and-validation/SKILL.md",
         "docs/public-setup.md",
         "docs/bring-your-own-sources.md",
-        "docs/run-with-codex.md"
+        "docs/run-with-codex.md",
+        "system_detail.md"
       ],
       "write_back_targets": [],
       "write_back_target_scope": null,
@@ -27,7 +55,28 @@
         "clean-clone validation"
       ]
     },
+    "repo-ops-or-validation": {
+      "primary_overlay": "system-ops",
+      "workflow_mode": null,
+      "primary_skill": "agent/skills/repo-ops-and-validation/SKILL.md",
+      "minimal_read_set": [
+        "agent/skills/repo-ops-and-validation/SKILL.md",
+        "docs/run-with-codex.md",
+        "system_detail.md"
+      ],
+      "write_back_targets": [],
+      "write_back_target_scope": null,
+      "write_back_template_root": null,
+      "write_back_target_tracked_repo": null,
+      "use_when": [
+        "repo-safe validator run",
+        "public/private boundary audit",
+        "public-surface doc or tooling maintenance",
+        "task should not be forced into a study workflow mode"
+      ]
+    },
     "research-source-intake": {
+      "primary_overlay": "teaching",
       "workflow_mode": "research / paper workflow",
       "primary_skill": "agent/skills/research-source-intake/SKILL.md",
       "minimal_read_set": [
@@ -52,6 +101,7 @@
       ]
     },
     "single-book-study-pass": {
+      "primary_overlay": "teaching",
       "workflow_mode": "single-book deep reading",
       "primary_skill": "agent/skills/workflow-routed-study-pass/SKILL.md",
       "minimal_read_set": [
@@ -76,6 +126,7 @@
       ]
     },
     "multi-book-synthesis-pass": {
+      "primary_overlay": "teaching",
       "workflow_mode": "multi-book synthesis",
       "primary_skill": "agent/skills/workflow-routed-study-pass/SKILL.md",
       "minimal_read_set": [
@@ -100,6 +151,7 @@
       ]
     },
     "thesis-reading-pass": {
+      "primary_overlay": "teaching",
       "workflow_mode": "thesis / non-textbook reading",
       "primary_skill": "agent/skills/workflow-routed-study-pass/SKILL.md",
       "minimal_read_set": [

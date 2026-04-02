@@ -15,6 +15,7 @@ When you open this repository in Codex, the important public surfaces are:
 - [system.md](../system.md)
 - [system_detail.md](../system_detail.md)
 - [agent/README.md](../agent/README.md)
+- [agent/skills/repo-ops-and-validation/SKILL.md](../agent/skills/repo-ops-and-validation/SKILL.md)
 - [agent/skills/workflow-routed-study-pass/SKILL.md](../agent/skills/workflow-routed-study-pass/SKILL.md)
 - [agent/skills/research-source-intake/SKILL.md](../agent/skills/research-source-intake/SKILL.md)
 - [templates/project-template/README.md](../templates/project-template/README.md)
@@ -23,6 +24,8 @@ When you open this repository in Codex, the important public surfaces are:
 Those files tell Codex:
 
 - this is an AI harness
+- shared layer comes first
+- exactly one primary overlay should own each substantive task
 - the repo is local-first
 - private source materials must stay out of tracked history
 - maintainer-only packaging state must stay out of tracked history
@@ -65,6 +68,8 @@ Use prompts that tell Codex to operate as a harnessed agent, not as a generic as
 
 Examples:
 
+- `Route this as system-ops, run the repo-ops-and-validation skill, and tell me whether the public/private boundary is still clean.`
+- `Treat this as repo maintenance rather than a study pass, run the relevant validator first, then propose the smallest public-safe fix.`
 - `Use the workflow-routed study pass skill and help me set up a single-book deep reading packet for this source.`
 - `Route this task as multi-book synthesis and tell me which sources are actually in scope before answering.`
 - `Run a bounded research-workflow pass on the imported paper and propose durable write-back.`
@@ -74,7 +79,9 @@ Examples:
 
 Codex should:
 
-- identify the workflow mode first
+- identify the primary overlay first
+- only choose a workflow mode when the task is actually `teaching`
+- identify the workflow mode clearly once the task is in `teaching`
 - make source boundaries explicit
 - avoid pretending unread local material was inspected
 - keep the pass bounded and auditable

@@ -3,6 +3,7 @@
 ## Purpose
 
 - Define the public file responsibilities.
+- Define the public shared-layer and primary-overlay routing surfaces.
 - Keep the public/private boundary explicit.
 - Explain how the repo stays reusable without bundling copyrighted source materials.
 - Keep the agent-harness identity explicit at the public surface.
@@ -13,13 +14,15 @@
 - `README.md`
   - product-facing entry point for the public repo and its AI harness identity
 - `AI_CONTEXT.md`
-  - low-token, high-signal entrypoint for AI agents opening the repo
+  - low-token, high-signal shared-layer entrypoint for AI agents opening the repo
 - `ai-context.json`
-  - machine-readable repo contract for AI onboarding
+  - machine-readable shared-layer contract for AI onboarding
+- `AGENTS.md`
+  - public routing rule for `shared layer + exactly one primary overlay`
 - `task-router.json`
-  - machine-readable task routing contract from task type to workflow mode and skill
+  - machine-readable task routing contract from task type to primary overlay, workflow mode, and skill
 - `writeback-map.json`
-  - machine-readable write-back contract by workflow mode
+  - machine-readable write-back contract for `teaching` workflow modes
 - `LICENSE`
   - MIT license for the repository code and original public content
 - `system.md`
@@ -28,12 +31,14 @@
   - minimal public-safe agent surface for the harness
 - `agent/skills/index.json`
   - machine-readable registry of public-safe skills
+- `agent/skills/repo-ops-and-validation/SKILL.md`
+  - public-safe `system-ops` skill for setup, validation, boundary checks, and repo-safe maintenance
 - `agent/skills/*/SKILL.md`
-  - example public-safe skill surfaces that show how bounded agent work should run
+  - example public-safe skill surfaces that show how bounded agent work should run inside one primary overlay
 - `docs/ai-harness.md`
   - public explanation of the harness layer and why it is not just a study repo
 - `docs/agent-architecture.md`
-  - public architecture of source intake, routing, validation, and write-back
+  - public architecture of shared layer, overlay routing, validation, and write-back
 - `docs/run-with-codex.md`
   - operator-facing guide for using the harness with Codex
 - `docs/demo-flow.md`
@@ -43,11 +48,11 @@
 - `examples/*`
   - worked public-safe packets that show the result after a bounded harness pass
 - `docs/architecture.md`
-  - public repo architecture and layer split
+  - public repo architecture and the split between shared layer, primary overlays, and local BYOS surfaces
 - `docs/workflow-modes.md`
-  - workflow-mode overview
+  - workflow-mode overview for the `teaching` overlay
 - `docs/public-setup.md`
-  - operator-facing setup path for this public repo
+  - operator-facing `system-ops` setup path for this public repo
 - `docs/bring-your-own-sources.md`
   - public boundary and local source import rules
 - `docs/source-manifest.template.json`
@@ -74,6 +79,7 @@ These surfaces are intentionally local-only and must stay out of tracked history
 - `sources/`
 - `book/`
 - `research_doc/`
+- local project areas copied from `templates/project-template/`
 - generated local artifacts beyond tracked placeholders
 - personal runtime logs
 - personal memory/state files

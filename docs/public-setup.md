@@ -1,5 +1,7 @@
 # Public Setup
 
+This is a `system-ops` path, not a `teaching` workflow packet.
+
 ## Clean Clone
 
 After cloning the repository, run:

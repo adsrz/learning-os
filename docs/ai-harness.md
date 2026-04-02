@@ -6,11 +6,13 @@
 
 The important unit is not a single answer from a model. The important unit is a controlled loop:
 
-1. sources enter through explicit local roots and manifests
-2. the work is routed by workflow mode
-3. the agent operates inside those boundaries
-4. validation gates check repo-safe and setup-safe assumptions
-5. the useful result is written back into durable project state
+1. the shared layer defines the repo contract
+2. the task is routed into exactly one primary overlay
+3. sources enter through explicit local roots and manifests when the task is teaching-shaped
+4. the work is routed by workflow mode or system-ops pass shape
+5. the agent operates inside those boundaries
+6. validation gates check repo-safe and setup-safe assumptions
+7. the useful result is written back into durable project state or closed out as a validated repo-safe result
 
 Without that loop, this would mostly collapse into a generic chat-assisted note-taking setup.
 
@@ -24,6 +26,8 @@ A normal study repo usually gives you:
 
 This harness adds:
 
+- `explicit task classification`
+  The agent should decide whether the task is learning work or system-ops work before going deeper.
 - `source awareness`
   The agent should know what kind of source it is working with and where it came from.
 - `mode-specific routing`

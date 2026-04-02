@@ -1,36 +1,49 @@
 # Agent Architecture
 
-This public repo exposes the harness as a local-first, source-aware loop.
+This public repo exposes the harness as a local-first, overlay-aware, source-aware loop.
 
 ## Harness Loop
 
 ```mermaid
 flowchart LR
-    A["Local Sources"] --> B["Source Manifest / BYOS Mapping"]
-    B --> C["Workflow Router"]
-    C --> D["AI Study Agent"]
-    D --> E["Validation Gates"]
-    E --> F["Durable Write-Back"]
-    F --> G["Project State / Distinctions / Open Questions"]
-    G --> C
+    A["Shared Layer"] --> B["Primary Overlay Router"]
+    B --> C["Teaching Overlay"]
+    B --> D["System-Ops Overlay"]
+    C --> E["Workflow Mode Router"]
+    E --> F["Bounded Study Pass"]
+    F --> G["Validation Gates"]
+    G --> H["Durable Write-Back"]
+    H --> I["Local Project State"]
+    I --> E
+    D --> J["Setup / Validation / Boundary Pass"]
+    J --> G
+    G --> K["Repo-Safe Public Surface Or Local Setup"]
 ```
 
 ## Component Roles
 
-- `Local Sources`
-  User-owned books, papers, reports, or captured long-form material.
-- `Source Manifest / BYOS Mapping`
-  The explicit mapping between source ids, expected files, and local ignored paths.
-- `Workflow Router`
-  Decides whether the work belongs to single-book reading, synthesis, thesis-style reading, or research intake.
-- `AI Study Agent`
+- `Shared Layer`
+  The low-token contract that tells the agent what this repo is, what it is not, and which boundaries must survive every task.
+- `Primary Overlay Router`
+  Decides whether the task belongs to `teaching` or `system-ops`.
+- `Teaching Overlay`
+  Owns source-aware learning work that should route into a workflow mode.
+- `System-Ops Overlay`
+  Owns setup, validation, boundary checks, and repo-safe harness maintenance.
+- `Workflow Mode Router`
+  Decides whether the study work belongs to single-book reading, synthesis, thesis-style reading, or research intake.
+- `Bounded Study Pass`
   Executes the actual reading or reasoning pass inside those boundaries.
+- `Setup / Validation / Boundary Pass`
+  Executes a bounded `system-ops` task without pretending it is a teaching packet.
 - `Validation Gates`
-  Check repo-safe assumptions, setup integrity, and public/private boundary expectations.
+  Check repo-safe assumptions, setup integrity, and public/private boundary expectations for both overlays.
 - `Durable Write-Back`
-  Stores the useful output in files that survive beyond chat.
-- `Project State`
+  Stores the useful `teaching` output in files that survive beyond chat.
+- `Local Project State`
   The cumulative learning state that future work can resume from.
+- `Repo-Safe Public Surface Or Local Setup`
+  The maintained public docs/tools surface or the validated local setup result from a `system-ops` task.
 
 ## Public Surface vs Private Surface
 
