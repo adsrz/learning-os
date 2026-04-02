@@ -11,6 +11,7 @@
 
 - Keep the public repo reusable.
 - Keep third-party source materials out of versioned history.
+- Keep maintainer-only packaging state and submission prep out of the pushed public result.
 - Make the repo understandable without private inputs.
 - Let users plug in their own lawfully obtained materials.
 - Show the harness layer clearly enough that the repo does not read as a plain notes system.

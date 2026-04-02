@@ -1,5 +1,5 @@
 {
-  "version": "1.0",
+  "version": "1.2",
   "repo_type": "ai-native-local-first-learning-harness",
   "primary_goal": "run source-aware study workflows and preserve durable write-back",
   "not_this": [
@@ -18,13 +18,6 @@
     "setup_or_local_sources": [
       "docs/public-setup.md",
       "docs/bring-your-own-sources.md"
-    ],
-    "github_submission_or_public_packaging": [
-      "projects/README.md",
-      "projects/github-submission-cold-path/project.md",
-      "projects/github-submission-cold-path/submission-record.md",
-      "README.md",
-      "system_detail.md"
     ],
     "packet_shape_or_write_back": [
       "templates/project-template/README.md",
@@ -55,6 +48,10 @@
     "writeback-map.json",
     "agent/skills/index.json"
   ],
+  "durable_write_back_scope": "user-local-project",
+  "durable_write_back_template_root": "templates/project-template",
+  "durable_write_back_tracked_repo": false,
+  "durable_write_back_location_hint": "copy templates/project-template into your own local project area",
   "durable_write_back_targets": [
     "project.md",
     "session-log.md",
@@ -67,7 +64,8 @@
     "research_doc/",
     "private books, papers, PDFs, slides, or captured materials",
     "personal runtime state",
-    "local absolute machine paths"
+    "local absolute machine paths",
+    "maintainer-only packaging state or release working notes"
   ],
   "commands": {
     "validate_repo_only": ".\\tools\\Test-All.cmd -RepoOnly",

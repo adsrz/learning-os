@@ -19,6 +19,7 @@ Show one realistic harness loop without depending on a private book library.
 
 3. Create a local project from the template:
    - copy [templates/project-template](../templates/project-template)
+   - keep that copied folder in your own local project area, not in the tracked public repo
    - rename it for your actual packet or demo project
 4. Decide the workflow owner.
    - for a single open article, the likely owner is usually `research / paper workflow`

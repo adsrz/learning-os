@@ -12,15 +12,13 @@
 
 如果是 AI agent 需要用最短路径快速读懂仓库，先看 [AI_CONTEXT.md](AI_CONTEXT.md)。如果更适合 machine-readable 入口，就直接读 [ai-context.json](ai-context.json)。
 
-如果任务是 GitHub 提交、public 包装或 release-safe 身份维护，走冷路径项目 [projects/github-submission-cold-path](projects/github-submission-cold-path)。
-
 ## 快速概览
 
 ```text
 Input      -> 本地 sources 或开放 sample
 Routing    -> task-router.json
 Execution  -> agent/skills 下的 public-safe skills
-Write-back -> project.md / session-log.md / open-questions.md / distinctions.md
+Write-back -> 你的本地 packet 文件（project.md / session-log.md / open-questions.md / distinctions.md）
 Validation -> .\tools\Test-All.cmd -RepoOnly
 ```
 
@@ -134,8 +132,6 @@ Validation -> .\tools\Test-All.cmd -RepoOnly
   harness 的最小公开 agent layer。
 - [templates/project-template](templates/project-template)
   用于 durable write-back 的最小项目骨架。
-- [projects/github-submission-cold-path](projects/github-submission-cold-path)
-  一个冷路径 project，用来记录 public 提交状态、repo 身份和包装决策，而不污染学习热路径。
 - [examples/research-intake-packet](examples/research-intake-packet)
   一轮 bounded harness pass 之后的公开示例 packet。
 - [examples/single-book-packet](examples/single-book-packet)

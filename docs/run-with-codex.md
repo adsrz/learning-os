@@ -18,7 +18,6 @@ When you open this repository in Codex, the important public surfaces are:
 - [agent/skills/workflow-routed-study-pass/SKILL.md](../agent/skills/workflow-routed-study-pass/SKILL.md)
 - [agent/skills/research-source-intake/SKILL.md](../agent/skills/research-source-intake/SKILL.md)
 - [templates/project-template/README.md](../templates/project-template/README.md)
-- [projects/github-submission-cold-path](../projects/github-submission-cold-path)
 - [docs/agent-architecture.md](agent-architecture.md)
 
 Those files tell Codex:
@@ -26,6 +25,7 @@ Those files tell Codex:
 - this is an AI harness
 - the repo is local-first
 - private source materials must stay out of tracked history
+- maintainer-only packaging state must stay out of tracked history
 - workflow routing matters
 - durable write-back matters
 
@@ -53,7 +53,7 @@ Those files tell Codex:
 .\tools\Test-PublicSetup.cmd
 ```
 
-6. Copy the project template into your own local project area so the agent has a clear write-back target. The tracked [projects/github-submission-cold-path](../projects/github-submission-cold-path) folder is reserved for repo-owned public packaging memory.
+6. Copy the project template into your own local project area so the agent has a clear write-back target.
 7. Compare your first packet against the worked public-safe example:
    - [examples/research-intake-packet](../examples/research-intake-packet)
    - [examples/single-book-packet](../examples/single-book-packet)
@@ -69,7 +69,6 @@ Examples:
 - `Route this task as multi-book synthesis and tell me which sources are actually in scope before answering.`
 - `Run a bounded research-workflow pass on the imported paper and propose durable write-back.`
 - `Use the research-source-intake skill to classify this imported report, then tell me which template files should receive the first write-back.`
-- `Use the GitHub submission cold path project and update the durable submission record before changing README-level public claims.`
 
 ## Expected Behavior
 

@@ -16,9 +16,43 @@ function Assert-Setup {
     }
 }
 
+function Get-RepoRelativePath {
+    param(
+        [string]$RepoRoot,
+        [string]$FullPath
+    )
+
+    $repoAbsolutePath = [System.IO.Path]::GetFullPath($RepoRoot)
+    if (-not $repoAbsolutePath.EndsWith([System.IO.Path]::DirectorySeparatorChar)) {
+        $repoAbsolutePath += [System.IO.Path]::DirectorySeparatorChar
+    }
+
+    $targetAbsolutePath = [System.IO.Path]::GetFullPath($FullPath)
+    $repoUri = [System.Uri]::new($repoAbsolutePath)
+    $targetUri = [System.Uri]::new($targetAbsolutePath)
+    $relativeUri = $repoUri.MakeRelativeUri($targetUri)
+    return ([System.Uri]::UnescapeDataString($relativeUri.ToString())).Replace('\', '/')
+}
+
+function Test-AllowedMaintainerStatePath {
+    param(
+        [string]$RelativePath,
+        [string[]]$AllowedPrefixes
+    )
+
+    foreach ($prefix in $AllowedPrefixes) {
+        if ($RelativePath.StartsWith($prefix, [System.StringComparison]::OrdinalIgnoreCase)) {
+            return $true
+        }
+    }
+
+    return $false
+}
+
 $repoRoot = Split-Path -Parent $PSScriptRoot
 $requiredRepoFiles = @(
     "README.md",
+    "README.zh-CN.md",
     "AI_CONTEXT.md",
     "ai-context.json",
     "task-router.json",
@@ -31,13 +65,6 @@ $requiredRepoFiles = @(
     "docs/public-setup.md",
     "docs/bring-your-own-sources.md",
     "docs/source-manifest.template.json",
-    "projects/README.md",
-    "projects/github-submission-cold-path/README.md",
-    "projects/github-submission-cold-path/project.md",
-    "projects/github-submission-cold-path/session-log.md",
-    "projects/github-submission-cold-path/open-questions.md",
-    "projects/github-submission-cold-path/distinctions.md",
-    "projects/github-submission-cold-path/submission-record.md",
     "samples/open/demo-source.md",
     "samples/open/demo-source-2.md",
     "tools/Test-All.ps1",
@@ -49,6 +76,46 @@ $requiredRepoFiles = @(
 
 foreach ($relativePath in $requiredRepoFiles) {
     Assert-Setup (Test-Path (Join-Path $repoRoot $relativePath)) ("Missing required repo file: " + $relativePath)
+}
+
+$maintainerStateFileNames = @(
+    "project.md",
+    "session-log.md",
+    "open-questions.md",
+    "distinctions.md",
+    "submission-record.md"
+)
+$allowedMaintainerStatePrefixes = @(
+    "examples/",
+    "templates/project-template/"
+)
+$maintainerStateFiles = Get-ChildItem -Path $repoRoot -Recurse -File | Where-Object { $maintainerStateFileNames -contains $_.Name }
+foreach ($file in $maintainerStateFiles) {
+    $relativePath = Get-RepoRelativePath -RepoRoot $repoRoot -FullPath $file.FullName
+    Assert-Setup (Test-AllowedMaintainerStatePath -RelativePath $relativePath -AllowedPrefixes $allowedMaintainerStatePrefixes) ("Forbidden maintainer-state file present in public repo: " + $relativePath)
+}
+
+$forbiddenReferencePatterns = @(
+    "projects/",
+    "projects\\",
+    "submission-record.md"
+)
+$forbiddenReferenceFiles = @(
+    "README.md",
+    "README.zh-CN.md",
+    "AI_CONTEXT.md",
+    "ai-context.json",
+    "task-router.json",
+    "system_detail.md",
+    "docs/run-with-codex.md"
+)
+
+foreach ($relativePath in $forbiddenReferenceFiles) {
+    $fullPath = Join-Path $repoRoot $relativePath
+    $content = Get-Content -Raw -Path $fullPath
+    foreach ($pattern in $forbiddenReferencePatterns) {
+        Assert-Setup (-not $content.Contains($pattern)) ("Forbidden maintainer-routing reference found in public repo surface: " + $relativePath + " -> " + $pattern)
+    }
 }
 
 $manifestPath = Join-Path $repoRoot "docs/source-manifest.template.json"
@@ -85,6 +152,8 @@ if (-not $RepoOnly) {
     mode = $(if ($RepoOnly) { "repo-only" } else { "full-local-setup" })
     checks = @(
         "required public files",
+        "forbidden maintainer-state file families",
+        "forbidden maintainer-routing references",
         "source manifest template schema"
     )
     warnings = @($warnings)

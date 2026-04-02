@@ -1,5 +1,5 @@
 {
-  "version": "1.0",
+  "version": "1.2",
   "default_read_set": [
     "AI_CONTEXT.md",
     "ai-context.json",
@@ -17,36 +17,14 @@
         "docs/run-with-codex.md"
       ],
       "write_back_targets": [],
+      "write_back_target_scope": null,
+      "write_back_template_root": null,
+      "write_back_target_tracked_repo": null,
       "use_when": [
         "repo setup",
         "local source import",
         "BYOS configuration",
         "clean-clone validation"
-      ]
-    },
-    "github-submission-or-public-packaging": {
-      "workflow_mode": null,
-      "primary_skill": null,
-      "minimal_read_set": [
-        "projects/README.md",
-        "projects/github-submission-cold-path/project.md",
-        "projects/github-submission-cold-path/submission-record.md",
-        "README.md",
-        "system_detail.md"
-      ],
-      "write_back_targets": [
-        "projects/github-submission-cold-path/project.md",
-        "projects/github-submission-cold-path/session-log.md",
-        "projects/github-submission-cold-path/open-questions.md",
-        "projects/github-submission-cold-path/distinctions.md",
-        "projects/github-submission-cold-path/submission-record.md"
-      ],
-      "use_when": [
-        "GitHub submission packaging",
-        "public repo positioning",
-        "README or metadata refresh",
-        "release-safe repo identity update",
-        "AI-facing onboarding surface changes"
       ]
     },
     "research-source-intake": {
@@ -64,6 +42,9 @@
         "open-questions.md",
         "distinctions.md"
       ],
+      "write_back_target_scope": "user-local-project",
+      "write_back_template_root": "templates/project-template",
+      "write_back_target_tracked_repo": false,
       "use_when": [
         "new paper or report arrives",
         "captured article needs classification",
@@ -85,6 +66,9 @@
         "open-questions.md",
         "distinctions.md"
       ],
+      "write_back_target_scope": "user-local-project",
+      "write_back_template_root": "templates/project-template",
+      "write_back_target_tracked_repo": false,
       "use_when": [
         "one source should own the packet",
         "deep reading without broadening",
@@ -106,6 +90,9 @@
         "open-questions.md",
         "distinctions.md"
       ],
+      "write_back_target_scope": "user-local-project",
+      "write_back_template_root": "templates/project-template",
+      "write_back_target_tracked_repo": false,
       "use_when": [
         "more than one source is in scope",
         "synthesis is required",
@@ -127,6 +114,9 @@
         "open-questions.md",
         "distinctions.md"
       ],
+      "write_back_target_scope": "user-local-project",
+      "write_back_template_root": "templates/project-template",
+      "write_back_target_tracked_repo": false,
       "use_when": [
         "argument-heavy source",
         "theory-first reading",

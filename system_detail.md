@@ -6,6 +6,7 @@
 - Keep the public/private boundary explicit.
 - Explain how the repo stays reusable without bundling copyrighted source materials.
 - Keep the agent-harness identity explicit at the public surface.
+- Keep maintainer-only packaging state outside the pushed public result.
 
 ## Public File Responsibilities
 
@@ -39,10 +40,6 @@
   - public-safe example flow from source intake to durable write-back
 - `templates/project-template/*`
   - minimal reusable write-back targets for local projects
-- `projects/README.md`
-  - explains the tracked project area for public-safe repo-owned cold-path work
-- `projects/github-submission-cold-path/*`
-  - durable cold-path record for GitHub submission, public packaging, and release-safe repo identity
 - `examples/*`
   - worked public-safe packets that show the result after a bounded harness pass
 - `docs/architecture.md`
@@ -81,6 +78,7 @@ These surfaces are intentionally local-only and must stay out of tracked history
 - personal runtime logs
 - personal memory/state files
 - local absolute machine paths
+- maintainer-only packaging logs, submission working state, and release-prep notes
 
 ## License Boundary
 

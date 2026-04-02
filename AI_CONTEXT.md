@@ -37,12 +37,6 @@ If the task is about real packet shape or write-back, also read:
 10. [examples/single-book-packet](examples/single-book-packet)
 11. [examples/multi-book-packet](examples/multi-book-packet)
 
-If the task is about GitHub submission, public packaging, or release-safe repo identity, also read:
-
-12. [projects/README.md](projects/README.md)
-13. [projects/github-submission-cold-path/project.md](projects/github-submission-cold-path/project.md)
-14. [projects/github-submission-cold-path/submission-record.md](projects/github-submission-cold-path/submission-record.md)
-
 ## Core Contract
 
 - sources must be explicit
@@ -78,6 +72,8 @@ The preferred write-back shape is:
 - `open-questions.md`
 - `distinctions.md`
 
+These targets belong in your local project area, usually copied from [templates/project-template](templates/project-template). They are not tracked write-back files inside this public repo.
+
 See [templates/project-template](templates/project-template).
 
 ## Hard Boundaries
@@ -90,6 +86,7 @@ Do not commit:
 - private books, papers, PDFs, slides, or captured materials
 - personal runtime state
 - local absolute machine paths
+- maintainer-only packaging state or release working notes
 
 ## First Commands
 

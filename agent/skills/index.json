@@ -1,5 +1,5 @@
 {
-  "version": "1.0",
+  "version": "1.2",
   "skills": [
     {
       "id": "workflow-routed-study-pass",
@@ -29,7 +29,10 @@
         "session-log.md",
         "open-questions.md",
         "distinctions.md"
-      ]
+      ],
+      "write_back_target_scope": "user-local-project",
+      "write_back_template_root": "templates/project-template",
+      "write_back_target_tracked_repo": false
     },
     {
       "id": "research-source-intake",
@@ -58,7 +61,10 @@
         "session-log.md",
         "open-questions.md",
         "distinctions.md"
-      ]
+      ],
+      "write_back_target_scope": "user-local-project",
+      "write_back_template_root": "templates/project-template",
+      "write_back_target_tracked_repo": false
     }
   ]
 }

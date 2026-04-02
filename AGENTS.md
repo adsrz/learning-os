@@ -11,6 +11,7 @@
 ## Core Rule
 
 - Do not introduce private source materials, personal runtime state, local machine paths, or user-specific logs into the tracked public repo.
+- Treat this repository as the pushed public result surface. Maintainer-only packaging state, submission prep, and release working notes belong outside this tracked repo.
 
 ## Public Boundary
 
@@ -41,4 +42,5 @@
 - One rule should have one real home.
 - README should stay attractive and clear, not turn into an internal ops dump.
 - Do not expand the repo into a personal live-state archive.
+- Do not store maintainer-only packaging logs, submission working state, or release-routing notes in the tracked public repo.
 - Do not turn public templates into private-state mirrors.

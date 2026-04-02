@@ -17,7 +17,7 @@ Copy it when you want to start a new study packet or a new long-horizon project 
 
 ## Suggested Usage
 
-1. Copy this folder into your own `projects/` area.
+1. Copy this folder into your own local project area outside the tracked public repo.
 2. Rename the folder for the actual project.
 3. Fill in `project.md` first.
 4. Start using the harness against your own sources.
