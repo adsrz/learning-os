@@ -5,61 +5,55 @@
 # Learning OS
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
-![Local First](https://img.shields.io/badge/Model-Local--First-1f6feb)
+![Type](https://img.shields.io/badge/Type-AI%20Harness-1f6feb)
+![Model](https://img.shields.io/badge/Mode-Local--First-0b6bcb)
 ![Sources](https://img.shields.io/badge/Sources-BYOS-0a7f5a)
-![Status](https://img.shields.io/badge/Status-Public%20Skeleton-black)
 
-A local-first learning operating system for deep reading, synthesis, thesis-style reading, and research workflows.
+An AI-native, local-first learning harness for deep reading, synthesis, thesis-style reading, and research workflows.
 
-`Learning OS` is not a note dump and not a personal vault template. It is a reusable study protocol for people who want continuity, structure, explicit source handling, and validation-backed repo hygiene.
+`Learning OS` is not just a study repo. It is a harness: it gives an AI agent explicit source boundaries, workflow routing, validation gates, and durable write-back so long-horizon learning can stay structured instead of collapsing into generic chat.
 
-![Learning OS social preview](docs/assets/learning-os-social-card-v2.png)
+![Learning OS social preview](docs/assets/learning-os-social-card-v4.png)
 
-## Why This Exists
+## Why This Is An AI Harness
 
-Most study repos can store notes. Very few can run a serious learning process.
+Most AI study setups are just prompts pointed at a pile of notes.
 
-`Learning OS` is designed to make these things first-class:
+`Learning OS` adds the missing harness layer:
 
-- long-horizon continuity across real study arcs
-- source-aware workflows instead of generic note capture
-- reusable distinctions, evidence, and open questions
-- public-safe sharing without bundling copyrighted materials
-- bring-your-own-sources operation across different domains
+- `Source intake`
+  The system expects explicit source manifests and local source roots instead of implicit context blobs.
+- `Workflow routing`
+  Reading modes are routed differently for single-book work, synthesis, thesis-style reading, and research intake.
+- `Validation gates`
+  Repo-safe checks and public/private boundaries are part of the operating model, not an afterthought.
+- `Durable write-back`
+  The useful output is not only the chat response. It is the updated project state, distinctions, open questions, and reusable notes.
+- `Local-first operation`
+  The system is designed to run against your own files and your own lawfully obtained sources.
 
-## Workflow Modes
+## What It Supports
 
-The framework currently ships with four reusable workflow modes:
+The harness currently ships with four reusable workflow modes:
 
 - `Single-book deep reading`
   One primary source, slow mechanism-first reading, cumulative write-back.
 - `Multi-book synthesis`
   Several sources routed into one structured program without flattening them into one book.
 - `Thesis / non-textbook reading`
-  Books that are argument-heavy, essay-like, or theory-first rather than textbook-first.
+  Argument-heavy or theory-first books that need a different reading protocol from textbook-style study.
 - `Research / paper workflow`
   Papers, reports, captured articles, and intake pipelines that need classification before study.
 
-These are reference workflows, not a fixed canon. The system is source-agnostic.
+These are reference workflows, not a fixed canon. The harness is source-agnostic.
 
-## What Makes It Different
-
-- `Public-safe by design`
-  The repo can be shared without redistributing third-party books or papers.
-- `BYOS`
-  Bring your own lawfully obtained sources and map them into the local ignored source roots.
-- `Protocol-first`
-  The repo is built around repeatable learning workflows, not around one subject or one reading list.
-- `Example-backed`
-  The included examples show how the workflow modes can be applied to serious study programs.
-
-## At A Glance
+## Harness Loop
 
 ```text
-Bring your own sources -> map them into local ignored roots -> validate setup -> run a source-aware study workflow -> keep durable write-back
+Bring your own sources -> classify and map local materials -> route by workflow mode -> run the agentic study pass -> validate -> write back durable state
 ```
 
-## Quick Start
+## Start Here
 
 Run the public repo checks:
 
@@ -67,8 +61,10 @@ Run the public repo checks:
 .\tools\Test-All.cmd -RepoOnly
 ```
 
-Read the setup and workflow docs:
+Then read the core docs:
 
+- [docs/ai-harness.md](docs/ai-harness.md)
+- [docs/agent-architecture.md](docs/agent-architecture.md)
 - [docs/public-setup.md](docs/public-setup.md)
 - [docs/bring-your-own-sources.md](docs/bring-your-own-sources.md)
 - [docs/workflow-modes.md](docs/workflow-modes.md)
@@ -90,8 +86,12 @@ When you want to use your own materials:
   Public identity and operating principles.
 - [system_detail.md](system_detail.md)
   Public/private boundary rules and file responsibilities.
+- [docs/ai-harness.md](docs/ai-harness.md)
+  What makes this project a harness rather than a generic study repo.
+- [docs/agent-architecture.md](docs/agent-architecture.md)
+  The harness loop and public-facing agent architecture.
 - [docs/architecture.md](docs/architecture.md)
-  How the repo is split into core, examples, and local source layers.
+  How the repo is split into harness, examples, and local-source layers.
 - [docs/workflow-modes.md](docs/workflow-modes.md)
   The four supported learning modes.
 - [docs/examples](docs/examples)
@@ -100,17 +100,6 @@ When you want to use your own materials:
   Template for mapping your own sources into the local layout.
 - [tools](tools)
   Validation and local-source import helpers.
-
-## Examples, Not Limits
-
-The private workspace that inspired this repo includes examples such as:
-
-- derivatives as `single-book deep reading`
-- fixed income as `multi-book synthesis`
-- thesis-style reading as `non-textbook reading`
-- paper and report intake as `research workflow`
-
-In the public repo, those examples are treated as workflow references, not as a required library.
 
 ## Public Boundary
 
@@ -121,22 +110,8 @@ You are expected to bring your own lawfully obtained sources.
 That boundary is deliberate:
 
 - it keeps the repo safer to publish and easier to share
-- it keeps the framework reusable beyond one private library
+- it keeps the harness reusable beyond one private library
 - it lets the same operating model work across finance, economics, philosophy, policy, ML, and other reading-heavy domains
-
-## Validation
-
-Repo-only validation:
-
-```powershell
-.\tools\Test-All.cmd -RepoOnly
-```
-
-Local setup validation after importing your own sources:
-
-```powershell
-.\tools\Test-All.cmd
-```
 
 ## License
 

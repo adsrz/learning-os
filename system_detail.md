@@ -5,15 +5,20 @@
 - Define the public file responsibilities.
 - Keep the public/private boundary explicit.
 - Explain how the repo stays reusable without bundling copyrighted source materials.
+- Keep the agent-harness identity explicit at the public surface.
 
 ## Public File Responsibilities
 
 - `README.md`
-  - product-facing entry point for the public repo
+  - product-facing entry point for the public repo and its AI harness identity
 - `LICENSE`
   - MIT license for the repository code and original public content
 - `system.md`
   - high-level identity and stable principles
+- `docs/ai-harness.md`
+  - public explanation of the harness layer and why it is not just a study repo
+- `docs/agent-architecture.md`
+  - public architecture of source intake, routing, validation, and write-back
 - `docs/architecture.md`
   - public repo architecture and layer split
 - `docs/workflow-modes.md`
@@ -36,6 +41,8 @@
   - single-command validation entry point
 - `tools/Import-LocalSources.ps1`
   - helper for copying or moving user-owned local materials into ignored local source roots
+- `tools/Export-SocialPreview.ps1`
+  - helper for regenerating the public social-preview asset
 - `.github/workflows/*.yml`
   - repo-visible CI for clean-clone validation
 

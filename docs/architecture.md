@@ -2,23 +2,37 @@
 
 ## Public Repo Shape
 
-`Learning OS` is split into three layers:
+`Learning OS` is split into four layers:
 
-1. `public-safe core`
-   - system docs
-   - workflow docs
+1. `AI harness layer`
+   - system identity
+   - harness doctrine
+   - source routing
+   - agent architecture
+2. `operator and validation layer`
+   - setup docs
    - validators
    - import helpers
-2. `reference examples`
+   - public/private boundary enforcement
+3. `reference workflow layer`
    - example write-ups for the four workflow modes
    - open demo material
-3. `local BYOS layer`
+4. `local BYOS layer`
    - user-owned books, papers, and research materials
    - intentionally ignored by Git
 
 ## Design Goal
 
-The repo should still be understandable on a clean clone, but more powerful once the user adds their own source materials.
+The repo should still be understandable on a clean clone, but more powerful once the user adds their own source materials and runs the harness against them.
+
+## Harness Core
+
+The project should read as an `AI harness`, not merely as a study repo:
+
+- sources are explicit
+- workflow routing is explicit
+- validation is explicit
+- durable write-back is explicit
 
 ## Non-Goal
 

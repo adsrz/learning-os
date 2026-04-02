@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [string]$OutputPath = (Join-Path $PSScriptRoot "..\docs\assets\learning-os-social-card-v2.png")
+    [string]$OutputPath = (Join-Path $PSScriptRoot "..\docs\assets\learning-os-social-card-v4.png")
 )
 
 Set-StrictMode -Version Latest
@@ -96,16 +96,17 @@ try {
     $tagFont = New-Object System.Drawing.Font("Segoe UI Semibold", 13, [System.Drawing.FontStyle]::Regular)
 
     $graphics.DrawString("LEARNING OS", $eyebrowFont, $eyebrowBrush, 118, 110)
-    $graphics.DrawString("Study with structure.", $titleFont, $titleBrush, 116, 150)
+    $graphics.DrawString("AI-native study harness.", $titleFont, $titleBrush, 116, 150)
 
     $subtitleLayout = New-Object System.Drawing.RectangleF(120, 232, 470, 110)
-    $subtitle = "A local-first workflow for deep reading, multi-source synthesis, thesis-style reading, and research."
+    $subtitle = "Local-first deep reading, synthesis, thesis-style reading, and research with explicit sources, validation, and durable write-back."
     $graphics.DrawString($subtitle, $subtitleFont, $bodyBrush, $subtitleLayout)
 
     $tagSpecs = @(
         @{ Text = "BYOS"; X = 120; Y = 356; Width = 90 },
-        @{ Text = "Public-safe"; X = 224; Y = 356; Width = 130 },
-        @{ Text = "MIT"; X = 368; Y = 356; Width = 75 }
+        @{ Text = "AI Harness"; X = 224; Y = 356; Width = 128 },
+        @{ Text = "Public-safe"; X = 366; Y = 356; Width = 130 },
+        @{ Text = "MIT"; X = 510; Y = 356; Width = 75 }
     )
 
     foreach ($tag in $tagSpecs) {
@@ -116,14 +117,14 @@ try {
     }
 
     $pillarsTitleLayout = New-Object System.Drawing.RectangleF(688, 112, 420, 34)
-    $graphics.DrawString("Four reusable workflow modes", $eyebrowFont, $eyebrowBrush, $pillarsTitleLayout)
+    $graphics.DrawString("Harness loop", $eyebrowFont, $eyebrowBrush, $pillarsTitleLayout)
     $graphics.FillRectangle($lineBrush, 688, 154, 452, 2)
 
     $panels = @(
-        @{ Title = "Single-book"; Body = "One source. Slow, mechanism-first study."; X = 688; Y = 184; Width = 208; Height = 118 },
-        @{ Title = "Multi-book"; Body = "Synthesis across several sources."; X = 928; Y = 184; Width = 208; Height = 118 },
-        @{ Title = "Thesis reading"; Body = "Theory-first, argument-heavy reading."; X = 688; Y = 328; Width = 208; Height = 118 },
-        @{ Title = "Research workflow"; Body = "Papers, reports, and article intake."; X = 928; Y = 328; Width = 208; Height = 118 }
+        @{ Title = "Source intake"; Body = "Bring your own local sources."; X = 688; Y = 184; Width = 208; Height = 118 },
+        @{ Title = "Workflow routing"; Body = "Route reading by mode, not one flat prompt."; X = 928; Y = 184; Width = 208; Height = 118 },
+        @{ Title = "Validation gates"; Body = "Check setup, repo safety, and boundaries."; X = 688; Y = 328; Width = 208; Height = 118 },
+        @{ Title = "Write-back"; Body = "Persist durable state beyond a chat turn."; X = 928; Y = 328; Width = 208; Height = 118 }
     )
 
     foreach ($panel in $panels) {
@@ -140,7 +141,7 @@ try {
     }
 
     $flowLayout = New-Object System.Drawing.RectangleF(120, 442, 1020, 76)
-    $flowText = "Bring your own sources -> import into local ignored roots -> validate -> run a source-aware study workflow -> keep durable write-back"
+    $flowText = "Bring sources -> map materials -> route workflow -> run the agent -> validate -> keep durable state"
     $graphics.DrawString($flowText, $subtitleFont, $bodyBrush, $flowLayout)
 
     $bitmap.Save($resolvedOutput, [System.Drawing.Imaging.ImageFormat]::Png)

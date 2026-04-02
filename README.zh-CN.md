@@ -5,61 +5,55 @@
 # Learning OS
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
-![Local First](https://img.shields.io/badge/Model-Local--First-1f6feb)
+![Type](https://img.shields.io/badge/Type-AI%20Harness-1f6feb)
+![Model](https://img.shields.io/badge/Mode-Local--First-0b6bcb)
 ![Sources](https://img.shields.io/badge/Sources-BYOS-0a7f5a)
-![Status](https://img.shields.io/badge/Status-Public%20Skeleton-black)
 
-一个面向深度阅读、跨书综合、论述型阅读与研究工作流的 `local-first` 学习操作系统。
+一个面向深度阅读、综合学习、论述型阅读与研究工作流的 `AI-native`、`local-first` 学习 harness。
 
-`Learning OS` 不是笔记堆，也不是私人知识库模板。它更像一套可复用的学习协议：强调连续性、结构化、显式 source 管理，以及带验证的仓库卫生。
+`Learning OS` 不只是一个学习仓库。它本质上是一层 harness：给 AI agent 明确的 source 边界、工作流路由、验证 gate 与 durable write-back，让长期学习不会退化成一次性的泛化聊天。
 
-![Learning OS social preview](docs/assets/learning-os-social-card-v2.png)
+![Learning OS social preview](docs/assets/learning-os-social-card-v4.png)
 
-## 这个项目解决什么问题
+## 为什么它是一个 AI Harness
 
-大多数学习仓库能存笔记，但很难真正承载一条严肃、长期的学习流程。
+很多 AI 学习方案，本质上只是“一个 prompt + 一堆笔记”。
 
-`Learning OS` 把这些能力放到了第一层：
+`Learning OS` 补的是缺失的 harness 层：
 
-- 支持长期学习弧线的连续性管理
-- 按 source 组织的工作流，而不是泛化的笔记采集
-- 可复用的 distinctions、evidence 与 open questions
-- 不打包受版权保护材料的 public-safe 分享方式
-- 支持在不同领域下 `BYOS` 使用，也就是自带自己的学习资料
+- `Source intake`
+  系统要求显式的 source manifest 和本地 source roots，而不是把上下文含糊地塞进聊天窗口。
+- `Workflow routing`
+  单书精读、多书综合、论述型阅读、研究 intake 会走不同的工作流。
+- `Validation gates`
+  仓库安全检查和 public/private 边界本身就是系统的一部分，而不是事后补丁。
+- `Durable write-back`
+  真正的产出不只是一次回答，而是更新后的项目状态、distinctions、open questions 和可复用笔记。
+- `Local-first operation`
+  这套系统默认运行在你自己的本地文件和你自己合法获得的 sources 上。
 
-## 支持的工作流模式
+## 它支持什么
 
-当前公开版提供 4 种可复用模式：
+当前 harness 提供 4 种可复用 workflow mode：
 
 - `Single-book deep reading`
   单一主 source，慢速、机制优先、持续写回。
 - `Multi-book synthesis`
   多个 source 进入同一学习项目，但不会被粗暴压扁成一本书。
 - `Thesis / non-textbook reading`
-  适用于论述性强、文章型、理论先行，而不是标准教材型的阅读对象。
+  适用于论述性强或理论先行的阅读对象，不按标准教材方式处理。
 - `Research / paper workflow`
   适用于论文、报告、抓取文章等需要先 intake 和分类的材料。
 
-这些模式是参考工作流，不是固定书单。系统本身是 `source-agnostic` 的。
+这些模式是参考工作流，不是固定书单。harness 本身是 `source-agnostic` 的。
 
-## 它和普通学习仓库有什么不同
-
-- `从设计上就是 public-safe`
-  仓库可以公开传播，而不需要重新分发第三方书籍或论文。
-- `BYOS`
-  使用你自己合法获得的资料，并将它们映射到本地忽略目录中。
-- `协议优先`
-  这个仓库围绕可重复执行的学习流程设计，而不是围绕某个单一学科或某套固定书单。
-- `示例驱动`
-  示例不是装饰，它们展示了这套协议如何落到真实的严肃学习项目上。
-
-## 一眼看懂
+## Harness Loop
 
 ```text
-自带自己的 sources -> 映射到本地忽略目录 -> 验证 setup -> 运行 source-aware 学习工作流 -> 持续写回 durable outputs
+自带自己的 sources -> 分类并映射本地材料 -> 按 workflow mode 路由 -> 运行 agentic study pass -> 验证 -> 写回 durable state
 ```
 
-## 快速开始
+## 从这里开始
 
 先运行公开仓库检查：
 
@@ -67,8 +61,10 @@
 .\tools\Test-All.cmd -RepoOnly
 ```
 
-然后阅读这些说明：
+然后阅读核心说明：
 
+- [docs/ai-harness.md](docs/ai-harness.md)
+- [docs/agent-architecture.md](docs/agent-architecture.md)
 - [docs/public-setup.md](docs/public-setup.md)
 - [docs/bring-your-own-sources.md](docs/bring-your-own-sources.md)
 - [docs/workflow-modes.md](docs/workflow-modes.md)
@@ -90,8 +86,12 @@
   项目的公开身份与运行原则。
 - [system_detail.md](system_detail.md)
   public/private 边界规则与文件职责。
+- [docs/ai-harness.md](docs/ai-harness.md)
+  解释这个项目为什么是 harness，而不是普通学习仓库。
+- [docs/agent-architecture.md](docs/agent-architecture.md)
+  harness loop 与公开版 agent architecture。
 - [docs/architecture.md](docs/architecture.md)
-  仓库如何拆分成 core、examples 和 local source layers。
+  仓库如何拆分成 harness、examples 与 local-source layers。
 - [docs/workflow-modes.md](docs/workflow-modes.md)
   四种支持的学习模式。
 - [docs/examples](docs/examples)
@@ -100,17 +100,6 @@
   用于把你自己的 source 映射到本地布局中的模板。
 - [tools](tools)
   校验与本地 source 导入工具。
-
-## 示例不是限制
-
-启发这个公开仓库的私有工作区里，包含过这些参考实现：
-
-- 衍生品学习作为 `single-book deep reading`
-- 固收学习作为 `multi-book synthesis`
-- 论述型阅读作为 `non-textbook reading`
-- 论文和报告 intake 作为 `research workflow`
-
-在公开版里，这些都只是工作流参考，不是必须使用的私有语料库。
 
 ## Public Boundary
 
@@ -121,22 +110,8 @@
 这样设计是有意的：
 
 - 它让仓库更安全地公开发布
-- 它让框架不被某一套私有资料绑死
-- 它让同一套协议能够用于金融、经济、哲学、政策、机器学习等重阅读领域
-
-## 验证
-
-只验证公开仓库部分：
-
-```powershell
-.\tools\Test-All.cmd -RepoOnly
-```
-
-导入你自己的 source 之后，做完整验证：
-
-```powershell
-.\tools\Test-All.cmd
-```
+- 它让 harness 不被某一套私有资料绑死
+- 它让同一套运行模型能够用于金融、经济、哲学、政策、机器学习等重阅读领域
 
 ## 许可证
 
