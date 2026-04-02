@@ -21,6 +21,7 @@
     - project templates for durable write-back
     - worked example packets
     - terminal demo assets for public onboarding
+    - multiple open samples for synthesis demos
 4. `local BYOS layer`
    - user-owned books, papers, and research materials
    - intentionally ignored by Git

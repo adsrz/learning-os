@@ -13,9 +13,7 @@
 
 `Learning OS` 不只是一个学习仓库。它本质上是一层 harness：给 AI agent 明确的 source 边界、工作流路由、验证 gate 与 durable write-back，让长期学习不会退化成一次性的泛化聊天。
 
-![Learning OS social preview](docs/assets/learning-os-social-card-v4.png)
-
-![Learning OS terminal demo](docs/assets/terminal-demo.svg)
+![Learning OS hero overview](docs/assets/hero-overview.svg)
 
 ## 为什么它是一个 AI Harness
 
@@ -89,8 +87,10 @@
 你也可以先看开放示例：
 
 - [samples/open/demo-source.md](samples/open/demo-source.md)
+- [samples/open/demo-source-2.md](samples/open/demo-source-2.md)
 - [examples/research-intake-packet](examples/research-intake-packet)
 - [examples/single-book-packet](examples/single-book-packet)
+- [examples/multi-book-packet](examples/multi-book-packet)
 
 当你要接入自己的资料时：
 
@@ -113,6 +113,10 @@
   一轮 bounded harness pass 之后的公开示例 packet。
 - [examples/single-book-packet](examples/single-book-packet)
   一个 `single-book deep reading` 的 source-owned 示例 packet。
+- [examples/multi-book-packet](examples/multi-book-packet)
+  一个保留 source overlap 与 tension 的 `multi-book synthesis` 示例 packet。
+- [docs/assets/terminal-demo.svg](docs/assets/terminal-demo.svg)
+  一个终端风格的 onboarding 展示资产。
 - [docs/ai-harness.md](docs/ai-harness.md)
   解释这个项目为什么是 harness，而不是普通学习仓库。
 - [docs/agent-architecture.md](docs/agent-architecture.md)

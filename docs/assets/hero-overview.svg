@@ -1,0 +1,52 @@
+<svg width="1400" height="860" viewBox="0 0 1400 860" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="860" rx="32" fill="#F4EFE4"/>
+  <rect x="34" y="34" width="1332" height="792" rx="28" fill="#FFFDF8" stroke="#D6E2D9" stroke-width="2"/>
+
+  <circle cx="1220" cy="120" r="180" fill="#E4F0E9"/>
+  <circle cx="128" cy="760" r="150" fill="#E8E6DA"/>
+
+  <text x="94" y="118" fill="#0A7F5A" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700">LEARNING OS</text>
+  <text x="94" y="202" fill="#192821" font-family="Segoe UI, Arial, sans-serif" font-size="64" font-weight="700">AI-native learning harness</text>
+  <text x="94" y="256" fill="#365147" font-family="Segoe UI, Arial, sans-serif" font-size="30">Local-first workflows for deep reading, synthesis,</text>
+  <text x="94" y="298" fill="#365147" font-family="Segoe UI, Arial, sans-serif" font-size="30">thesis-style reading, and research with durable write-back.</text>
+
+  <rect x="96" y="348" width="118" height="48" rx="24" fill="#E7F1EB"/>
+  <rect x="228" y="348" width="156" height="48" rx="24" fill="#E7F1EB"/>
+  <rect x="398" y="348" width="140" height="48" rx="24" fill="#E7F1EB"/>
+  <rect x="552" y="348" width="84" height="48" rx="24" fill="#E7F1EB"/>
+  <text x="128" y="380" fill="#20553F" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">BYOS</text>
+  <text x="253" y="380" fill="#20553F" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">AI Harness</text>
+  <text x="428" y="380" fill="#20553F" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Public-safe</text>
+  <text x="580" y="380" fill="#20553F" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">MIT</text>
+
+  <rect x="92" y="454" width="552" height="286" rx="22" fill="#13211D"/>
+  <text x="126" y="500" fill="#7AD2AA" font-family="Consolas, 'Courier New', monospace" font-size="24">$ .\tools\Test-All.cmd -RepoOnly</text>
+  <text x="126" y="538" fill="#E7F3EC" font-family="Consolas, 'Courier New', monospace" font-size="22">[validate] lint</text>
+  <text x="126" y="572" fill="#E7F3EC" font-family="Consolas, 'Courier New', monospace" font-size="22">{ "status": "success" }</text>
+  <text x="126" y="626" fill="#7AD2AA" font-family="Consolas, 'Courier New', monospace" font-size="24">$ .\tools\Import-LocalSources.cmd -SourceRoot C:\demo\sources</text>
+  <text x="126" y="664" fill="#E7F3EC" font-family="Consolas, 'Courier New', monospace" font-size="22">{ "matched": 2, "written_manifest": "sources/local-manifest.json" }</text>
+  <text x="126" y="718" fill="#7AD2AA" font-family="Consolas, 'Courier New', monospace" font-size="24">$ codex</text>
+  <text x="126" y="752" fill="#E7F3EC" font-family="Consolas, 'Courier New', monospace" font-size="22">Use the intake skill, route the packet, and write back durable state.</text>
+
+  <text x="724" y="474" fill="#0A7F5A" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700">Worked examples</text>
+
+  <rect x="724" y="506" width="270" height="118" rx="20" fill="#EEF5F1" stroke="#C9D8CE" stroke-width="2"/>
+  <text x="750" y="550" fill="#192821" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Research intake</text>
+  <text x="750" y="588" fill="#3D5A4E" font-family="Segoe UI, Arial, sans-serif" font-size="22">Classify source arrival,</text>
+  <text x="750" y="618" fill="#3D5A4E" font-family="Segoe UI, Arial, sans-serif" font-size="22">declare scope, write back.</text>
+
+  <rect x="1016" y="506" width="270" height="118" rx="20" fill="#EEF5F1" stroke="#C9D8CE" stroke-width="2"/>
+  <text x="1042" y="550" fill="#192821" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Single-book</text>
+  <text x="1042" y="588" fill="#3D5A4E" font-family="Segoe UI, Arial, sans-serif" font-size="22">One source owns</text>
+  <text x="1042" y="618" fill="#3D5A4E" font-family="Segoe UI, Arial, sans-serif" font-size="22">the packet.</text>
+
+  <rect x="724" y="646" width="270" height="118" rx="20" fill="#EEF5F1" stroke="#C9D8CE" stroke-width="2"/>
+  <text x="750" y="690" fill="#192821" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Multi-book</text>
+  <text x="750" y="728" fill="#3D5A4E" font-family="Segoe UI, Arial, sans-serif" font-size="22">Preserve overlap</text>
+  <text x="750" y="758" fill="#3D5A4E" font-family="Segoe UI, Arial, sans-serif" font-size="22">and tension.</text>
+
+  <rect x="1016" y="646" width="270" height="118" rx="20" fill="#EDF1F6" stroke="#CED7E2" stroke-width="2"/>
+  <text x="1042" y="690" fill="#192821" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Durable outputs</text>
+  <text x="1042" y="728" fill="#3D5A4E" font-family="Segoe UI, Arial, sans-serif" font-size="22">project, log, questions,</text>
+  <text x="1042" y="758" fill="#3D5A4E" font-family="Segoe UI, Arial, sans-serif" font-size="22">distinctions.</text>
+</svg>

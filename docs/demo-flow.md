@@ -10,6 +10,7 @@ Show one realistic harness loop without depending on a private book library.
 
 1. Start from the included open sample:
    - [samples/open/demo-source.md](../samples/open/demo-source.md)
+   - [samples/open/demo-source-2.md](../samples/open/demo-source-2.md)
 2. Validate the clean clone:
 
 ```powershell
@@ -33,6 +34,7 @@ Show one realistic harness loop without depending on a private book library.
 8. Compare your result with the worked public-safe example:
    - [examples/research-intake-packet](../examples/research-intake-packet)
    - [examples/single-book-packet](../examples/single-book-packet)
+   - [examples/multi-book-packet](../examples/multi-book-packet)
 
 ## Example Outcome
 

@@ -49,6 +49,7 @@ Those files tell Codex:
 7. Compare your first packet against the worked public-safe example:
    - [examples/research-intake-packet](../examples/research-intake-packet)
    - [examples/single-book-packet](../examples/single-book-packet)
+   - [examples/multi-book-packet](../examples/multi-book-packet)
 
 ## Suggested Prompt Pattern
 
