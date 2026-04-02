@@ -1,74 +1,89 @@
+<div align="right">
+  <a href="./README.md">English</a> | <a href="./README.zh-CN.md">简体中文</a>
+</div>
+
 # Learning OS
 
-Local-first learning infrastructure for deep reading, multi-source synthesis, thesis-style reading, and research workflows.
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+![Local First](https://img.shields.io/badge/Model-Local--First-1f6feb)
+![Sources](https://img.shields.io/badge/Sources-BYOS-0a7f5a)
+![Status](https://img.shields.io/badge/Status-Public%20Skeleton-black)
 
-`Learning OS` is not a notes dump and not a personal vault template. It is a reusable operating model for people who want a study system with continuity, structure, and explicit source handling.
+A local-first learning operating system for deep reading, synthesis, thesis-style reading, and research workflows.
 
-## Why It Exists
+`Learning OS` is not a note dump and not a personal vault template. It is a reusable study protocol for people who want continuity, structure, explicit source handling, and validation-backed repo hygiene.
 
-Most study repos are good at storing notes and bad at running a learning process.
+## Why This Exists
 
-This repo is designed to make these things first-class:
+Most study repos can store notes. Very few can run a serious learning process.
 
-- stable project continuity across long study arcs
-- source-aware reading workflows instead of generic note capture
+`Learning OS` is designed to make these things first-class:
+
+- long-horizon continuity across real study arcs
+- source-aware workflows instead of generic note capture
 - reusable distinctions, evidence, and open questions
-- validation-backed repo hygiene
-- bring-your-own-sources operation without bundling copyrighted materials
+- public-safe sharing without bundling copyrighted materials
+- bring-your-own-sources operation across different domains
 
 ## Workflow Modes
+
+The framework currently ships with four reusable workflow modes:
 
 - `Single-book deep reading`
   One primary source, slow mechanism-first reading, cumulative write-back.
 - `Multi-book synthesis`
-  Several sources routed into one structured learning program without flattening them into one book.
+  Several sources routed into one structured program without flattening them into one book.
 - `Thesis / non-textbook reading`
   Books that are argument-heavy, essay-like, or theory-first rather than textbook-first.
 - `Research / paper workflow`
   Papers, reports, captured articles, and intake pipelines that need classification before study.
 
-The included examples are reference implementations of these modes. They are not the only supported subjects and not the only source set you can use.
+These are reference workflows, not a fixed canon. The system is source-agnostic.
 
-## What You Can Do With It
+## What Makes It Different
 
-- run the repo as a public-safe learning framework
-- clone it and explore the workflow without any private source bundle
-- plug in your own lawfully obtained books, papers, and long-form materials
-- adapt the project structure to finance, economics, philosophy, policy, ML, or other serious reading domains
+- `Public-safe by design`
+  The repo can be shared without redistributing third-party books or papers.
+- `BYOS`
+  Bring your own lawfully obtained sources and map them into the local ignored source roots.
+- `Protocol-first`
+  The repo is built around repeatable learning workflows, not around one subject or one reading list.
+- `Example-backed`
+  The included examples show how the workflow modes can be applied to serious study programs.
 
 ## Quick Start
 
-Run the repo-only checks:
+Run the public repo checks:
 
 ```powershell
 .\tools\Test-All.cmd -RepoOnly
 ```
 
-Read the public setup guide:
+Read the setup and workflow docs:
 
-- [public-setup.md](docs/public-setup.md)
-- [bring-your-own-sources.md](docs/bring-your-own-sources.md)
-- [workflow-modes.md](docs/workflow-modes.md)
+- [docs/public-setup.md](docs/public-setup.md)
+- [docs/bring-your-own-sources.md](docs/bring-your-own-sources.md)
+- [docs/workflow-modes.md](docs/workflow-modes.md)
 
 Try the included open sample:
 
-- [demo-source.md](samples/open/demo-source.md)
+- [samples/open/demo-source.md](samples/open/demo-source.md)
 
-When you are ready to use your own materials, import them into the local ignored source roots:
+When you want to use your own materials:
 
 ```powershell
 .\tools\Import-LocalSources.cmd -SourceRoot C:\path\to\your\files
 .\tools\Test-PublicSetup.cmd
 ```
 
-## Repo Structure
+## Repo Map
 
 - [system.md](system.md)
   Public identity and operating principles.
 - [system_detail.md](system_detail.md)
-  File responsibilities and public/private boundary rules.
+  Public/private boundary rules and file responsibilities.
 - [docs/architecture.md](docs/architecture.md)
-  How the system is split into core, examples, and local source layers.
+  How the repo is split into core, examples, and local source layers.
 - [docs/workflow-modes.md](docs/workflow-modes.md)
   The four supported learning modes.
 - [docs/examples](docs/examples)
@@ -76,7 +91,18 @@ When you are ready to use your own materials, import them into the local ignored
 - [docs/source-manifest.template.json](docs/source-manifest.template.json)
   Template for mapping your own sources into the local layout.
 - [tools](tools)
-  Repo checks and local source import helpers.
+  Validation and local-source import helpers.
+
+## Examples, Not Limits
+
+The private workspace that inspired this repo includes examples such as:
+
+- derivatives as `single-book deep reading`
+- fixed income as `multi-book synthesis`
+- thesis-style reading as `non-textbook reading`
+- paper and report intake as `research workflow`
+
+In the public repo, those examples are treated as workflow references, not as a required library.
 
 ## Public Boundary
 
@@ -84,22 +110,11 @@ This public repository does **not** include third-party books, papers, PDFs, sli
 
 You are expected to bring your own lawfully obtained sources.
 
-This is deliberate:
+That boundary is deliberate:
 
-- it keeps the repo legally safer and easier to share
-- it keeps the framework source-agnostic instead of tying it to one private library
-- it makes the project reusable for far more domains than the original example set
-
-## Examples, Not Limits
-
-The private workspace that inspired this repo includes example implementations of:
-
-- derivatives as `single-book deep reading`
-- fixed income as `multi-book synthesis`
-- thesis-style reading as `non-textbook reading`
-- paper and report intake as `research workflow`
-
-In the public repo, those examples are treated as mode references, not as a required canon.
+- it keeps the repo safer to publish and easier to share
+- it keeps the framework reusable beyond one private library
+- it lets the same operating model work across finance, economics, philosophy, policy, ML, and other reading-heavy domains
 
 ## Validation
 
