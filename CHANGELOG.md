@@ -1,5 +1,34 @@
 # Changelog
 
+## v0.1.1 - 2026-04-02
+
+Second public release of `Learning OS`, focused on making the post-`v0.1.0` public direction visible instead of leaving it split across `main`, issues, and roadmap notes.
+
+### Highlights
+
+- minimal community-entry surfaces: `CONTRIBUTING.md`, `ROADMAP.md`, and issue templates
+- explicit `prompt-only chat` versus `Learning OS` comparison in the top README surfaces
+- visible command-proof matrix for the verified `pwsh` path and Windows convenience wrapper
+- a first clearly non-finance public-safe example: `policy-brief-sample.md` plus `examples/thesis-reading-packet`
+
+### Why This Release Exists
+
+- `v0.1.0` proved the harness shape
+- this release proves the next public-facing step after `v0.1.0`
+- the repo now has clearer participation surfaces, clearer proof surfaces, and a stronger example mix
+
+### Included Surfaces
+
+- community entry: `CONTRIBUTING.md`, `ROADMAP.md`, `.github/ISSUE_TEMPLATE/`
+- comparison and proof: `README.md`, `README.zh-CN.md`, `docs/public-setup.md`, `docs/demo-flow.md`
+- non-finance thesis-reading example: `samples/open/policy-brief-sample.md`, `examples/thesis-reading-packet/`, `docs/examples/thesis-reading.md`
+
+### Non-Goals
+
+- no change to the BYOS boundary
+- no maintainer-only state inside the tracked public repo
+- no explosion of new onboarding lanes or example families in one batch
+
 ## v0.1.0 - 2026-04-02
 
 First public release of `Learning OS` as an AI-native, local-first learning harness.
