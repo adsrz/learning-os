@@ -66,6 +66,8 @@ distinctions.md   -> source arrival 不等于 study packet readiness
 | 路由 | 一次泛化对话 | 明确先选 overlay，再选 workflow |
 | 验证 | 几乎没有显式 proof | 有 repo-only checks 和边界敏感验证 |
 
+如果你想看一条更明确的非金融路径，可以直接对照 [samples/open/policy-brief-sample.md](samples/open/policy-brief-sample.md) 和 [examples/thesis-reading-packet](examples/thesis-reading-packet)。
+
 ## 快速概览
 
 ```text
@@ -215,7 +217,7 @@ pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
 
 当前最有价值的公开贡献大致是：
 
-- 在现有核心 demo 之外再补更多 public-safe case study
+- 在 policy brief example 之外再补更多 public-safe case study
 - 围绕已验证 `pwsh` 路径的跨平台打磨
 - 更直接地对比 prompt-only study workflow
 - 进一步压缩首次上手所需时间的 onboarding 改进
@@ -244,6 +246,8 @@ pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
   一个 `single-book deep reading` 的 source-owned 示例 packet。
 - [examples/multi-book-packet](examples/multi-book-packet)
   一个保留 source overlap 与 tension 的 `multi-book synthesis` 示例 packet。
+- [examples/thesis-reading-packet](examples/thesis-reading-packet)
+  一个 `thesis / non-textbook reading` 的非金融示例 packet。
 - [docs/ai-harness.md](docs/ai-harness.md)
   解释这个项目为什么是 harness，而不是普通学习仓库。
 - [docs/agent-architecture.md](docs/agent-architecture.md)

@@ -52,7 +52,7 @@ pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
 
 ## Example Contributions We Would Welcome
 
-- a stronger non-finance public example
+- an additional public-safe case study beyond the policy brief example
 - cross-platform polish around the `pwsh` path
 - a sharper comparison between this harness and prompt-only study workflows
 - a public-safe case study that shows durable write-back on a real open source

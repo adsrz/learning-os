@@ -66,6 +66,8 @@ In one glance, the delta versus prompt-only chat is this:
 | Routing | one generic conversation | explicit overlay and workflow choice |
 | Validation | little visible proof | repo-only checks and boundary-sensitive validation |
 
+Need a clearly non-finance path? Compare [samples/open/policy-brief-sample.md](samples/open/policy-brief-sample.md) with [examples/thesis-reading-packet](examples/thesis-reading-packet).
+
 ## Quick View
 
 ```text
@@ -215,7 +217,7 @@ If the repo makes sense and you want to extend it, use these public-facing entry
 
 Right now the most valuable public contributions are:
 
-- an additional public-safe case study beyond the first core demo
+- an additional public-safe case study beyond the policy brief example
 - cross-platform polish around the verified `pwsh` path
 - sharper comparisons against prompt-only study workflows
 - onboarding improvements that reduce time-to-first-result
@@ -244,6 +246,8 @@ Right now the most valuable public contributions are:
   A worked source-owned packet for `single-book deep reading`.
 - [examples/multi-book-packet](examples/multi-book-packet)
   A worked packet that preserves overlap and tension across two sources.
+- [examples/thesis-reading-packet](examples/thesis-reading-packet)
+  A worked non-finance packet for `thesis / non-textbook reading`.
 - [docs/ai-harness.md](docs/ai-harness.md)
   What makes this project a harness rather than a generic study repo.
 - [docs/agent-architecture.md](docs/agent-architecture.md)

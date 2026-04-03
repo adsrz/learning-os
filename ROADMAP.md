@@ -24,11 +24,10 @@ Likely surfaces:
 
 ### 2. More Public Case Studies
 
-Add a few public-safe stories that show why a harness beats prompt-only chat for long-horizon work.
+The repo now has a first non-finance policy example. The next step is to broaden the case-study set without turning the repo into a museum of examples.
 
 High-value candidates:
 
-- a non-finance example
 - a research article intake story
 - a system-evolution story that shows how the harness changed after failure
 

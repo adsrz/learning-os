@@ -14,3 +14,7 @@ Best fit:
 - essays
 - theory-heavy books
 - institutional or philosophical works
+
+Worked public-safe packet:
+
+- [examples/thesis-reading-packet](../../examples/thesis-reading-packet)

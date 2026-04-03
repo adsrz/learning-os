@@ -52,6 +52,7 @@ That is also the practical delta from prompt-only chat: the harness preserves ro
 1. Start from the included open sample:
    - [samples/open/demo-source.md](../samples/open/demo-source.md)
    - [samples/open/demo-source-2.md](../samples/open/demo-source-2.md)
+   - [samples/open/policy-brief-sample.md](../samples/open/policy-brief-sample.md)
 2. Validate the clean clone:
 
 ```powershell
@@ -80,6 +81,7 @@ pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
    - [examples/research-intake-packet](../examples/research-intake-packet)
    - [examples/single-book-packet](../examples/single-book-packet)
    - [examples/multi-book-packet](../examples/multi-book-packet)
+   - [examples/thesis-reading-packet](../examples/thesis-reading-packet)
 
 ## Example Outcome
 
@@ -93,6 +95,8 @@ A good demo pass should leave you with:
 - at least one durable distinction
 - a project packet that roughly resembles the worked example
 - a clear sense of how `research-intake` and `single-book` packets differ
+
+If you want a clearly non-finance comparison, inspect [samples/open/policy-brief-sample.md](../samples/open/policy-brief-sample.md) next to [examples/thesis-reading-packet](../examples/thesis-reading-packet).
 
 ## Suggested First Prompt
 
