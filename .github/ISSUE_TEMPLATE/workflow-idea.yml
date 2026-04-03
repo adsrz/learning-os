@@ -1,0 +1,52 @@
+name: Workflow idea
+description: Propose a public-safe example, comparison, portability improvement, or workflow extension.
+title: "[Idea] "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for public-facing improvements to the harness.
+
+        Good ideas usually improve proof, portability, validation, or time-to-first-result.
+  - type: dropdown
+    id: category
+    attributes:
+      label: What kind of idea is this?
+      options:
+        - Non-finance example or case study
+        - Cross-platform or pwsh-path polish
+        - Prompt-only vs harness comparison
+        - Demo-flow or onboarding improvement
+        - Validation or boundary check improvement
+        - Other public-safe workflow idea
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      placeholder: A new visitor can understand the architecture, but still does not know where to participate.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What should change?
+      placeholder: Add one public-safe case study that compares generic chat output with durable packet write-back.
+    validations:
+      required: true
+  - type: textarea
+    id: proof
+    attributes:
+      label: What proof would make this change valuable?
+      description: Explain what a visitor should be able to see or do after the change.
+      placeholder: A reader should be able to see a before/after comparison in under 2 minutes.
+    validations:
+      required: true
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Public-safety constraints
+      description: Note any source-boundary, privacy, or portability constraints that should shape the idea.

@@ -1,0 +1,52 @@
+name: Bug report
+description: Report a public-repo bug, validation failure, or broken documented path.
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing a bug.
+
+        Please keep reports public-safe. Do not paste proprietary source material, private local paths, or private workspace state.
+  - type: textarea
+    id: summary
+    attributes:
+      label: What broke?
+      description: Describe the smallest visible problem.
+      placeholder: The documented command path fails during the repo-only checks.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How can we reproduce it?
+      description: Include the exact command or doc path you followed.
+      placeholder: |
+        1. Clone the repo
+        2. Run `pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly`
+        3. See the failure
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect instead?
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: Windows 11 / Ubuntu 24.04 / macOS 15
+  - type: input
+    id: pwsh
+    attributes:
+      label: PowerShell version
+      placeholder: 7.5.0
+  - type: textarea
+    id: notes
+    attributes:
+      label: Extra context
+      description: Add logs or screenshots if they help, but keep them public-safe.

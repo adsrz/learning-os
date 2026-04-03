@@ -13,6 +13,7 @@
 这个 public repo 想给出的承诺很简单：把你本地拥有的 source 变成可持续写回的学习状态，而不是每轮聊天都从零开始。
 
 如果你更想直接下载一个可发布快照，而不是先 `git clone`，可以看 [Releases](https://github.com/adsrz/learning-os/releases)。
+如果你想知道项目下一步准备补什么，或者想参与改进，可以看 [ROADMAP.md](ROADMAP.md)、[CONTRIBUTING.md](CONTRIBUTING.md) 和 [Issues](https://github.com/adsrz/learning-os/issues)。
 
 这次 public cut 也把几条经验直接落实到了公开结果里：
 
@@ -56,6 +57,13 @@ distinctions.md   -> source arrival 不等于 study packet readiness
 
 这就是仓库最核心的 proof surface：一个开放 sample 进入系统，出来的是带有 workflow owner、session state、open questions 与 distinctions 的可复用 packet。
 
+如果只用一眼说明它和 prompt-only chat 的差别，大致就是：
+
+```text
+prompt-only chat -> 留下一次性的聊天回答
+Learning OS      -> 留下 project.md + session-log.md + open-questions.md + distinctions.md
+```
+
 ## 快速概览
 
 ```text
@@ -77,6 +85,8 @@ pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
 ```
 
 仓库仍然提供 Windows `.cmd` wrapper，但对外文档把 `pwsh` 作为主路径，这样不会把项目读成一个只能在 Windows 上跑的仓库。
+
+这不是口头宣称：repo-only validation 已经通过本地 Windows shell、`pwsh`，以及 GitHub Actions 里的 Ubuntu / Windows 路径来验证，相关 workflow 可以直接看 [repo-only-validation.yml](.github/workflows/repo-only-validation.yml)。
 
 ## 为什么它是一个 AI Harness
 
@@ -162,6 +172,7 @@ pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
 
 2. 走最短演示路径：
    - [docs/demo-flow.md](docs/demo-flow.md)
+   - [首条可直接复制的 prompt](docs/demo-flow.md#suggested-first-prompt)
 3. 把开放 sample 和 worked packet 并排看：
    - [samples/open/demo-source.md](samples/open/demo-source.md)
    - [examples/research-intake-packet](examples/research-intake-packet)
@@ -183,12 +194,34 @@ pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
 - [docs/workflow-modes.md](docs/workflow-modes.md)
 - [CHANGELOG.md](CHANGELOG.md)
 
+## Roadmap 与参与入口
+
+如果你已经读懂这个 repo，想继续参与扩展，先看这几个公开入口：
+
+- [ROADMAP.md](ROADMAP.md)
+  看当前最值得补的 public-facing 缺口。
+- [CONTRIBUTING.md](CONTRIBUTING.md)
+  看什么类型的改动适合这个 public harness。
+- [Issues](https://github.com/adsrz/learning-os/issues)
+  报 bug、提 workflow idea，或者建议新的 public-safe case study。
+
+当前最有价值的公开贡献大致是：
+
+- 更强的非金融案例
+- 围绕已验证 `pwsh` 路径的跨平台打磨
+- 更直接地对比 prompt-only study workflow
+- 进一步压缩首次上手所需时间的 onboarding 改进
+
 ## 仓库结构
 
 - [system.md](system.md)
   项目的公开身份与运行原则。
 - [CHANGELOG.md](CHANGELOG.md)
   对外发布历史。
+- [ROADMAP.md](ROADMAP.md)
+  近期 public-facing 优先项。
+- [CONTRIBUTING.md](CONTRIBUTING.md)
+  贡献规则与验证要求。
 - [system_detail.md](system_detail.md)
   public/private 边界规则与文件职责。
 - [agent/README.md](agent/README.md)

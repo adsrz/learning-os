@@ -13,6 +13,7 @@ An AI-native, local-first learning harness for deep reading, synthesis, thesis-s
 The public promise is simple: turn a source you own locally into durable study state instead of restarting from zero every chat.
 
 Prefer a packaged snapshot over `git clone`? See [Releases](https://github.com/adsrz/learning-os/releases).
+Looking for what is next or how to help? See [ROADMAP.md](ROADMAP.md), [CONTRIBUTING.md](CONTRIBUTING.md), and [Issues](https://github.com/adsrz/learning-os/issues).
 
 This public cut also makes a few packaging lessons explicit:
 
@@ -56,6 +57,13 @@ distinctions.md   -> source arrival is not the same thing as study packet readin
 
 That is the core proof surface of the repo: one open sample goes in, and a reusable packet with workflow ownership, session state, open questions, and distinctions comes out.
 
+In one glance, the difference from prompt-only chat is this:
+
+```text
+prompt-only chat -> one answer in chat history
+Learning OS      -> project.md + session-log.md + open-questions.md + distinctions.md
+```
+
 ## Quick View
 
 ```text
@@ -77,6 +85,8 @@ pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
 ```
 
 Windows `.cmd` wrappers are included, but the documented primary path uses `pwsh` so the repo does not read as Windows-only.
+
+Proof, not copy: the repo-only validation is already exercised through the local Windows shell, through `pwsh`, and in GitHub Actions on Ubuntu and Windows via [repo-only-validation.yml](.github/workflows/repo-only-validation.yml).
 
 ## Why This Is An AI Harness
 
@@ -162,6 +172,7 @@ pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
 
 2. Follow the shortest walkthrough:
    - [docs/demo-flow.md](docs/demo-flow.md)
+   - [Paste-first prompt](docs/demo-flow.md#suggested-first-prompt)
 3. Inspect the open sample and worked packet side by side:
    - [samples/open/demo-source.md](samples/open/demo-source.md)
    - [examples/research-intake-packet](examples/research-intake-packet)
@@ -183,12 +194,34 @@ pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
 - [docs/workflow-modes.md](docs/workflow-modes.md)
 - [CHANGELOG.md](CHANGELOG.md)
 
+## Roadmap And Contribution
+
+If the repo makes sense and you want to extend it, use these public-facing entrypoints:
+
+- [ROADMAP.md](ROADMAP.md)
+  See the next public gaps with the highest leverage.
+- [CONTRIBUTING.md](CONTRIBUTING.md)
+  See what kinds of changes fit the public harness.
+- [Issues](https://github.com/adsrz/learning-os/issues)
+  Report bugs, propose workflow ideas, or suggest a public-safe case study.
+
+Right now the most valuable public contributions are:
+
+- a stronger non-finance case study
+- cross-platform polish around the verified `pwsh` path
+- sharper comparisons against prompt-only study workflows
+- onboarding improvements that reduce time-to-first-result
+
 ## Repo Map
 
 - [system.md](system.md)
   Public identity and operating principles.
 - [CHANGELOG.md](CHANGELOG.md)
   Public release history.
+- [ROADMAP.md](ROADMAP.md)
+  Near-term public-facing priorities.
+- [CONTRIBUTING.md](CONTRIBUTING.md)
+  Contribution rules and validation expectations.
 - [system_detail.md](system_detail.md)
   Public/private boundary rules and file responsibilities.
 - [agent/README.md](agent/README.md)

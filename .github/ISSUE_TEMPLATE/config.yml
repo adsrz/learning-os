@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Demo flow
+    url: https://github.com/adsrz/learning-os/blob/main/docs/demo-flow.md
+    about: Start here if you want to see the shortest public-safe proof path.
+  - name: Roadmap
+    url: https://github.com/adsrz/learning-os/blob/main/ROADMAP.md
+    about: Check the current public-facing priorities before opening a broad workflow idea.
