@@ -45,6 +45,8 @@ The included worked packet records four kinds of durable result:
 
 This is the key idea of the repo: the useful output is not only the answer in chat, but the packet state that survives after the pass.
 
+That is also the practical delta from prompt-only chat: the harness preserves routing, continuity, open questions, and distinctions instead of leaving only one answer in chat history.
+
 ## 5-Minute First Success
 
 1. Start from the included open sample:

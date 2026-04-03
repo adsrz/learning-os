@@ -57,12 +57,14 @@ distinctions.md   -> source arrival 不等于 study packet readiness
 
 这就是仓库最核心的 proof surface：一个开放 sample 进入系统，出来的是带有 workflow owner、session state、open questions 与 distinctions 的可复用 packet。
 
-如果只用一眼说明它和 prompt-only chat 的差别，大致就是：
+如果只用一眼说明它和 prompt-only chat 的差别，可以看这张表：
 
-```text
-prompt-only chat -> 留下一次性的聊天回答
-Learning OS      -> 留下 project.md + session-log.md + open-questions.md + distinctions.md
-```
+| 维度 | Prompt-only chat | Learning OS |
+| --- | --- | --- |
+| 输出 | 留下一次性的聊天回答 | 留下 `project.md`、`session-log.md`、`open-questions.md`、`distinctions.md` |
+| 连续性 | 下次需要手动重建上下文 | packet state 会继续保留下来 |
+| 路由 | 一次泛化对话 | 明确先选 overlay，再选 workflow |
+| 验证 | 几乎没有显式 proof | 有 repo-only checks 和边界敏感验证 |
 
 ## 快速概览
 
@@ -86,7 +88,13 @@ pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
 
 仓库仍然提供 Windows `.cmd` wrapper，但对外文档把 `pwsh` 作为主路径，这样不会把项目读成一个只能在 Windows 上跑的仓库。
 
-这不是口头宣称：repo-only validation 已经通过本地 Windows shell、`pwsh`，以及 GitHub Actions 里的 Ubuntu / Windows 路径来验证，相关 workflow 可以直接看 [repo-only-validation.yml](.github/workflows/repo-only-validation.yml)。
+可移植命令的 proof 可以直接这样看：
+
+| 路径 | 角色 | 当前 proof |
+| --- | --- | --- |
+| `pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly` | 公开默认的 repo-only 路径 | 已在本地 Windows shell、本地 `pwsh`，以及 GitHub Actions 的 Ubuntu / Windows 路径中跑过，workflow 见 [repo-only-validation.yml](.github/workflows/repo-only-validation.yml) |
+| `.\tools\Test-All.cmd -RepoOnly` | Windows 便捷 wrapper | 作为 Windows convenience path 保留，但不是公开主路径 |
+| `pwsh -NoProfile -File ./tools/Test-All.ps1` | 本地 BYOS 完整验证 | 属于导入你自己的 source 之后的本地路径 |
 
 ## 为什么它是一个 AI Harness
 
@@ -207,7 +215,7 @@ pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
 
 当前最有价值的公开贡献大致是：
 
-- 更强的非金融案例
+- 在现有核心 demo 之外再补更多 public-safe case study
 - 围绕已验证 `pwsh` 路径的跨平台打磨
 - 更直接地对比 prompt-only study workflow
 - 进一步压缩首次上手所需时间的 onboarding 改进

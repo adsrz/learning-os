@@ -57,12 +57,14 @@ distinctions.md   -> source arrival is not the same thing as study packet readin
 
 That is the core proof surface of the repo: one open sample goes in, and a reusable packet with workflow ownership, session state, open questions, and distinctions comes out.
 
-In one glance, the difference from prompt-only chat is this:
+In one glance, the delta versus prompt-only chat is this:
 
-```text
-prompt-only chat -> one answer in chat history
-Learning OS      -> project.md + session-log.md + open-questions.md + distinctions.md
-```
+| Surface | Prompt-only chat | Learning OS |
+| --- | --- | --- |
+| Output | one answer in chat history | `project.md`, `session-log.md`, `open-questions.md`, `distinctions.md` |
+| Continuity | manual recap next session | explicit packet state survives the pass |
+| Routing | one generic conversation | explicit overlay and workflow choice |
+| Validation | little visible proof | repo-only checks and boundary-sensitive validation |
 
 ## Quick View
 
@@ -86,7 +88,13 @@ pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
 
 Windows `.cmd` wrappers are included, but the documented primary path uses `pwsh` so the repo does not read as Windows-only.
 
-Proof, not copy: the repo-only validation is already exercised through the local Windows shell, through `pwsh`, and in GitHub Actions on Ubuntu and Windows via [repo-only-validation.yml](.github/workflows/repo-only-validation.yml).
+Portable command proof at a glance:
+
+| Path | Role | Current proof |
+| --- | --- | --- |
+| `pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly` | primary documented repo-only path | proven in the local Windows shell, proven in local `pwsh`, and exercised in GitHub Actions on Ubuntu and Windows via [repo-only-validation.yml](.github/workflows/repo-only-validation.yml) |
+| `.\tools\Test-All.cmd -RepoOnly` | Windows convenience wrapper | available for Windows convenience, but intentionally not the primary documented path |
+| `pwsh -NoProfile -File ./tools/Test-All.ps1` | hydrated local BYOS validation | local-only path after you import your own sources |
 
 ## Why This Is An AI Harness
 
@@ -207,7 +215,7 @@ If the repo makes sense and you want to extend it, use these public-facing entry
 
 Right now the most valuable public contributions are:
 
-- a stronger non-finance case study
+- an additional public-safe case study beyond the first core demo
 - cross-platform polish around the verified `pwsh` path
 - sharper comparisons against prompt-only study workflows
 - onboarding improvements that reduce time-to-first-result

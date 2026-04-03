@@ -14,6 +14,14 @@ pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
 
 This checks the public-safe repo surface only.
 
+## Command Proof Matrix
+
+| Path | Role | What is actually proven |
+| --- | --- | --- |
+| `pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly` | primary documented repo-only path | proven in the local Windows shell, proven in local `pwsh`, and exercised in GitHub Actions on Ubuntu and Windows via [repo-only-validation.yml](../.github/workflows/repo-only-validation.yml) |
+| `.\tools\Test-All.cmd -RepoOnly` | Windows convenience wrapper | available for Windows convenience, but intentionally not the primary documented path |
+| `pwsh -NoProfile -File ./tools/Test-All.ps1` | hydrated local BYOS validation | local-only path after you import your own sources |
+
 ## Using Your Own Sources
 
 1. Read [bring-your-own-sources.md](bring-your-own-sources.md).
