@@ -109,15 +109,18 @@ Do not commit:
 Clean-clone validation:
 
 ```powershell
-.\tools\Test-All.cmd -RepoOnly
+pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
 ```
 
 Local source import:
 
 ```powershell
-.\tools\Import-LocalSources.cmd -SourceRoot C:\path\to\your\files
-.\tools\Test-PublicSetup.cmd
+$SOURCE_ROOT = "/absolute/path/to/your/files" # or C:\path\to\your\files on Windows
+pwsh -NoProfile -File ./tools/Import-LocalSources.ps1 -SourceRoot $SOURCE_ROOT
+pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
 ```
+
+Windows `.cmd` wrappers still exist, but the primary public command path is `pwsh`.
 
 ## If You Only Remember One Thing
 

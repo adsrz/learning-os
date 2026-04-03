@@ -10,7 +10,44 @@
 
 `Learning OS` 不只是一个学习仓库。它本质上是一层 harness：给 AI agent 明确的 source 边界、工作流路由、验证 gate 与 durable write-back，让长期学习不会退化成一次性的泛化聊天。
 
+这个 public repo 想给出的承诺很简单：把你本地拥有的 source 变成可持续写回的学习状态，而不是每轮聊天都从零开始。
+
+如果你更想直接下载一个可发布快照，而不是先 `git clone`，可以看 [Releases](https://github.com/adsrz/learning-os/releases)。
+
 如果是 AI agent 需要用最短路径快速读懂仓库，先看 [AI_CONTEXT.md](AI_CONTEXT.md)。如果更适合 machine-readable 入口，就直接读 [ai-context.json](ai-context.json)。
+
+## 60 秒证明
+
+先跑 clean-clone 检查：
+
+```powershell
+pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
+```
+
+在 Windows 上，也可以继续用便捷 wrapper：
+
+```powershell
+.\tools\Test-All.cmd -RepoOnly
+```
+
+然后直接看一组 worked result：
+
+- [samples/open/demo-source.md](samples/open/demo-source.md)
+- [examples/research-intake-packet/project.md](examples/research-intake-packet/project.md)
+- [examples/research-intake-packet/session-log.md](examples/research-intake-packet/session-log.md)
+- [examples/research-intake-packet/open-questions.md](examples/research-intake-packet/open-questions.md)
+- [examples/research-intake-packet/distinctions.md](examples/research-intake-packet/distinctions.md)
+
+你能直接看到的结果大致是这样：
+
+```text
+project.md        -> workflow_mode: research / paper workflow
+session-log.md    -> what_changed: source 完成初步分类并形成第一轮 durable packet state
+open-questions.md -> research-intake packet 至少要捕捉什么证据?
+distinctions.md   -> source arrival 不等于 study packet readiness
+```
+
+这就是仓库最核心的 proof surface：一个开放 sample 进入系统，出来的是带有 workflow owner、session state、open questions 与 distinctions 的可复用 packet。
 
 ## 快速概览
 
@@ -19,17 +56,20 @@ Shared layer -> AI_CONTEXT.md / ai-context.json / AGENTS.md
 Overlay      -> teaching 或 system-ops
 Routing      -> task-router.json
 Execution    -> agent/skills 下的 public-safe skills
-Validation   -> .\tools\Test-All.cmd -RepoOnly
+Validation   -> pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
 Write-back   -> teaching 工作写回你的本地 packet 文件
 ```
 
-## 最小命令路径
+## 可移植命令路径
 
 ```powershell
-.\tools\Test-All.cmd -RepoOnly
-.\tools\Import-LocalSources.cmd -SourceRoot C:\path\to\your\files
-.\tools\Test-PublicSetup.cmd
+pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
+$SOURCE_ROOT = "/absolute/path/to/your/files" # Windows 上也可以改成 C:\path\to\your\files
+pwsh -NoProfile -File ./tools/Import-LocalSources.ps1 -SourceRoot $SOURCE_ROOT
+pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
 ```
+
+仓库仍然提供 Windows `.cmd` wrapper，但对外文档把 `pwsh` 作为主路径，这样不会把项目读成一个只能在 Windows 上跑的仓库。
 
 ## 为什么它是一个 AI Harness
 
@@ -103,43 +143,45 @@ Write-back   -> teaching 工作写回你的本地 packet 文件
 - [docs/run-with-codex.md](docs/run-with-codex.md)
   说明如何把这个仓库真正当成 Codex harness 来运行。
 
-## 从这里开始
+## 从两条入口开始
 
-先运行公开仓库检查：
+### Starter lane：5 分钟内先看到结果
+
+1. 先跑公开检查：
 
 ```powershell
-.\tools\Test-All.cmd -RepoOnly
+pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
 ```
 
-然后阅读核心说明：
+2. 走最短演示路径：
+   - [docs/demo-flow.md](docs/demo-flow.md)
+3. 把开放 sample 和 worked packet 并排看：
+   - [samples/open/demo-source.md](samples/open/demo-source.md)
+   - [examples/research-intake-packet](examples/research-intake-packet)
+4. 准备接入自己的资料时：
+
+```powershell
+$SOURCE_ROOT = "/absolute/path/to/your/files" # Windows 上也可以改成 C:\path\to\your\files
+pwsh -NoProfile -File ./tools/Import-LocalSources.ps1 -SourceRoot $SOURCE_ROOT
+pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
+```
+
+### Architecture lane：再去理解 harness 是怎么搭起来的
 
 - [docs/run-with-codex.md](docs/run-with-codex.md)
-- [docs/demo-flow.md](docs/demo-flow.md)
 - [docs/ai-harness.md](docs/ai-harness.md)
 - [docs/agent-architecture.md](docs/agent-architecture.md)
 - [docs/public-setup.md](docs/public-setup.md)
 - [docs/bring-your-own-sources.md](docs/bring-your-own-sources.md)
 - [docs/workflow-modes.md](docs/workflow-modes.md)
-
-你也可以先看开放示例：
-
-- [samples/open/demo-source.md](samples/open/demo-source.md)
-- [samples/open/demo-source-2.md](samples/open/demo-source-2.md)
-- [examples/research-intake-packet](examples/research-intake-packet)
-- [examples/single-book-packet](examples/single-book-packet)
-- [examples/multi-book-packet](examples/multi-book-packet)
-
-当你要接入自己的资料时：
-
-```powershell
-.\tools\Import-LocalSources.cmd -SourceRoot C:\path\to\your\files
-.\tools\Test-PublicSetup.cmd
-```
+- [CHANGELOG.md](CHANGELOG.md)
 
 ## 仓库结构
 
 - [system.md](system.md)
   项目的公开身份与运行原则。
+- [CHANGELOG.md](CHANGELOG.md)
+  对外发布历史。
 - [system_detail.md](system_detail.md)
   public/private 边界规则与文件职责。
 - [agent/README.md](agent/README.md)

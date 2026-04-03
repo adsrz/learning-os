@@ -2,12 +2,14 @@
 
 This is a `system-ops` path, not a `teaching` workflow packet.
 
+The primary documented command path uses `pwsh` so the public repo does not read as Windows-only. Windows `.cmd` wrappers remain available as convenience entrypoints.
+
 ## Clean Clone
 
 After cloning the repository, run:
 
 ```powershell
-.\tools\Test-All.cmd -RepoOnly
+pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
 ```
 
 This checks the public-safe repo surface only.
@@ -19,13 +21,14 @@ This checks the public-safe repo surface only.
 3. Import your files:
 
 ```powershell
-.\tools\Import-LocalSources.cmd -SourceRoot C:\path\to\your\files
+$SOURCE_ROOT = "/absolute/path/to/your/files" # or C:\path\to\your\files on Windows
+pwsh -NoProfile -File ./tools/Import-LocalSources.ps1 -SourceRoot $SOURCE_ROOT
 ```
 
 4. Validate the local setup:
 
 ```powershell
-.\tools\Test-All.cmd
+pwsh -NoProfile -File ./tools/Test-All.ps1
 ```
 
 ## Open Demo

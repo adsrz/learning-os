@@ -10,7 +10,44 @@ An AI-native, local-first learning harness for deep reading, synthesis, thesis-s
 
 `Learning OS` is not just a study repo. It is a harness: it gives an AI agent explicit source boundaries, workflow routing, validation gates, and durable write-back so long-horizon learning can stay structured instead of collapsing into generic chat.
 
+The public promise is simple: turn a source you own locally into durable study state instead of restarting from zero every chat.
+
+Prefer a packaged snapshot over `git clone`? See [Releases](https://github.com/adsrz/learning-os/releases).
+
 For AI agents that need the shortest high-signal entrypoint, start with [AI_CONTEXT.md](AI_CONTEXT.md). If a machine-readable entrypoint is better, use [ai-context.json](ai-context.json).
+
+## 60-Second Proof
+
+Run the clean-clone checks:
+
+```powershell
+pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
+```
+
+On Windows, the convenience wrapper still works:
+
+```powershell
+.\tools\Test-All.cmd -RepoOnly
+```
+
+Then inspect one worked result:
+
+- [samples/open/demo-source.md](samples/open/demo-source.md)
+- [examples/research-intake-packet/project.md](examples/research-intake-packet/project.md)
+- [examples/research-intake-packet/session-log.md](examples/research-intake-packet/session-log.md)
+- [examples/research-intake-packet/open-questions.md](examples/research-intake-packet/open-questions.md)
+- [examples/research-intake-packet/distinctions.md](examples/research-intake-packet/distinctions.md)
+
+Visible outcome:
+
+```text
+project.md        -> workflow_mode: research / paper workflow
+session-log.md    -> what_changed: source classified and first durable packet state created
+open-questions.md -> what minimum evidence should a research-intake packet capture?
+distinctions.md   -> source arrival is not the same thing as study packet readiness
+```
+
+That is the core proof surface of the repo: one open sample goes in, and a reusable packet with workflow ownership, session state, open questions, and distinctions comes out.
 
 ## Quick View
 
@@ -19,17 +56,20 @@ Shared layer -> AI_CONTEXT.md / ai-context.json / AGENTS.md
 Overlay      -> teaching or system-ops
 Routing      -> task-router.json
 Execution    -> public-safe skills under agent/skills
-Validation   -> .\tools\Test-All.cmd -RepoOnly
+Validation   -> pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
 Write-back   -> local packet files for teaching work
 ```
 
-## Minimal CLI Path
+## Portable CLI Path
 
 ```powershell
-.\tools\Test-All.cmd -RepoOnly
-.\tools\Import-LocalSources.cmd -SourceRoot C:\path\to\your\files
-.\tools\Test-PublicSetup.cmd
+pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
+$SOURCE_ROOT = "/absolute/path/to/your/files" # or C:\path\to\your\files on Windows
+pwsh -NoProfile -File ./tools/Import-LocalSources.ps1 -SourceRoot $SOURCE_ROOT
+pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
 ```
+
+Windows `.cmd` wrappers are included, but the documented primary path uses `pwsh` so the repo does not read as Windows-only.
 
 ## Why This Is An AI Harness
 
@@ -103,43 +143,45 @@ The public repo now ships with a minimal `agent` layer instead of only high-leve
 - [docs/run-with-codex.md](docs/run-with-codex.md)
   Shows how to use this repo with Codex as an actual harness.
 
-## Start Here
+## Start In Two Lanes
 
-Run the public repo checks:
+### Starter lane: see a result in about 5 minutes
+
+1. Run the public checks:
 
 ```powershell
-.\tools\Test-All.cmd -RepoOnly
+pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
 ```
 
-Then read the core docs:
+2. Follow the shortest walkthrough:
+   - [docs/demo-flow.md](docs/demo-flow.md)
+3. Inspect the open sample and worked packet side by side:
+   - [samples/open/demo-source.md](samples/open/demo-source.md)
+   - [examples/research-intake-packet](examples/research-intake-packet)
+4. When you are ready to try your own files:
+
+```powershell
+$SOURCE_ROOT = "/absolute/path/to/your/files" # or C:\path\to\your\files on Windows
+pwsh -NoProfile -File ./tools/Import-LocalSources.ps1 -SourceRoot $SOURCE_ROOT
+pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
+```
+
+### Architecture lane: understand how the harness is built
 
 - [docs/run-with-codex.md](docs/run-with-codex.md)
-- [docs/demo-flow.md](docs/demo-flow.md)
 - [docs/ai-harness.md](docs/ai-harness.md)
 - [docs/agent-architecture.md](docs/agent-architecture.md)
 - [docs/public-setup.md](docs/public-setup.md)
 - [docs/bring-your-own-sources.md](docs/bring-your-own-sources.md)
 - [docs/workflow-modes.md](docs/workflow-modes.md)
-
-Try the included open sample:
-
-- [samples/open/demo-source.md](samples/open/demo-source.md)
-- [samples/open/demo-source-2.md](samples/open/demo-source-2.md)
-- [examples/research-intake-packet](examples/research-intake-packet)
-- [examples/single-book-packet](examples/single-book-packet)
-- [examples/multi-book-packet](examples/multi-book-packet)
-
-When you want to use your own materials:
-
-```powershell
-.\tools\Import-LocalSources.cmd -SourceRoot C:\path\to\your\files
-.\tools\Test-PublicSetup.cmd
-```
+- [CHANGELOG.md](CHANGELOG.md)
 
 ## Repo Map
 
 - [system.md](system.md)
   Public identity and operating principles.
+- [CHANGELOG.md](CHANGELOG.md)
+  Public release history.
 - [system_detail.md](system_detail.md)
   Public/private boundary rules and file responsibilities.
 - [agent/README.md](agent/README.md)

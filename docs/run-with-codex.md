@@ -34,26 +34,42 @@ Those files tell Codex:
 
 `AI_CONTEXT.md` is the preferred first read when you want the lowest-context-cost entrypoint. `ai-context.json` is the preferred first read when you want a machine-readable repo contract. `task-router.json`, `writeback-map.json`, and `agent/skills/index.json` are the preferred next reads when the agent needs routing and write-back decisions with lower ambiguity.
 
+## Starter Lane Before Architecture
+
+If the goal is first success rather than full architecture understanding, do this first:
+
+1. Run the repo-safe checks:
+
+```powershell
+pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
+```
+
+2. Read [demo-flow.md](demo-flow.md).
+3. Compare [samples/open/demo-source.md](../samples/open/demo-source.md) with [examples/research-intake-packet](../examples/research-intake-packet).
+
+That path proves the harness loop before you need the deeper architecture docs.
+
 ## Suggested Setup
 
 1. Clone the repo.
 2. Run:
 
 ```powershell
-.\tools\Test-All.cmd -RepoOnly
+pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
 ```
 
 3. Add your own lawfully obtained materials through the local ignored roots.
 4. Import them:
 
 ```powershell
-.\tools\Import-LocalSources.cmd -SourceRoot C:\path\to\your\files
+$SOURCE_ROOT = "/absolute/path/to/your/files" # or C:\path\to\your\files on Windows
+pwsh -NoProfile -File ./tools/Import-LocalSources.ps1 -SourceRoot $SOURCE_ROOT
 ```
 
 5. Validate the local setup:
 
 ```powershell
-.\tools\Test-PublicSetup.cmd
+pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
 ```
 
 6. Copy the project template into your own local project area so the agent has a clear write-back target.
@@ -61,6 +77,8 @@ Those files tell Codex:
    - [examples/research-intake-packet](../examples/research-intake-packet)
    - [examples/single-book-packet](../examples/single-book-packet)
    - [examples/multi-book-packet](../examples/multi-book-packet)
+
+Windows `.cmd` wrappers still exist, but the primary documented path is `pwsh` for a more portable public surface.
 
 ## Suggested Prompt Pattern
 

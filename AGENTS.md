@@ -50,8 +50,9 @@
 
 ## Validation
 
-- Use `.\tools\Test-All.cmd -RepoOnly` for clean-clone validation.
-- Use `.\tools\Test-All.cmd` when local BYOS source setup should also be checked.
+- Use `pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly` for clean-clone validation.
+- Use `pwsh -NoProfile -File ./tools/Test-All.ps1` when local BYOS source setup should also be checked.
+- Windows `.cmd` wrappers remain available as convenience entrypoints.
 - Keep tracked agent docs and example skills public-safe.
 
 ## Guardrails

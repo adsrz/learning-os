@@ -6,7 +6,46 @@ This is the simplest public-safe way to understand how `Learning OS` works from 
 
 Show one realistic harness loop without depending on a private book library.
 
-## Demo Path
+## 60-Second Proof
+
+1. Run the clean-clone checks:
+
+```powershell
+pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
+```
+
+2. Open the included source:
+   - [samples/open/demo-source.md](../samples/open/demo-source.md)
+3. Open the worked result:
+   - [examples/research-intake-packet/project.md](../examples/research-intake-packet/project.md)
+   - [examples/research-intake-packet/session-log.md](../examples/research-intake-packet/session-log.md)
+   - [examples/research-intake-packet/open-questions.md](../examples/research-intake-packet/open-questions.md)
+   - [examples/research-intake-packet/distinctions.md](../examples/research-intake-packet/distinctions.md)
+
+If the repo makes sense after that comparison, the public harness is already doing its job.
+
+## What The Result Looks Like
+
+One open sample source can already produce a durable packet shape:
+
+```text
+demo packet/
+  project.md
+  session-log.md
+  open-questions.md
+  distinctions.md
+```
+
+The included worked packet records four kinds of durable result:
+
+- a declared workflow owner and source boundary in `project.md`
+- one concrete session transition in `session-log.md`
+- reusable unanswered questions in `open-questions.md`
+- stable distinctions worth carrying forward in `distinctions.md`
+
+This is the key idea of the repo: the useful output is not only the answer in chat, but the packet state that survives after the pass.
+
+## 5-Minute First Success
 
 1. Start from the included open sample:
    - [samples/open/demo-source.md](../samples/open/demo-source.md)
@@ -14,7 +53,7 @@ Show one realistic harness loop without depending on a private book library.
 2. Validate the clean clone:
 
 ```powershell
-.\tools\Test-All.cmd -RepoOnly
+pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
 ```
 
 3. Create a local project from the template:
@@ -52,6 +91,17 @@ A good demo pass should leave you with:
 - at least one durable distinction
 - a project packet that roughly resembles the worked example
 - a clear sense of how `research-intake` and `single-book` packets differ
+
+## Suggested First Prompt
+
+If you want one bounded first pass with the included open sample, use a prompt like this:
+
+```text
+Treat samples/open/demo-source.md as the only in-scope source.
+Route the task into teaching, choose the correct workflow mode, and produce the first durable packet state for a new local project folder.
+Write back into project.md, session-log.md, open-questions.md, and distinctions.md.
+Keep the pass bounded and do not claim any unseen local source inspection.
+```
 
 ## Why This Matters
 

@@ -27,9 +27,10 @@ Handle one `system-ops` pass that is:
 2. Keep the task in the `system-ops` overlay.
    - Do not force it into `single-book`, `multi-book`, `thesis`, or `research` just because those modes already exist.
 3. Prefer executable checks before advice when a validator exists.
-   - `.\tools\Test-All.cmd -RepoOnly`
-   - `.\tools\Test-PublicSetup.cmd -RepoOnly`
-   - `.\tools\Test-PublicSetup.cmd`
+   - `pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly`
+   - `pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1 -RepoOnly`
+   - `pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1`
+   - Windows `.cmd` wrappers remain convenience entrypoints
 4. Keep the public/private boundary explicit.
    - Do not claim a private source was inspected unless it was actually present locally.
    - Do not write maintainer-only state or local project packets into the tracked public repo.

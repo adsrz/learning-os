@@ -109,9 +109,9 @@
     "maintainer-only packaging state or release working notes"
   ],
   "commands": {
-    "validate_repo_only": ".\\tools\\Test-All.cmd -RepoOnly",
-    "import_local_sources": ".\\tools\\Import-LocalSources.cmd -SourceRoot C:\\path\\to\\your\\files",
-    "validate_local_setup": ".\\tools\\Test-PublicSetup.cmd"
+    "validate_repo_only": "pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly",
+    "import_local_sources": "$SOURCE_ROOT = \"/absolute/path/to/your/files\" # or C:\\path\\to\\your\\files on Windows; pwsh -NoProfile -File ./tools/Import-LocalSources.ps1 -SourceRoot $SOURCE_ROOT",
+    "validate_local_setup": "pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1"
   },
   "completion_rule": "The repo is not finished when the agent produces an answer. It is finished when the task has a clear overlay owner, a clear source boundary, and either a durable write-back target or a validated repo-safe result."
 }
