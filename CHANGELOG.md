@@ -12,6 +12,17 @@ First public release of `Learning OS` as an AI-native, local-first learning harn
 - repo-only validation for clean clones
 - `pwsh`-first documented command path, with Windows `.cmd` wrappers kept as convenience entrypoints
 
+### Experience Reflected In This Release
+
+- `proof before architecture`
+  Show a concrete packet outcome before asking new visitors to read the deeper harness split.
+- `portable commands only when verified`
+  Promote the `pwsh` path only after the actual script entrypoint has been tested locally.
+- `one release-facing validation signal`
+  Keep one public repo-only workflow instead of stacking near-duplicate CI surfaces.
+- `public result, private maintainer state`
+  Keep release working memory and maintainer routing outside the tracked public repo.
+
 ### Included Surfaces
 
 - shared layer: `AI_CONTEXT.md`, `ai-context.json`, `AGENTS.md`, `system.md`

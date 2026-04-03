@@ -14,6 +14,13 @@ The public promise is simple: turn a source you own locally into durable study s
 
 Prefer a packaged snapshot over `git clone`? See [Releases](https://github.com/adsrz/learning-os/releases).
 
+This public cut also makes a few packaging lessons explicit:
+
+- show one durable output before asking visitors to read deeper architecture
+- document the portable `pwsh` path only after it has been locally verified
+- keep one public validation workflow instead of duplicating release signals
+- keep maintainer routing and release working state out of the tracked public repo
+
 For AI agents that need the shortest high-signal entrypoint, start with [AI_CONTEXT.md](AI_CONTEXT.md). If a machine-readable entrypoint is better, use [ai-context.json](ai-context.json).
 
 ## 60-Second Proof

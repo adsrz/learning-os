@@ -14,6 +14,13 @@
 
 如果你更想直接下载一个可发布快照，而不是先 `git clone`，可以看 [Releases](https://github.com/adsrz/learning-os/releases)。
 
+这次 public cut 也把几条经验直接落实到了公开结果里：
+
+- 先展示一个 durable output，再要求访客去读更深的架构说明
+- 只有在本地验证过以后，才把 `pwsh` 路径写成公开默认命令面
+- 公开验证信号保持一条主线，不重复堆叠 workflow
+- maintainer routing 和 release working state 不进入 tracked public repo
+
 如果是 AI agent 需要用最短路径快速读懂仓库，先看 [AI_CONTEXT.md](AI_CONTEXT.md)。如果更适合 machine-readable 入口，就直接读 [ai-context.json](ai-context.json)。
 
 ## 60 秒证明
