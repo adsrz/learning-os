@@ -13,20 +13,15 @@
 这个 public repo 想给出的承诺很简单：把你本地拥有的 source 变成可持续写回的学习状态，而不是每轮聊天都从零开始。
 
 如果你更想直接下载一个可发布快照，而不是先 `git clone`，可以看 [Releases](https://github.com/adsrz/learning-os/releases)。
-如果你想知道项目下一步准备补什么，或者想参与改进，可以看 [ROADMAP.md](ROADMAP.md)、[CONTRIBUTING.md](CONTRIBUTING.md) 和 [Issues](https://github.com/adsrz/learning-os/issues)。
-
-这次 public cut 也把几条经验直接落实到了公开结果里：
-
-- 先展示一个 durable output，再要求访客去读更深的架构说明
-- 只有在本地验证过以后，才把 `pwsh` 路径写成公开默认命令面
-- 公开验证信号保持一条主线，不重复堆叠 workflow
-- maintainer routing 和 release working state 不进入 tracked public repo
+这次 public cut 的重点是：先给你一个看得见的 durable output、一条验证过的 `pwsh` 路径，以及一条严格的 public/private 边界。
 
 如果是 AI agent 需要用最短路径快速读懂仓库，先看 [AI_CONTEXT.md](AI_CONTEXT.md)。如果更适合 machine-readable 入口，就直接读 [ai-context.json](ai-context.json)。
 
-## 60 秒证明
+## 从这里开始
 
-先跑 clean-clone 检查：
+如果你想在大约 5 分钟内判断这个 repo 是否真的有用，先做这三步：
+
+1. 先跑 clean-clone 检查：
 
 ```powershell
 pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
@@ -38,7 +33,12 @@ pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
 .\tools\Test-All.cmd -RepoOnly
 ```
 
-然后直接看一组 worked result：
+2. 打开最短演示路径：
+
+- [docs/demo-flow.md](docs/demo-flow.md)
+- [首条可直接复制的 prompt](docs/demo-flow.md#suggested-first-prompt)
+
+3. 把一个开放 sample 和一个 worked packet 对照着看：
 
 - [samples/open/demo-source.md](samples/open/demo-source.md)
 - [examples/research-intake-packet/project.md](examples/research-intake-packet/project.md)
@@ -46,7 +46,7 @@ pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
 - [examples/research-intake-packet/open-questions.md](examples/research-intake-packet/open-questions.md)
 - [examples/research-intake-packet/distinctions.md](examples/research-intake-packet/distinctions.md)
 
-你能直接看到的结果大致是这样：
+预期结果大致是这样：
 
 ```text
 project.md        -> workflow_mode: research / paper workflow
@@ -68,7 +68,16 @@ distinctions.md   -> source arrival 不等于 study packet readiness
 
 如果你想看一条更明确的非金融路径，可以直接对照 [samples/open/policy-brief-sample.md](samples/open/policy-brief-sample.md) 和 [examples/thesis-reading-packet](examples/thesis-reading-packet)。
 
-## 快速概览
+## 下一步
+
+- `接入你自己的资料`
+  先看 [docs/public-setup.md](docs/public-setup.md) 和 [docs/bring-your-own-sources.md](docs/bring-your-own-sources.md)，然后按下面的 `pwsh` 路径继续。
+- `给 AI agent 的最短入口`
+  先读 [AI_CONTEXT.md](AI_CONTEXT.md)，再读 [ai-context.json](ai-context.json)、[task-router.json](task-router.json) 和 [writeback-map.json](writeback-map.json)。
+- `再看架构与参与方式`
+  先读 [docs/run-with-codex.md](docs/run-with-codex.md)、[docs/ai-harness.md](docs/ai-harness.md) 和 [docs/agent-architecture.md](docs/agent-architecture.md)，再看 [ROADMAP.md](ROADMAP.md)、[CONTRIBUTING.md](CONTRIBUTING.md) 和 [Issues](https://github.com/adsrz/learning-os/issues)。
+
+## 快速模型
 
 ```text
 Shared layer -> AI_CONTEXT.md / ai-context.json / AGENTS.md
@@ -169,40 +178,6 @@ pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
   一个更具体的 intake skill，用来处理论文、报告和抓取文章。
 - [docs/run-with-codex.md](docs/run-with-codex.md)
   说明如何把这个仓库真正当成 Codex harness 来运行。
-
-## 从两条入口开始
-
-### Starter lane：5 分钟内先看到结果
-
-1. 先跑公开检查：
-
-```powershell
-pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
-```
-
-2. 走最短演示路径：
-   - [docs/demo-flow.md](docs/demo-flow.md)
-   - [首条可直接复制的 prompt](docs/demo-flow.md#suggested-first-prompt)
-3. 把开放 sample 和 worked packet 并排看：
-   - [samples/open/demo-source.md](samples/open/demo-source.md)
-   - [examples/research-intake-packet](examples/research-intake-packet)
-4. 准备接入自己的资料时：
-
-```powershell
-$SOURCE_ROOT = "/absolute/path/to/your/files" # Windows 上也可以改成 C:\path\to\your\files
-pwsh -NoProfile -File ./tools/Import-LocalSources.ps1 -SourceRoot $SOURCE_ROOT
-pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
-```
-
-### Architecture lane：再去理解 harness 是怎么搭起来的
-
-- [docs/run-with-codex.md](docs/run-with-codex.md)
-- [docs/ai-harness.md](docs/ai-harness.md)
-- [docs/agent-architecture.md](docs/agent-architecture.md)
-- [docs/public-setup.md](docs/public-setup.md)
-- [docs/bring-your-own-sources.md](docs/bring-your-own-sources.md)
-- [docs/workflow-modes.md](docs/workflow-modes.md)
-- [CHANGELOG.md](CHANGELOG.md)
 
 ## Roadmap 与参与入口
 

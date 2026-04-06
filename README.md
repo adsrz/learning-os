@@ -13,20 +13,15 @@ An AI-native, local-first learning harness for deep reading, synthesis, thesis-s
 The public promise is simple: turn a source you own locally into durable study state instead of restarting from zero every chat.
 
 Prefer a packaged snapshot over `git clone`? See [Releases](https://github.com/adsrz/learning-os/releases).
-Looking for what is next or how to help? See [ROADMAP.md](ROADMAP.md), [CONTRIBUTING.md](CONTRIBUTING.md), and [Issues](https://github.com/adsrz/learning-os/issues).
-
-This public cut also makes a few packaging lessons explicit:
-
-- show one durable output before asking visitors to read deeper architecture
-- document the portable `pwsh` path only after it has been locally verified
-- keep one public validation workflow instead of duplicating release signals
-- keep maintainer routing and release working state out of the tracked public repo
+This public cut is shaped around one visible durable output, one verified `pwsh` path, and a strict public/private boundary.
 
 For AI agents that need the shortest high-signal entrypoint, start with [AI_CONTEXT.md](AI_CONTEXT.md). If a machine-readable entrypoint is better, use [ai-context.json](ai-context.json).
 
-## 60-Second Proof
+## Start Here
 
-Run the clean-clone checks:
+If you want to know whether this repo is real in about 5 minutes, do this:
+
+1. Run the clean-clone checks:
 
 ```powershell
 pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
@@ -38,7 +33,12 @@ On Windows, the convenience wrapper still works:
 .\tools\Test-All.cmd -RepoOnly
 ```
 
-Then inspect one worked result:
+2. Open the shortest walkthrough:
+
+- [docs/demo-flow.md](docs/demo-flow.md)
+- [Paste-first prompt](docs/demo-flow.md#suggested-first-prompt)
+
+3. Compare one open sample with one worked packet:
 
 - [samples/open/demo-source.md](samples/open/demo-source.md)
 - [examples/research-intake-packet/project.md](examples/research-intake-packet/project.md)
@@ -46,7 +46,7 @@ Then inspect one worked result:
 - [examples/research-intake-packet/open-questions.md](examples/research-intake-packet/open-questions.md)
 - [examples/research-intake-packet/distinctions.md](examples/research-intake-packet/distinctions.md)
 
-Visible outcome:
+Expected result:
 
 ```text
 project.md        -> workflow_mode: research / paper workflow
@@ -68,7 +68,16 @@ In one glance, the delta versus prompt-only chat is this:
 
 Need a clearly non-finance path? Compare [samples/open/policy-brief-sample.md](samples/open/policy-brief-sample.md) with [examples/thesis-reading-packet](examples/thesis-reading-packet).
 
-## Quick View
+## Next
+
+- `Use your own sources`
+  Follow [docs/public-setup.md](docs/public-setup.md) and [docs/bring-your-own-sources.md](docs/bring-your-own-sources.md), then use the `pwsh` path shown below.
+- `AI agent entry`
+  Start with [AI_CONTEXT.md](AI_CONTEXT.md), then read [ai-context.json](ai-context.json), [task-router.json](task-router.json), and [writeback-map.json](writeback-map.json).
+- `Architecture and contribution`
+  Start with [docs/run-with-codex.md](docs/run-with-codex.md), [docs/ai-harness.md](docs/ai-harness.md), and [docs/agent-architecture.md](docs/agent-architecture.md), then use [ROADMAP.md](ROADMAP.md), [CONTRIBUTING.md](CONTRIBUTING.md), and [Issues](https://github.com/adsrz/learning-os/issues).
+
+## Quick Model
 
 ```text
 Shared layer -> AI_CONTEXT.md / ai-context.json / AGENTS.md
@@ -169,40 +178,6 @@ The public repo now ships with a minimal `agent` layer instead of only high-leve
   A more concrete intake skill for papers, reports, and captured articles.
 - [docs/run-with-codex.md](docs/run-with-codex.md)
   Shows how to use this repo with Codex as an actual harness.
-
-## Start In Two Lanes
-
-### Starter lane: see a result in about 5 minutes
-
-1. Run the public checks:
-
-```powershell
-pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
-```
-
-2. Follow the shortest walkthrough:
-   - [docs/demo-flow.md](docs/demo-flow.md)
-   - [Paste-first prompt](docs/demo-flow.md#suggested-first-prompt)
-3. Inspect the open sample and worked packet side by side:
-   - [samples/open/demo-source.md](samples/open/demo-source.md)
-   - [examples/research-intake-packet](examples/research-intake-packet)
-4. When you are ready to try your own files:
-
-```powershell
-$SOURCE_ROOT = "/absolute/path/to/your/files" # or C:\path\to\your\files on Windows
-pwsh -NoProfile -File ./tools/Import-LocalSources.ps1 -SourceRoot $SOURCE_ROOT
-pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
-```
-
-### Architecture lane: understand how the harness is built
-
-- [docs/run-with-codex.md](docs/run-with-codex.md)
-- [docs/ai-harness.md](docs/ai-harness.md)
-- [docs/agent-architecture.md](docs/agent-architecture.md)
-- [docs/public-setup.md](docs/public-setup.md)
-- [docs/bring-your-own-sources.md](docs/bring-your-own-sources.md)
-- [docs/workflow-modes.md](docs/workflow-modes.md)
-- [CHANGELOG.md](CHANGELOG.md)
 
 ## Roadmap And Contribution
 
