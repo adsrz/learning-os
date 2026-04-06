@@ -25,14 +25,13 @@ The next public-facing gains are now less about packaging basics and more about 
 
 ## Near-Term
 
-### 1. More Public Case Studies
+### 1. One System-Evolution Case Study
 
-The repo now has a first non-finance policy example. The next step is to broaden the case-study set without turning the repo into a museum of examples.
+Track this in issue `#5`: `Add a public system-evolution case study from one real failure/repair loop`.
 
-High-value candidates:
+The repo already proves first success for study work. The next proof should show the harness improving itself in public: one concrete signal, one bounded fix, one validation path, and one durable result.
 
-- a research article intake story
-- a system-evolution story that shows how the harness changed after failure
+Keep this to a single case before widening the example set again.
 
 ### 2. Sharper Demo Pack
 
