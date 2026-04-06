@@ -34,6 +34,7 @@ Handle one `system-ops` pass that is:
 4. Keep the public/private boundary explicit.
    - Do not claim a private source was inspected unless it was actually present locally.
    - Do not write maintainer-only state or local project packets into the tracked public repo.
+   - Keep imported sources under the existing ignored local roots such as `sources/`, `book/`, or `research_doc/`, not in ad hoc new top-level folders.
 5. If the task changes public docs, tooling, or machine contracts:
    - keep the change public-safe
    - keep JSON contracts aligned with the docs they describe
@@ -57,5 +58,5 @@ Handle one `system-ops` pass that is:
 
 - Do not commit private books, papers, PDFs, or captured materials.
 - Do not store local machine paths in tracked docs unless the path is an obvious placeholder.
-- Do not create tracked `project.md`, `session-log.md`, `open-questions.md`, or `distinctions.md` outside the allowed template and example surfaces.
+- Do not create tracked `owner.md`, `project.md`, `session-log.md`, `open-questions.md`, or `distinctions.md` outside the allowed template and example surfaces.
 - Do not describe a repo-maintenance task as if it were a teaching packet.

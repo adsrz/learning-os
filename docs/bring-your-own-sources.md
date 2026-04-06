@@ -18,6 +18,10 @@ The public repo expects local source materials under ignored directories such as
 
 Legacy-compatible local roots such as `book/` and `research_doc/` may also be used during migration, but the public repo treats them as ignored local-only surfaces.
 
+Keep new local materials inside those ignored roots.
+
+Do not create ad hoc top-level folders for imported books, papers, or scratch bundles. If a new persistent root is genuinely needed, add it deliberately together with `.gitignore` and the public setup docs instead of relying on an accidental drop.
+
 ## What Not To Commit
 
 - copyrighted books

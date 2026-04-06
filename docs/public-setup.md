@@ -39,6 +39,8 @@ pwsh -NoProfile -File ./tools/Import-LocalSources.ps1 -SourceRoot $SOURCE_ROOT
 pwsh -NoProfile -File ./tools/Test-All.ps1
 ```
 
+Imported sources should stay under the existing ignored local roots such as `sources/`, `book/`, or `research_doc/`. Do not leave new top-level source folders in the repo root.
+
 ## Open Demo
 
 If you want to see the public repo shape before importing any private materials, start with [demo-source.md](../samples/open/demo-source.md).

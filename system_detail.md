@@ -79,6 +79,7 @@ These surfaces are intentionally local-only and must stay out of tracked history
 - `sources/`
 - `book/`
 - `research_doc/`
+- maintainer-only owner bundles and release-routing notes that live outside the public repo
 - local project areas copied from `templates/project-template/`
 - generated local artifacts beyond tracked placeholders
 - personal runtime logs

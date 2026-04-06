@@ -1,3 +1,32 @@
+# Root admission boundary: unexpected top-level drops stay out of Git by default.
+/*
+!/.github/
+!/agent/
+!/artifacts/
+!/book/
+!/docs/
+!/examples/
+!/research_doc/
+!/samples/
+!/sources/
+!/templates/
+!/tools/
+!/.gitattributes
+!/.gitignore
+!/AGENTS.md
+!/AI_CONTEXT.md
+!/ai-context.json
+!/CHANGELOG.md
+!/CONTRIBUTING.md
+!/LICENSE
+!/README.md
+!/README.zh-CN.md
+!/ROADMAP.md
+!/system.md
+!/system_detail.md
+!/task-router.json
+!/writeback-map.json
+
 # OS / editor
 .DS_Store
 Thumbs.db
