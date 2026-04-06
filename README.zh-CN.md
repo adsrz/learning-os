@@ -223,6 +223,8 @@ pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
   一个保留 source overlap 与 tension 的 `multi-book synthesis` 示例 packet。
 - [examples/thesis-reading-packet](examples/thesis-reading-packet)
   一个 `thesis / non-textbook reading` 的非金融示例 packet。
+- [examples/system-evolution-boundary-hardening](examples/system-evolution-boundary-hardening)
+  一个公开、安全的系统演化案例，展示单个边界漂移信号如何收紧 validator 和 setup contract。
 - [docs/ai-harness.md](docs/ai-harness.md)
   解释这个项目为什么是 harness，而不是普通学习仓库。
 - [docs/agent-architecture.md](docs/agent-architecture.md)

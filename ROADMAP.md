@@ -27,9 +27,9 @@ The next public-facing gains are now less about packaging basics and more about 
 
 ### 1. One System-Evolution Case Study
 
-Track this in issue `#5`: `Add a public system-evolution case study from one real failure/repair loop`.
+Issue `#5` now lands in [examples/system-evolution-boundary-hardening](examples/system-evolution-boundary-hardening).
 
-The repo already proves first success for study work. The next proof should show the harness improving itself in public: one concrete signal, one bounded fix, one validation path, and one durable result.
+That first case shows the harness improving itself in public: one concrete boundary-drift signal, one bounded fix, one validation path, and one durable result.
 
 Keep this to a single case before widening the example set again.
 

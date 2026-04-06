@@ -223,6 +223,8 @@ Right now the most valuable public contributions are:
   A worked packet that preserves overlap and tension across two sources.
 - [examples/thesis-reading-packet](examples/thesis-reading-packet)
   A worked non-finance packet for `thesis / non-textbook reading`.
+- [examples/system-evolution-boundary-hardening](examples/system-evolution-boundary-hardening)
+  A worked public case showing how one boundary-drift signal tightened the validator and setup contract.
 - [docs/ai-harness.md](docs/ai-harness.md)
   What makes this project a harness rather than a generic study repo.
 - [docs/agent-architecture.md](docs/agent-architecture.md)
