@@ -1,5 +1,26 @@
 # Changelog
 
+## Unreleased - 2026-04-12
+
+Public top-surface maintenance after `v0.1.1`.
+
+### Highlights
+
+- clearer proof-first audience split across `README.md`, `README.zh-CN.md`, and `AI_CONTEXT.md`
+- `docs/run-with-codex.md` now leads with the proof lane before the deeper architecture lane
+- `tools/Test-PublicSetup.ps1` now rejects `memory.md` references on public top surfaces
+
+### Why This Pass Exists
+
+- the `Sharper Demo Pack` lane was the highest-leverage next public packet after the boundary-hardening case
+- this pass tightens time-to-first-result without adding a new architecture surface or a second public system-evolution case
+
+### Non-Goals
+
+- no change to the BYOS boundary
+- no new public control-surface document family
+- no maintainer-only release state inside the tracked public repo
+
 ## v0.1.1 - 2026-04-02
 
 Second public release of `Learning OS`, focused on making the post-`v0.1.0` public direction visible instead of leaving it split across `main`, issues, and roadmap notes.

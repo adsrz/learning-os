@@ -37,11 +37,13 @@ Keep this to a single case before widening the example set again.
 
 Keep reducing time-to-first-result for a new visitor.
 
+A first `2026-04-12` pass already landed the clearer proof-first lane and the first-read audience split in the top surfaces.
+
 Likely surfaces:
 
-- an even tighter first-run walkthrough
+- an even tighter first-run walkthrough if real visitor friction still clusters there
 - better public-safe example progression
-- clearer before/after result framing
+- clearer before/after result framing backed by outsider use rather than only first-party copy refinement
 
 ### 3. External Feedback Loop
 
