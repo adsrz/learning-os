@@ -84,6 +84,7 @@ foreach ($relativePath in $requiredRepoFiles) {
 }
 
 $maintainerStateFileNames = @(
+    "memory.md",
     "owner.md",
     "project.md",
     "session-log.md",
@@ -106,6 +107,7 @@ $forbiddenReferencePatterns = @(
     "docs\\public-export\\",
     "learning-os-public/",
     "learning-os-public\\",
+    "memory.md",
     "owner.md",
     "projects/",
     "projects\\",

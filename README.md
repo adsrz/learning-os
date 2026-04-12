@@ -12,14 +12,28 @@ An AI-native, local-first learning harness for deep reading, synthesis, thesis-s
 
 The public promise is simple: turn a source you own locally into durable study state instead of restarting from zero every chat.
 
+Proof first: if you want to know whether this repo works, verify the public surface, inspect one worked packet, then read the deeper architecture.
+
 Prefer a packaged snapshot over `git clone`? See [Releases](https://github.com/adsrz/learning-os/releases).
-This public cut is shaped around one visible durable output, one verified `pwsh` path, and a strict public/private boundary.
 
-For AI agents that need the shortest high-signal entrypoint, start with [AI_CONTEXT.md](AI_CONTEXT.md). If a machine-readable entrypoint is better, use [ai-context.json](ai-context.json).
+## Pick Your Lane
 
-## Start Here
+- `Human proof check`
+  Run the repo-safe validation, then open the demo flow and one worked packet.
+- `AI agent entry`
+  Start with [AI_CONTEXT.md](AI_CONTEXT.md). If a machine-readable entrypoint is better, use [ai-context.json](ai-context.json).
+- `Contributor / extender`
+  Read [ROADMAP.md](ROADMAP.md), [CONTRIBUTING.md](CONTRIBUTING.md), and [Issues](https://github.com/adsrz/learning-os/issues) after you have seen the proof path.
+
+## Proof Lane
 
 If you want to know whether this repo is real in about 5 minutes, do this:
+
+```text
+input   -> samples/open/demo-source.md
+command -> pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
+output  -> examples/research-intake-packet/{project.md,session-log.md,open-questions.md,distinctions.md}
+```
 
 1. Run the clean-clone checks:
 
@@ -41,10 +55,7 @@ On Windows, the convenience wrapper still works:
 3. Compare one open sample with one worked packet:
 
 - [samples/open/demo-source.md](samples/open/demo-source.md)
-- [examples/research-intake-packet/project.md](examples/research-intake-packet/project.md)
-- [examples/research-intake-packet/session-log.md](examples/research-intake-packet/session-log.md)
-- [examples/research-intake-packet/open-questions.md](examples/research-intake-packet/open-questions.md)
-- [examples/research-intake-packet/distinctions.md](examples/research-intake-packet/distinctions.md)
+- [examples/research-intake-packet](examples/research-intake-packet)
 
 Expected result:
 

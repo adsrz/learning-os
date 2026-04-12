@@ -12,14 +12,28 @@
 
 这个 public repo 想给出的承诺很简单：把你本地拥有的 source 变成可持续写回的学习状态，而不是每轮聊天都从零开始。
 
+先看 proof：如果你想先判断这个 repo 是否真的成立，先验证 public surface、看一条 worked packet，再回头读更深的架构说明。
+
 如果你更想直接下载一个可发布快照，而不是先 `git clone`，可以看 [Releases](https://github.com/adsrz/learning-os/releases)。
-这次 public cut 的重点是：先给你一个看得见的 durable output、一条验证过的 `pwsh` 路径，以及一条严格的 public/private 边界。
 
-如果是 AI agent 需要用最短路径快速读懂仓库，先看 [AI_CONTEXT.md](AI_CONTEXT.md)。如果更适合 machine-readable 入口，就直接读 [ai-context.json](ai-context.json)。
+## 选择入口
 
-## 从这里开始
+- `人工 proof 检查`
+  先跑 repo-safe validation，再打开 demo flow 和一个 worked packet。
+- `AI agent 入口`
+  先看 [AI_CONTEXT.md](AI_CONTEXT.md)。如果更适合 machine-readable 入口，就直接读 [ai-context.json](ai-context.json)。
+- `贡献 / 扩展`
+  先看 proof path，再读 [ROADMAP.md](ROADMAP.md)、[CONTRIBUTING.md](CONTRIBUTING.md) 和 [Issues](https://github.com/adsrz/learning-os/issues)。
+
+## Proof 路径
 
 如果你想在大约 5 分钟内判断这个 repo 是否真的有用，先做这三步：
+
+```text
+input   -> samples/open/demo-source.md
+command -> pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
+output  -> examples/research-intake-packet/{project.md,session-log.md,open-questions.md,distinctions.md}
+```
 
 1. 先跑 clean-clone 检查：
 
@@ -41,10 +55,7 @@ pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
 3. 把一个开放 sample 和一个 worked packet 对照着看：
 
 - [samples/open/demo-source.md](samples/open/demo-source.md)
-- [examples/research-intake-packet/project.md](examples/research-intake-packet/project.md)
-- [examples/research-intake-packet/session-log.md](examples/research-intake-packet/session-log.md)
-- [examples/research-intake-packet/open-questions.md](examples/research-intake-packet/open-questions.md)
-- [examples/research-intake-packet/distinctions.md](examples/research-intake-packet/distinctions.md)
+- [examples/research-intake-packet](examples/research-intake-packet)
 
 预期结果大致是这样：
 

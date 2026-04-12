@@ -2,6 +2,21 @@
 
 This repo is designed to work as a local-first `AI harness`, not just as a static documentation set.
 
+## Proof First
+
+If you want the public surface to prove itself before architecture, do this first:
+
+1. Run the repo-safe checks:
+
+```powershell
+pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
+```
+
+2. Read [demo-flow.md](demo-flow.md).
+3. Compare [samples/open/demo-source.md](../samples/open/demo-source.md) with [examples/research-intake-packet](../examples/research-intake-packet).
+
+That path proves the harness loop before you need the deeper architecture docs.
+
 ## What Codex Should See
 
 When you open this repository in Codex, the important public surfaces are:
@@ -33,21 +48,6 @@ Those files tell Codex:
 - durable write-back matters
 
 `AI_CONTEXT.md` is the preferred first read when you want the lowest-context-cost entrypoint. `ai-context.json` is the preferred first read when you want a machine-readable repo contract. `task-router.json`, `writeback-map.json`, and `agent/skills/index.json` are the preferred next reads when the agent needs routing and write-back decisions with lower ambiguity.
-
-## Starter Lane Before Architecture
-
-If the goal is first success rather than full architecture understanding, do this first:
-
-1. Run the repo-safe checks:
-
-```powershell
-pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
-```
-
-2. Read [demo-flow.md](demo-flow.md).
-3. Compare [samples/open/demo-source.md](../samples/open/demo-source.md) with [examples/research-intake-packet](../examples/research-intake-packet).
-
-That path proves the harness loop before you need the deeper architecture docs.
 
 ## Suggested Setup
 

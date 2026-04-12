@@ -16,6 +16,11 @@ Machine-readable companion:
 - `not_this`: not a private source archive, not a generic chat notebook, not a public redistribution repo
 - `packet_model`: shared layer plus exactly one primary overlay
 
+## Audience Split
+
+- `human_proof_reader`: start with [README.md](README.md) and [docs/demo-flow.md](docs/demo-flow.md) if you want proof before architecture.
+- `ai_agent_router`: start with this file, then the machine contracts and overlay docs.
+
 ## Fast Read Order
 
 Read in this order when context is limited:
@@ -25,6 +30,8 @@ Read in this order when context is limited:
 3. [agent/README.md](agent/README.md)
 4. [docs/agent-architecture.md](docs/agent-architecture.md)
 5. [docs/run-with-codex.md](docs/run-with-codex.md)
+
+If you only need the public proof surface, read [README.md](README.md) and [docs/demo-flow.md](docs/demo-flow.md) before the deeper architecture docs.
 
 If the task is about setup or local sources, also read:
 
