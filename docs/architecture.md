@@ -1,8 +1,52 @@
 # Architecture
 
+If you only need the simple version, start with these two diagrams.
+
+## One source in, one useful packet out
+
+```mermaid
+flowchart LR
+    A["Your local source"] --> B["Open Learning OS in Codex"]
+    B --> C["Choose the right workflow"]
+    C --> D["Run one bounded pass"]
+    D --> E["Write back durable files"]
+    E --> F["Resume next time without starting over"]
+```
+
+## What lives where
+
+```mermaid
+flowchart TB
+    A["Public repo<br/>README / docs / tools / templates / examples"] --> C["Codex"]
+    B["Your local sources<br/>books / papers / notes"] --> C
+    C --> D["Your local packet<br/>project.md / session-log.md / open-questions.md / distinctions.md"]
+```
+
 ## Public Repo Shape
 
-`Learning OS` is split into five layers:
+`Learning OS` is easiest to understand as four public pieces plus one local layer:
+
+1. `shared entry`
+   - `README.md`
+   - `AI_CONTEXT.md`
+   - `ai-context.json`
+2. `workflow and setup docs`
+   - `docs/run-with-codex.md`
+   - `docs/demo-flow.md`
+   - `docs/ai-harness.md`
+3. `tools and templates`
+   - validators
+   - import helpers
+   - `templates/project-template`
+4. `worked examples`
+   - public-safe packets under `examples/`
+5. `your local BYOS layer`
+   - your own books, papers, notes, and project folders
+   - intentionally kept out of tracked Git history
+
+## Deeper Routing Model
+
+If you want the more technical view, the repo still follows the same layered idea:
 
 1. `shared layer`
    - AI entrypoints
@@ -19,40 +63,17 @@
    - import helpers
    - public/private boundary enforcement
 4. `reference workflow layer`
-    - example write-ups for the four workflow modes
-    - open demo material
-    - project templates for durable write-back
-    - worked example packets
-    - multiple open samples for synthesis demos
+   - example write-ups for the four workflow modes
+   - open demo material
+   - project templates for durable write-back
+   - worked example packets
 5. `local BYOS layer`
    - user-owned books, papers, and research materials
    - intentionally ignored by Git
 
 ## Design Goal
 
-The repo should still be understandable on a clean clone, but more powerful once the user adds their own source materials and runs the harness against them.
-
-## Routing Principle
-
-The public repo now exposes a simple routing model:
-
-- read the shared layer first
-- choose exactly one primary overlay
-- only then choose a workflow mode or system-ops pass shape
-
-That keeps setup and maintenance work from being misrouted as fake study packets.
-
-## Harness Core
-
-The project should read as an `AI harness`, not merely as a study repo:
-
-- shared-layer routing is explicit
-- overlay choice is explicit
-- sources are explicit
-- workflow routing is explicit
-- validation is explicit
-- durable write-back is explicit
-- the public execution layer is explicit
+The repo should still be understandable on a clean clone, but more powerful once you add your own source materials and run the harness against them.
 
 ## Non-Goal
 

@@ -6,36 +6,71 @@
 
 `Type: AI Harness` `Mode: Local-First` `Sources: BYOS` `License: MIT`
 
-一个面向深度阅读、综合学习、论述型阅读与研究工作流的 `AI-native`、`local-first` 学习 harness。
+`Learning OS` 是一个直接用 Codex 打开的、本地优先的学习工作区。你自带资料，Codex 负责按合适的工作流处理任务，而这个仓库负责把学习结果沉淀成可持续写回的文件，而不是只留在聊天记录里。
 
-`Learning OS` 不只是一个学习仓库。它本质上是一层 harness：给 AI agent 明确的 source 边界、工作流路由、验证 gate 与 durable write-back，让长期学习不会退化成一次性的泛化聊天。
+如果你更想下载一个打包快照，而不是先 `git clone`，可以看 [Releases](https://github.com/adsrz/learning-os/releases)。
 
-这个 public repo 想给出的承诺很简单：把你本地拥有的 source 变成可持续写回的学习状态，而不是每轮聊天都从零开始。
+## 先这样用
 
-先看 proof：如果你想先判断这个 repo 是否真的成立，先验证 public surface、看一条 worked packet，再回头读更深的架构说明。
+1. 从 Releases 或 GitHub 下载仓库快照 `source.zip`。
+2. 解压。
+3. 用 Codex 把这个文件夹作为项目打开。
+4. 如果你只想先看最短的上手路径，打开 [docs/demo-flow.md](docs/demo-flow.md)。
+5. 如果之后想接入你自己的资料，再看 [docs/public-setup.md](docs/public-setup.md) 和 [docs/bring-your-own-sources.md](docs/bring-your-own-sources.md)。
 
-如果你更想直接下载一个可发布快照，而不是先 `git clone`，可以看 [Releases](https://github.com/adsrz/learning-os/releases)。
+你可以立刻看懂仓库，也可以直接试内置 demo。还不需要先准备一整套私有资料库。
 
-## 选择入口
+## 这个仓库是干什么的
 
-- `人工 proof 检查`
-  先跑 repo-safe validation，再打开 demo flow 和一个 worked packet。
-- `AI agent 入口`
-  先看 [AI_CONTEXT.md](AI_CONTEXT.md)。如果更适合 machine-readable 入口，就直接读 [ai-context.json](ai-context.json)。
-- `贡献 / 扩展`
-  先看 proof path，再读 [ROADMAP.md](ROADMAP.md)、[CONTRIBUTING.md](CONTRIBUTING.md) 和 [Issues](https://github.com/adsrz/learning-os/issues)。
+- 把一份本地资料变成可持续复用的学习状态
+- 把下一步、未解决问题和关键区分写进文件，而不是只留在聊天里
+- 支持深度阅读、多书综合、论述型阅读和研究资料 intake
+- 保持 `local-first` 和 `BYOS`，所以公开仓库可以一直保持干净、可复用
 
-## Proof 路径
+## 你最后会得到什么
 
-如果你想在大约 5 分钟内判断这个 repo 是否真的有用，先做这三步：
+一次 pass 做得好的时候，真正留下来的不只是聊天回答，还会有一个能延续下去的小 packet：
+
+- `project.md`
+- `session-log.md`
+- `open-questions.md`
+- `distinctions.md`
+
+## 它怎么工作
+
+### 一份资料进去，一个有用的 packet 出来
+
+```mermaid
+flowchart LR
+    A["你的本地资料"] --> B["在 Codex 里打开 Learning OS"]
+    B --> C["选择合适的工作流"]
+    C --> D["跑一轮有边界的 pass"]
+    D --> E["写回 durable files"]
+    E --> F["下次继续，不必从零开始"]
+```
+
+### 东西分别放在哪里
+
+```mermaid
+flowchart TB
+    A["公开仓库<br/>README / docs / tools / templates / examples"] --> C["Codex"]
+    B["你的本地资料<br/>books / papers / notes"] --> C
+    C --> D["你的本地 packet<br/>project.md / session-log.md / open-questions.md / distinctions.md"]
+```
+
+## 5 分钟看懂它是不是真的有用
+
+如果你想先确认这个仓库是不是实的，而不是先读更深的架构，先走这一条：
 
 ```text
 input   -> samples/open/demo-source.md
-command -> pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
+guide   -> docs/demo-flow.md
 output  -> examples/research-intake-packet/{project.md,session-log.md,open-questions.md,distinctions.md}
 ```
 
-1. 先跑 clean-clone 检查：
+1. 打开 [docs/demo-flow.md](docs/demo-flow.md)。
+2. 对照 [samples/open/demo-source.md](samples/open/demo-source.md) 和 [examples/research-intake-packet](examples/research-intake-packet)。
+3. 如果你想验证公开 surface，再运行：
 
 ```powershell
 pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
@@ -47,57 +82,48 @@ pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
 .\tools\Test-All.cmd -RepoOnly
 ```
 
-2. 打开最短演示路径：
-
-- [docs/demo-flow.md](docs/demo-flow.md)
-- [首条可直接复制的 prompt](docs/demo-flow.md#suggested-first-prompt)
-
-3. 把一个开放 sample 和一个 worked packet 对照着看：
-
-- [samples/open/demo-source.md](samples/open/demo-source.md)
-- [examples/research-intake-packet](examples/research-intake-packet)
-
 预期结果大致是这样：
 
 ```text
-project.md        -> workflow_mode: research / paper workflow
-session-log.md    -> what_changed: source 完成初步分类并形成第一轮 durable packet state
-open-questions.md -> research-intake packet 至少要捕捉什么证据?
-distinctions.md   -> source arrival 不等于 study packet readiness
+project.md        -> 当前在学什么、资料边界是什么
+session-log.md    -> 这次发生了什么、下一步该做什么
+open-questions.md -> 还有哪些问题没有解决
+distinctions.md   -> 哪些重要区分值得保留下来
 ```
 
-这就是仓库最核心的 proof surface：一个开放 sample 进入系统，出来的是带有 workflow owner、session state、open questions 与 distinctions 的可复用 packet。
+这就是仓库最核心的公开 proof：一个开放 sample 进入系统，出来的是一个可复用的 packet。
 
-如果只用一眼说明它和 prompt-only chat 的差别，可以看这张表：
+## 它和普通 prompt 聊天有什么不同
 
 | 维度 | Prompt-only chat | Learning OS |
 | --- | --- | --- |
-| 输出 | 留下一次性的聊天回答 | 留下 `project.md`、`session-log.md`、`open-questions.md`、`distinctions.md` |
-| 连续性 | 下次需要手动重建上下文 | packet state 会继续保留下来 |
-| 路由 | 一次泛化对话 | 明确先选 overlay，再选 workflow |
-| 验证 | 几乎没有显式 proof | 有 repo-only checks 和边界敏感验证 |
+| 输出 | 留下一次性的回答 | 留下 durable packet files |
+| 连续性 | 下次要手动重建上下文 | packet state 会保留下来 |
+| 路由 | 一次泛化对话 | 明确选择工作流 |
+| 验证 | 几乎没有显式 proof | 有 repo-safe checks 和边界验证 |
+| 资料边界 | 靠聊天临时拼接 | 明确依赖本地 source boundary |
 
-如果你想看一条更明确的非金融路径，可以直接对照 [samples/open/policy-brief-sample.md](samples/open/policy-brief-sample.md) 和 [examples/thesis-reading-packet](examples/thesis-reading-packet)。
+## 它支持哪些工作
 
-## 下一步
+- `Single-book deep reading`
+  一份主资料，慢速、机制优先、持续写回。
+- `Multi-book synthesis`
+  多份资料进入同一个学习项目，但不会被粗暴压扁成一本书。
+- `Thesis / non-textbook reading`
+  适合论述性强、理论先行的阅读对象。
+- `Research / paper workflow`
+  适合论文、报告、抓取文章这类要先 intake 和分类的材料。
 
-- `接入你自己的资料`
-  先看 [docs/public-setup.md](docs/public-setup.md) 和 [docs/bring-your-own-sources.md](docs/bring-your-own-sources.md)，然后按下面的 `pwsh` 路径继续。
-- `给 AI agent 的最短入口`
-  先读 [AI_CONTEXT.md](AI_CONTEXT.md)，再读 [ai-context.json](ai-context.json)、[task-router.json](task-router.json) 和 [writeback-map.json](writeback-map.json)。
-- `再看架构与参与方式`
-  先读 [docs/run-with-codex.md](docs/run-with-codex.md)、[docs/ai-harness.md](docs/ai-harness.md) 和 [docs/agent-architecture.md](docs/agent-architecture.md)，再看 [ROADMAP.md](ROADMAP.md)、[CONTRIBUTING.md](CONTRIBUTING.md) 和 [Issues](https://github.com/adsrz/learning-os/issues)。
+## 下一步看什么
 
-## 快速模型
-
-```text
-Shared layer -> AI_CONTEXT.md / ai-context.json / AGENTS.md
-Overlay      -> teaching 或 system-ops
-Routing      -> task-router.json
-Execution    -> agent/skills 下的 public-safe skills
-Validation   -> pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
-Write-back   -> teaching 工作写回你的本地 packet 文件
-```
+- `想直接在 Codex 里跑`
+  先看 [docs/run-with-codex.md](docs/run-with-codex.md)。
+- `想给 AI 一个最短入口`
+  先看 [AI_CONTEXT.md](AI_CONTEXT.md)，再看 [ai-context.json](ai-context.json)、[task-router.json](task-router.json) 和 [writeback-map.json](writeback-map.json)。
+- `想看更完整的架构`
+  看 [docs/architecture.md](docs/architecture.md)、[docs/ai-harness.md](docs/ai-harness.md) 和 [docs/agent-architecture.md](docs/agent-architecture.md)。
+- `想参与扩展`
+  看 [ROADMAP.md](ROADMAP.md)、[CONTRIBUTING.md](CONTRIBUTING.md) 和 [Issues](https://github.com/adsrz/learning-os/issues)。
 
 ## 可移植命令路径
 
@@ -108,164 +134,40 @@ pwsh -NoProfile -File ./tools/Import-LocalSources.ps1 -SourceRoot $SOURCE_ROOT
 pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
 ```
 
-仓库仍然提供 Windows `.cmd` wrapper，但对外文档把 `pwsh` 作为主路径，这样不会把项目读成一个只能在 Windows 上跑的仓库。
-
-可移植命令的 proof 可以直接这样看：
-
-| 路径 | 角色 | 当前 proof |
-| --- | --- | --- |
-| `pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly` | 公开默认的 repo-only 路径 | 已在本地 Windows shell、本地 `pwsh`，以及 GitHub Actions 的 Ubuntu / Windows 路径中跑过，workflow 见 [repo-only-validation.yml](.github/workflows/repo-only-validation.yml) |
-| `.\tools\Test-All.cmd -RepoOnly` | Windows 便捷 wrapper | 作为 Windows convenience path 保留，但不是公开主路径 |
-| `pwsh -NoProfile -File ./tools/Test-All.ps1` | 本地 BYOS 完整验证 | 属于导入你自己的 source 之后的本地路径 |
-
-## 为什么它是一个 AI Harness
-
-很多 AI 学习方案，本质上只是“一个 prompt + 一堆笔记”。
-
-`Learning OS` 补的是缺失的 harness 层：
-
-- `Source intake`
-  系统要求显式的 source manifest 和本地 source roots，而不是把上下文含糊地塞进聊天窗口。
-- `Workflow routing`
-  单书精读、多书综合、论述型阅读、研究 intake 会走不同的工作流。
-- `Validation gates`
-  仓库安全检查和 public/private 边界本身就是系统的一部分，而不是事后补丁。
-- `Durable write-back`
-  真正的产出不只是一次回答，而是更新后的项目状态、distinctions、open questions 和可复用笔记。
-- `Local-first operation`
-  这套系统默认运行在你自己的本地文件和你自己合法获得的 sources 上。
-
-## 路由模型
-
-这套 harness 暴露两个主 overlay：
-
-- `Teaching overlay`
-  负责 source-aware 的学习工作。进入这个 overlay 后，再路由到四种 workflow mode 之一。
-- `System-ops overlay`
-  负责 setup、本地 source 导入、validation、public/private 边界检查，以及公开仓库内的 repo-safe 维护。
-
-这个拆分很重要：不是所有任务都应该被压成一次 study pass。
-
-## Teaching Workflow Modes
-
-当前 harness 提供 4 种可复用 workflow mode：
-
-- `Single-book deep reading`
-  单一主 source，慢速、机制优先、持续写回。
-- `Multi-book synthesis`
-  多个 source 进入同一学习项目，但不会被粗暴压扁成一本书。
-- `Thesis / non-textbook reading`
-  适用于论述性强或理论先行的阅读对象，不按标准教材方式处理。
-- `Research / paper workflow`
-  适用于论文、报告、抓取文章等需要先 intake 和分类的材料。
-
-这些模式是参考工作流，不是固定书单。harness 本身是 `source-agnostic` 的。
-
-## Harness Loop
-
-```text
-自带自己的 sources -> 分类并映射本地材料 -> 按 workflow mode 路由 -> 运行 agentic study pass -> 验证 -> 写回 durable state
-```
-
-## Agent Layer 怎么工作
-
-现在公开仓库不只是文档，还带了一个最小 `agent` 层。
-
-- [AI_CONTEXT.md](AI_CONTEXT.md)
-  给 AI 快速理解仓库用的最短入口。
-- [ai-context.json](ai-context.json)
-  给 agent onboarding 用的 machine-readable 仓库上下文。
-- [task-router.json](task-router.json)
-  从 task type 到 primary overlay、workflow mode 和 skill 的 machine-readable 路由表。
-- [writeback-map.json](writeback-map.json)
-  为 `teaching` workflow modes 固定写回目标的 machine-readable contract。
-- [agent/README.md](agent/README.md)
-  解释公开安全的执行面。
-- [agent/skills/repo-ops-and-validation/SKILL.md](agent/skills/repo-ops-and-validation/SKILL.md)
-  一个最小 `system-ops` skill，用来处理 setup、validation、边界检查和 repo-safe 维护。
-- [agent/skills/workflow-routed-study-pass/SKILL.md](agent/skills/workflow-routed-study-pass/SKILL.md)
-  一个最小 skill，展示如何跑一次 bounded、source-aware 的 study pass。
-- [agent/skills/research-source-intake/SKILL.md](agent/skills/research-source-intake/SKILL.md)
-  一个更具体的 intake skill，用来处理论文、报告和抓取文章。
-- [docs/run-with-codex.md](docs/run-with-codex.md)
-  说明如何把这个仓库真正当成 Codex harness 来运行。
-
-## Roadmap 与参与入口
-
-如果你已经读懂这个 repo，想继续参与扩展，先看这几个公开入口：
-
-- [ROADMAP.md](ROADMAP.md)
-  看当前最值得补的 public-facing 缺口。
-- [CONTRIBUTING.md](CONTRIBUTING.md)
-  看什么类型的改动适合这个 public harness。
-- [Issues](https://github.com/adsrz/learning-os/issues)
-  报 bug、提 workflow idea，或者建议新的 public-safe case study。
-
-当前最有价值的公开贡献大致是：
-
-- 在 policy brief example 之外再补更多 public-safe case study
-- 围绕已验证 `pwsh` 路径的跨平台打磨
-- 更直接地对比 prompt-only study workflow
-- 进一步压缩首次上手所需时间的 onboarding 改进
+仓库仍然提供 Windows `.cmd` wrapper，但对外主路径仍然是 `pwsh`，这样不会把项目读成一个只能在 Windows 上跑的仓库。
 
 ## 仓库结构
 
 - [system.md](system.md)
   项目的公开身份与运行原则。
-- [CHANGELOG.md](CHANGELOG.md)
-  对外发布历史。
-- [ROADMAP.md](ROADMAP.md)
-  近期 public-facing 优先项。
-- [CONTRIBUTING.md](CONTRIBUTING.md)
-  贡献规则与验证要求。
-- [system_detail.md](system_detail.md)
-  public/private 边界规则与文件职责。
+- [AI_CONTEXT.md](AI_CONTEXT.md)
+  给 AI 的最短入口。
+- [docs/demo-flow.md](docs/demo-flow.md)
+  最短的公开演示路径。
+- [docs/run-with-codex.md](docs/run-with-codex.md)
+  说明如何把这个仓库作为 Codex 项目来运行。
+- [docs/architecture.md](docs/architecture.md)
+  更简单的公开架构视图。
 - [agent/README.md](agent/README.md)
-  harness 的最小公开 agent layer。
-- [agent/skills/repo-ops-and-validation/SKILL.md](agent/skills/repo-ops-and-validation/SKILL.md)
-  面向 setup 和边界敏感仓库工作的公开 `system-ops` skill。
+  最小公开 agent layer。
 - [templates/project-template](templates/project-template)
   用于 durable write-back 的最小项目骨架。
-- [examples/research-intake-packet](examples/research-intake-packet)
-  一轮 bounded harness pass 之后的公开示例 packet。
-- [examples/single-book-packet](examples/single-book-packet)
-  一个 `single-book deep reading` 的 source-owned 示例 packet。
-- [examples/multi-book-packet](examples/multi-book-packet)
-  一个保留 source overlap 与 tension 的 `multi-book synthesis` 示例 packet。
-- [examples/thesis-reading-packet](examples/thesis-reading-packet)
-  一个 `thesis / non-textbook reading` 的非金融示例 packet。
-- [examples/system-evolution-boundary-hardening](examples/system-evolution-boundary-hardening)
-  一个公开、安全的系统演化案例，展示单个边界漂移信号如何收紧 validator 和 setup contract。
-- [docs/ai-harness.md](docs/ai-harness.md)
-  解释这个项目为什么是 harness，而不是普通学习仓库。
-- [docs/agent-architecture.md](docs/agent-architecture.md)
-  harness loop 与公开版 agent architecture。
-- [docs/run-with-codex.md](docs/run-with-codex.md)
-  说明如何把这个仓库作为 Codex harness 来运行。
-- [docs/demo-flow.md](docs/demo-flow.md)
-  一条从 source intake 到 write-back 的真实公开流程。
-- [docs/architecture.md](docs/architecture.md)
-  仓库如何拆分成 harness、examples 与 local-source layers。
-- [docs/workflow-modes.md](docs/workflow-modes.md)
-  四种支持的学习模式。
-- [docs/examples](docs/examples)
-  可直接改造的模式示例说明。
-- [docs/source-manifest.template.json](docs/source-manifest.template.json)
-  用于把你自己的 source 映射到本地布局中的模板。
+- [examples](examples)
+  可以直接对照的公开示例 packet。
 - [tools](tools)
-  校验与本地 source 导入工具。
+  校验和本地资料导入工具。
 
 ## Public Boundary
 
 这个公开仓库 **不包含** 第三方书籍、论文、PDF、幻灯片或其他专有学习材料。
 
-你需要自带你自己合法获得的 source。
+你需要自带自己合法获得的资料。
 
 这样设计是有意的：
 
-- 它让仓库更安全地公开发布
-- 它让 harness 不被某一套私有资料绑死
-- 它让同一套运行模型能够用于金融、经济、哲学、政策、机器学习等重阅读领域
+- 让仓库更安全地公开发布和分享
+- 让这套 harness 不会被某一套私有资料绑死
+- 让同一套运行方式能用于金融、经济、哲学、政策、机器学习等重阅读领域
 
 ## 许可证
 
