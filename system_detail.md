@@ -43,8 +43,12 @@
   - operator-facing guide for using the harness with Codex
 - `docs/demo-flow.md`
   - public-safe example flow from source intake to durable write-back
+- `templates/README.md`
+  - public index for the available local write-back template families
 - `templates/project-template/*`
-  - minimal reusable write-back targets for local projects
+  - minimal reusable write-back targets for single-book and other core local projects
+- `templates/multi-book-project-template/*`
+  - minimal reusable write-back targets for bounded local multi-book synthesis projects
 - `examples/*`
   - worked public-safe packets that show the result after a bounded harness pass
 - `docs/architecture.md`
@@ -80,7 +84,7 @@ These surfaces are intentionally local-only and must stay out of tracked history
 - `book/`
 - `research_doc/`
 - maintainer-only owner bundles and release-routing notes that live outside the public repo
-- local project areas copied from `templates/project-template/`
+- local project areas copied from `templates/project-template/` or `templates/multi-book-project-template/`
 - generated local artifacts beyond tracked placeholders
 - personal runtime logs
 - personal memory/state files

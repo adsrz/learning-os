@@ -1,5 +1,5 @@
 {
-  "version": "1.3",
+  "version": "1.4",
   "skills": [
     {
       "id": "repo-ops-and-validation",
@@ -57,6 +57,18 @@
       ],
       "write_back_target_scope": "user-local-project",
       "write_back_template_root": "templates/project-template",
+      "workflow_mode_template_roots": {
+        "single-book deep reading": "templates/project-template",
+        "multi-book synthesis": "templates/multi-book-project-template",
+        "thesis / non-textbook reading": "templates/project-template",
+        "research / paper workflow": "templates/project-template"
+      },
+      "workflow_mode_additional_targets": {
+        "multi-book synthesis": [
+          "module-map.md",
+          "source-registry.json"
+        ]
+      },
       "write_back_target_tracked_repo": false
     },
     {

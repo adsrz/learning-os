@@ -2,7 +2,7 @@
 
 This folder is a minimal public-safe project skeleton for `Learning OS`.
 
-Copy it when you want to start a new `teaching` packet or a new long-horizon study project in your own local workspace.
+Copy it when you want to start a new `single-book deep reading` packet or a new minimal local study project in your own workspace.
 
 This template is for durable study write-back. It is not the target surface for `system-ops` tasks such as setup, validation, or public boundary checks.
 
@@ -16,6 +16,8 @@ This template is for durable study write-back. It is not the target surface for 
   Active unresolved questions that should survive beyond one chat turn.
 - `distinctions.md`
   Durable concepts, distinctions, and framing notes worth reusing.
+
+If several sources should stay visible inside one project, use [multi-book-project-template](../multi-book-project-template) instead.
 
 ## Suggested Usage
 

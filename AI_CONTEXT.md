@@ -41,10 +41,12 @@ If the task is about setup or local sources, also read:
 
 If the task is about real packet shape or write-back, also read:
 
-9. [templates/project-template/README.md](templates/project-template/README.md)
-10. [examples/research-intake-packet](examples/research-intake-packet)
-11. [examples/single-book-packet](examples/single-book-packet)
-12. [examples/multi-book-packet](examples/multi-book-packet)
+9. [templates/README.md](templates/README.md)
+10. [templates/project-template/README.md](templates/project-template/README.md)
+11. [templates/multi-book-project-template/README.md](templates/multi-book-project-template/README.md)
+12. [examples/research-intake-packet](examples/research-intake-packet)
+13. [examples/single-book-packet](examples/single-book-packet)
+14. [examples/multi-book-packet](examples/multi-book-packet)
 
 ## Core Contract
 
@@ -88,16 +90,32 @@ If the task is about real packet shape or write-back, also read:
 
 ## Durable Write-Back Targets
 
-The preferred write-back shape is:
+The default durable write-back kernel is:
 
 - `project.md`
 - `session-log.md`
 - `open-questions.md`
 - `distinctions.md`
 
-These targets belong in your local project area, usually copied from [templates/project-template](templates/project-template). They are not tracked write-back files inside this public repo.
+Choose the template root that matches the workflow mode:
 
-See [templates/project-template](templates/project-template).
+- `single-book deep reading`
+  - [templates/project-template](templates/project-template)
+- `multi-book synthesis`
+  - [templates/multi-book-project-template](templates/multi-book-project-template)
+- `thesis / non-textbook reading`
+  - [templates/project-template](templates/project-template)
+- `research / paper workflow`
+  - [templates/project-template](templates/project-template)
+
+Multi-book packets usually extend the default kernel with:
+
+- `module-map.md`
+- `source-registry.json`
+
+These targets belong in your local project area. They are not tracked write-back files inside this public repo.
+
+See [templates/README.md](templates/README.md).
 
 ## Hard Boundaries
 

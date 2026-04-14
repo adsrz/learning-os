@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "source_id": "source-1",
+      "title": "Primary synthesis source",
+      "class": "book",
+      "path_hint": "sources/books/source-1.pdf"
+    },
+    {
+      "source_id": "source-2",
+      "title": "Supporting synthesis source",
+      "class": "book",
+      "path_hint": "sources/books/source-2.pdf"
+    }
+  ]
+}

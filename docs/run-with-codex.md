@@ -34,7 +34,9 @@ When you open this repository in Codex, the most important public surfaces are:
 - [agent/skills/repo-ops-and-validation/SKILL.md](../agent/skills/repo-ops-and-validation/SKILL.md)
 - [agent/skills/workflow-routed-study-pass/SKILL.md](../agent/skills/workflow-routed-study-pass/SKILL.md)
 - [agent/skills/research-source-intake/SKILL.md](../agent/skills/research-source-intake/SKILL.md)
+- [templates/README.md](../templates/README.md)
 - [templates/project-template/README.md](../templates/project-template/README.md)
+- [templates/multi-book-project-template/README.md](../templates/multi-book-project-template/README.md)
 - [docs/architecture.md](architecture.md)
 - [docs/agent-architecture.md](agent-architecture.md)
 
@@ -69,7 +71,9 @@ pwsh -NoProfile -File ./tools/Import-LocalSources.ps1 -SourceRoot $SOURCE_ROOT
 pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
 ```
 
-6. Copy the project template into your own local project area so the agent has a clear write-back target.
+6. Copy the template that matches your workflow mode into your own local project area so the agent has a clear write-back target.
+   - use [templates/project-template](../templates/project-template) for `single-book deep reading`, `thesis / non-textbook reading`, or `research / paper workflow`
+   - use [templates/multi-book-project-template](../templates/multi-book-project-template) for `multi-book synthesis`
 7. Compare your first packet against the worked public-safe examples under [examples](../examples).
 
 Windows `.cmd` wrappers still exist, but the primary documented path is `pwsh` for a more portable public surface.

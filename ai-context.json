@@ -1,5 +1,5 @@
 {
-  "version": "1.3",
+  "version": "1.4",
   "repo_type": "ai-native-local-first-learning-harness",
   "primary_goal": "run source-aware study workflows and preserve durable write-back",
   "packet_model": "shared-layer-plus-exactly-one-primary-overlay",
@@ -59,7 +59,9 @@
       "docs/bring-your-own-sources.md"
     ],
     "packet_shape_or_write_back": [
+      "templates/README.md",
       "templates/project-template/README.md",
+      "templates/multi-book-project-template/README.md",
       "examples/research-intake-packet",
       "examples/single-book-packet",
       "examples/multi-book-packet"
@@ -92,13 +94,25 @@
   "durable_write_back_scope": "user-local-project",
   "durable_write_back_template_root": "templates/project-template",
   "durable_write_back_tracked_repo": false,
-  "durable_write_back_location_hint": "copy templates/project-template into your own local project area",
+  "durable_write_back_location_hint": "copy the template that matches the workflow mode into your own local project area",
+  "workflow_mode_template_roots": {
+    "single-book deep reading": "templates/project-template",
+    "multi-book synthesis": "templates/multi-book-project-template",
+    "thesis / non-textbook reading": "templates/project-template",
+    "research / paper workflow": "templates/project-template"
+  },
   "durable_write_back_targets": [
     "project.md",
     "session-log.md",
     "open-questions.md",
     "distinctions.md"
   ],
+  "durable_write_back_mode_additions": {
+    "multi-book synthesis": [
+      "module-map.md",
+      "source-registry.json"
+    ]
+  },
   "hard_boundaries": [
     "sources/",
     "book/",

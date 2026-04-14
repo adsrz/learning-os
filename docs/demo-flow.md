@@ -65,7 +65,9 @@ That is also the practical delta from prompt-only chat: the harness preserves ro
 ## After The First Pass
 
 1. Create a local project from the template:
-   - copy [templates/project-template](../templates/project-template)
+   - choose the template that matches the workflow mode from [templates](../templates/README.md)
+   - for a single-source first pass, copy [templates/project-template](../templates/project-template)
+   - if several sources will co-own the packet, copy [templates/multi-book-project-template](../templates/multi-book-project-template)
    - keep that copied folder in your own local project area, not in the tracked public repo
    - rename it for your actual packet or demo project
 2. Run the first bounded pass again, now against your own material.
@@ -80,6 +82,7 @@ That is also the practical delta from prompt-only chat: the harness preserves ro
    - `session-log.md`
    - `open-questions.md`
    - `distinctions.md`
+   - and for `multi-book synthesis`, usually also `module-map.md` and `source-registry.json`
 6. Compare your result with the worked public-safe example:
    - [examples/research-intake-packet](../examples/research-intake-packet)
    - [examples/single-book-packet](../examples/single-book-packet)

@@ -76,7 +76,19 @@ $requiredRepoFiles = @(
     "tools/Import-LocalSources.ps1",
     "agent/README.md",
     "agent/skills/index.json",
-    "templates/project-template/README.md"
+    "templates/README.md",
+    "templates/project-template/README.md",
+    "templates/project-template/project.md",
+    "templates/project-template/session-log.md",
+    "templates/project-template/open-questions.md",
+    "templates/project-template/distinctions.md",
+    "templates/multi-book-project-template/README.md",
+    "templates/multi-book-project-template/project.md",
+    "templates/multi-book-project-template/session-log.md",
+    "templates/multi-book-project-template/open-questions.md",
+    "templates/multi-book-project-template/distinctions.md",
+    "templates/multi-book-project-template/module-map.md",
+    "templates/multi-book-project-template/source-registry.json"
 )
 
 foreach ($relativePath in $requiredRepoFiles) {
@@ -94,7 +106,8 @@ $maintainerStateFileNames = @(
 )
 $allowedMaintainerStatePrefixes = @(
     "examples/",
-    "templates/project-template/"
+    "templates/project-template/",
+    "templates/multi-book-project-template/"
 )
 $maintainerStateFiles = Get-ChildItem -Path $repoRoot -Recurse -File | Where-Object { $maintainerStateFileNames -contains $_.Name }
 foreach ($file in $maintainerStateFiles) {
@@ -138,7 +151,9 @@ $forkFreeWriteBackSurfaceFiles = @(
     "agent/README.md",
     "docs/run-with-codex.md",
     "docs/demo-flow.md",
-    "templates/project-template/README.md"
+    "templates/README.md",
+    "templates/project-template/README.md",
+    "templates/multi-book-project-template/README.md"
 )
 
 foreach ($relativePath in $forkFreeWriteBackSurfaceFiles) {

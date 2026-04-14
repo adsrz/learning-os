@@ -1,5 +1,5 @@
 {
-  "version": "1.3",
+  "version": "1.4",
   "shared_read_set": [
     "AI_CONTEXT.md",
     "ai-context.json",
@@ -133,16 +133,18 @@
         "agent/skills/workflow-routed-study-pass/SKILL.md",
         "docs/workflow-modes.md",
         "examples/multi-book-packet",
-        "templates/project-template/README.md"
+        "templates/multi-book-project-template/README.md"
       ],
       "write_back_targets": [
         "project.md",
         "session-log.md",
         "open-questions.md",
-        "distinctions.md"
+        "distinctions.md",
+        "module-map.md",
+        "source-registry.json"
       ],
       "write_back_target_scope": "user-local-project",
-      "write_back_template_root": "templates/project-template",
+      "write_back_template_root": "templates/multi-book-project-template",
       "write_back_target_tracked_repo": false,
       "use_when": [
         "more than one source is in scope",

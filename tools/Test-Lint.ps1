@@ -108,6 +108,9 @@ if ($null -eq $writebackMap.default_target_template_root) {
 if ($null -eq $writebackMap.default_targets) {
     throw "writeback-map.json is missing default_targets"
 }
+if ($null -eq $writebackMap.template_roots) {
+    throw "writeback-map.json is missing template_roots"
+}
 if ($null -eq $writebackMap.workflow_modes) {
     throw "writeback-map.json is missing workflow_modes"
 }
@@ -125,6 +128,14 @@ $defaultTargetScope = [string]$writebackMap.default_target_scope
 $defaultTemplateRoot = [string]$writebackMap.default_target_template_root
 $defaultTargetTrackedRepo = [bool]$writebackMap.default_target_tracked_repo
 $defaultTargets = Convert-ToStringArray $writebackMap.default_targets
+$templateRootMap = @{}
+foreach ($templateRootEntry in @($writebackMap.template_roots.PSObject.Properties)) {
+    $templateRootName = [string]$templateRootEntry.Name
+    $allowedTargets = Convert-ToStringArray $templateRootEntry.Value.allowed_targets
+    Assert-Lint (-not [string]::IsNullOrWhiteSpace($templateRootName)) "writeback-map.json template_roots contains an empty key"
+    Assert-Lint ($allowedTargets.Count -gt 0) ("writeback-map.json template root is missing allowed_targets: " + $templateRootName)
+    $templateRootMap[$templateRootName] = $allowedTargets
+}
 $writebackWorkflowModes = @($writebackMap.workflow_modes.PSObject.Properties.Name | ForEach-Object { [string]$_ })
 $aiWorkflowModes = Convert-ToStringArray $aiContext.workflow_modes
 $aiDurableTargets = Convert-ToStringArray $aiContext.durable_write_back_targets
@@ -132,6 +143,8 @@ $aiDurableTargets = Convert-ToStringArray $aiContext.durable_write_back_targets
 Assert-Lint ($defaultTargetScope -eq "user-local-project") "writeback-map.json default_target_scope must be user-local-project"
 Assert-Lint (-not [bool]$writebackMap.default_target_tracked_repo) "writeback-map.json default_target_tracked_repo must be false"
 Assert-Lint ($defaultTemplateRoot -eq "templates/project-template") "writeback-map.json default_target_template_root must equal templates/project-template"
+Assert-Lint ($templateRootMap.ContainsKey($defaultTemplateRoot)) "writeback-map.json default_target_template_root must exist in template_roots"
+Assert-Lint ((($templateRootMap[$defaultTemplateRoot] | Sort-Object) -join "|") -eq (($defaultTargets | Sort-Object) -join "|")) "writeback-map.json default_targets must match the default template root allowed_targets"
 Assert-Lint ($aiContext.durable_write_back_scope -eq $defaultTargetScope) "ai-context.json durable_write_back_scope does not match writeback-map.json"
 Assert-Lint ($aiContext.durable_write_back_template_root -eq $defaultTemplateRoot) "ai-context.json durable_write_back_template_root does not match writeback-map.json"
 Assert-Lint ([bool]$aiContext.durable_write_back_tracked_repo -eq $defaultTargetTrackedRepo) "ai-context.json durable_write_back_tracked_repo does not match writeback-map.json"
@@ -140,14 +153,16 @@ Assert-Lint ((($aiDurableTargets | Sort-Object) -join "|") -eq (($defaultTargets
 
 foreach ($workflowModeName in $writebackWorkflowModes) {
     $workflowModeConfig = $writebackMap.workflow_modes.$workflowModeName
+    $workflowTemplateRoot = [string]$workflowModeConfig.target_template_root
     Assert-Lint ($null -ne $workflowModeConfig.target_scope) ("writeback-map.json workflow mode is missing target_scope: " + $workflowModeName)
     Assert-Lint ($workflowModeConfig.PSObject.Properties.Name -contains "target_tracked_repo") ("writeback-map.json workflow mode is missing target_tracked_repo: " + $workflowModeName)
     Assert-Lint ($workflowModeConfig.PSObject.Properties.Name -contains "target_template_root") ("writeback-map.json workflow mode is missing target_template_root: " + $workflowModeName)
     Assert-Lint ($workflowModeConfig.target_scope -eq $defaultTargetScope) ("writeback-map.json workflow mode target_scope drifted: " + $workflowModeName)
     Assert-Lint ([bool]$workflowModeConfig.target_tracked_repo -eq $defaultTargetTrackedRepo) ("writeback-map.json workflow mode target_tracked_repo drifted: " + $workflowModeName)
-    Assert-Lint ($workflowModeConfig.target_template_root -eq $defaultTemplateRoot) ("writeback-map.json workflow mode target_template_root drifted: " + $workflowModeName)
-    Assert-TargetsSubset -Targets (Convert-ToStringArray $workflowModeConfig.required_targets) -AllowedTargets $defaultTargets -Context ("writeback-map.json required_targets for " + $workflowModeName)
-    Assert-TargetsSubset -Targets (Convert-ToStringArray $workflowModeConfig.recommended_targets) -AllowedTargets $defaultTargets -Context ("writeback-map.json recommended_targets for " + $workflowModeName)
+    Assert-Lint ($templateRootMap.ContainsKey($workflowTemplateRoot)) ("writeback-map.json workflow mode references unknown target_template_root: " + $workflowModeName)
+    $allowedTargetsForWorkflow = $templateRootMap[$workflowTemplateRoot]
+    Assert-TargetsSubset -Targets (Convert-ToStringArray $workflowModeConfig.required_targets) -AllowedTargets $allowedTargetsForWorkflow -Context ("writeback-map.json required_targets for " + $workflowModeName)
+    Assert-TargetsSubset -Targets (Convert-ToStringArray $workflowModeConfig.recommended_targets) -AllowedTargets $allowedTargetsForWorkflow -Context ("writeback-map.json recommended_targets for " + $workflowModeName)
 }
 
 foreach ($taskTypeName in @($taskRouter.task_types.PSObject.Properties.Name | ForEach-Object { [string]$_ })) {
@@ -162,12 +177,13 @@ foreach ($taskTypeName in @($taskRouter.task_types.PSObject.Properties.Name | Fo
         Assert-Lint ($null -eq $taskType.write_back_target_tracked_repo) ("task-router.json empty write-back task should not declare write_back_target_tracked_repo: " + $taskTypeName)
     }
     else {
+        $taskTemplateRoot = [string]$taskType.write_back_template_root
         Assert-Lint ($taskType.write_back_target_scope -eq $defaultTargetScope) ("task-router.json write_back_target_scope drifted: " + $taskTypeName)
-        Assert-Lint ($taskType.write_back_template_root -eq $defaultTemplateRoot) ("task-router.json write_back_template_root drifted: " + $taskTypeName)
+        Assert-Lint ($templateRootMap.ContainsKey($taskTemplateRoot)) ("task-router.json write_back_template_root drifted: " + $taskTypeName)
         Assert-Lint ([bool]$taskType.write_back_target_tracked_repo -eq $defaultTargetTrackedRepo) ("task-router.json write_back_target_tracked_repo drifted: " + $taskTypeName)
-        Assert-TargetsSubset -Targets $writeBackTargets -AllowedTargets $defaultTargets -Context ("task-router.json write_back_targets for " + $taskTypeName)
+        Assert-TargetsSubset -Targets $writeBackTargets -AllowedTargets $templateRootMap[$taskTemplateRoot] -Context ("task-router.json write_back_targets for " + $taskTypeName)
         $minimalReadSet = Convert-ToStringArray $taskType.minimal_read_set
-        Assert-Lint ($minimalReadSet -contains ($defaultTemplateRoot + "/README.md")) ("task-router.json write-back task must include the template read target: " + $taskTypeName)
+        Assert-Lint ($minimalReadSet -contains ($taskTemplateRoot + "/README.md")) ("task-router.json write-back task must include the template read target: " + $taskTypeName)
     }
 
     $taskWorkflowMode = [string]$taskType.workflow_mode
@@ -179,13 +195,14 @@ foreach ($taskTypeName in @($taskRouter.task_types.PSObject.Properties.Name | Fo
 foreach ($skillEntry in @($skillIndex.skills)) {
     $skillId = [string]$skillEntry.id
     $skillTargets = Convert-ToStringArray $skillEntry.write_back_targets
+    $skillTemplateRoot = [string]$skillEntry.write_back_template_root
     Assert-Lint ($skillEntry.PSObject.Properties.Name -contains "write_back_target_scope") ("agent/skills/index.json skill is missing write_back_target_scope: " + $skillId)
     Assert-Lint ($skillEntry.PSObject.Properties.Name -contains "write_back_template_root") ("agent/skills/index.json skill is missing write_back_template_root: " + $skillId)
     Assert-Lint ($skillEntry.PSObject.Properties.Name -contains "write_back_target_tracked_repo") ("agent/skills/index.json skill is missing write_back_target_tracked_repo: " + $skillId)
     Assert-Lint ($skillEntry.write_back_target_scope -eq $defaultTargetScope) ("agent/skills/index.json write_back_target_scope drifted: " + $skillId)
-    Assert-Lint ($skillEntry.write_back_template_root -eq $defaultTemplateRoot) ("agent/skills/index.json write_back_template_root drifted: " + $skillId)
+    Assert-Lint ($templateRootMap.ContainsKey($skillTemplateRoot)) ("agent/skills/index.json write_back_template_root drifted: " + $skillId)
     Assert-Lint ([bool]$skillEntry.write_back_target_tracked_repo -eq $defaultTargetTrackedRepo) ("agent/skills/index.json write_back_target_tracked_repo drifted: " + $skillId)
-    Assert-TargetsSubset -Targets $skillTargets -AllowedTargets $defaultTargets -Context ("agent/skills/index.json write_back_targets for " + $skillId)
+    Assert-TargetsSubset -Targets $skillTargets -AllowedTargets $templateRootMap[$skillTemplateRoot] -Context ("agent/skills/index.json write_back_targets for " + $skillId)
     foreach ($workflowMode in (Convert-ToStringArray $skillEntry.workflow_modes)) {
         Assert-Lint ($writebackWorkflowModes -contains $workflowMode) ("agent/skills/index.json references unknown workflow_mode: " + $skillId + " -> " + $workflowMode)
     }

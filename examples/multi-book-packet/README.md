@@ -27,3 +27,5 @@ This example is meant to show:
 - `session-log.md`
 - `open-questions.md`
 - `distinctions.md`
+- `module-map.md`
+- `source-registry.json`

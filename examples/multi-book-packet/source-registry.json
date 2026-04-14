@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "source_id": "demo-source-1",
+      "title": "Demo source 1",
+      "class": "open-sample",
+      "path_hint": "samples/open/demo-source.md"
+    },
+    {
+      "source_id": "demo-source-2",
+      "title": "Demo source 2",
+      "class": "open-sample",
+      "path_hint": "samples/open/demo-source-2.md"
+    }
+  ]
+}

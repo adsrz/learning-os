@@ -7,6 +7,11 @@
 - `primary_goal`: synthesize two open sources without flattening their different emphases
 - `current_frontier`: record overlap, preserve tension, and define the next comparative packet
 
+## Core Sources
+
+- `source_1`: `samples/open/demo-source.md`
+- `source_2`: `samples/open/demo-source-2.md`
+
 ## Source Scope
 
 - `in_scope_sources`: `samples/open/demo-source.md`, `samples/open/demo-source-2.md`
@@ -17,4 +22,4 @@
 
 - `durable_outputs_to_keep`: shared structure, source-specific tension, unresolved synthesis questions
 - `validation_requirements`: the packet should not silently erase source differences
-- `write_back_targets`: `session-log.md`, `open-questions.md`, `distinctions.md`
+- `write_back_targets`: `session-log.md`, `open-questions.md`, `distinctions.md`, `module-map.md`, `source-registry.json`

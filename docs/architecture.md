@@ -37,7 +37,9 @@ flowchart TB
 3. `tools and templates`
    - validators
    - import helpers
+   - `templates/README.md`
    - `templates/project-template`
+   - `templates/multi-book-project-template`
 4. `worked examples`
    - public-safe packets under `examples/`
 5. `your local BYOS layer`
