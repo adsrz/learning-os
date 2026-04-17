@@ -36,6 +36,8 @@ When a pass goes well, the useful output is not only the answer in chat. You als
 - `open-questions.md`
 - `distinctions.md`
 
+The exact template depends on workflow mode. `Multi-book synthesis` usually also keeps `module-map.md` and `source-registry.json`. `Thesis / non-textbook reading` usually also keeps `module-map.md` and `thesis-map.md`.
+
 ## How It Works
 
 ### One source in, one useful packet out
@@ -150,8 +152,14 @@ Windows `.cmd` wrappers are included, but the documented primary path uses `pwsh
   The simple public architecture view.
 - [agent/README.md](agent/README.md)
   Minimal public-safe agent layer.
+- [templates/README.md](templates/README.md)
+  Public-safe template families for durable write-back.
 - [templates/project-template](templates/project-template)
-  Minimal reusable project skeleton for durable write-back.
+  Minimal reusable project skeleton for single-book and research packets.
+- [templates/multi-book-project-template](templates/multi-book-project-template)
+  Public-safe multi-book synthesis packet template.
+- [templates/thesis-project-template](templates/thesis-project-template)
+  Public-safe thesis-first packet template.
 - [examples](examples)
   Worked public-safe packets you can compare against.
 - [tools](tools)

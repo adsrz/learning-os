@@ -2,15 +2,15 @@
 
 ## Review State Convention
 
-- `live`: the issue still shapes the next module or synthesis packet
+- `live`: the issue still shapes the next thesis or mechanism packet
 - `watch`: the issue is worth a lighter later revisit, but does not currently own the route
 
 ## Active Questions
 
-### `<module or synthesis theme>`
+### `<thesis or mechanism theme>`
 
 - Status: `live`
-- Lead source:
+- Claim type: `descriptive | mechanism | normative | mixed`
 - Why still live:
 - Next best check:
 - Last seen:

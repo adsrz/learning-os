@@ -19,6 +19,8 @@ This template is for durable study write-back. It is not the target surface for 
 
 If several sources should stay visible inside one project, use [multi-book-project-template](../multi-book-project-template) instead.
 
+If the source is argument-first rather than textbook-linear, use [thesis-project-template](../thesis-project-template) instead.
+
 ## Suggested Usage
 
 1. Copy this folder into your own local project area outside the tracked public repo.

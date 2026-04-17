@@ -160,16 +160,18 @@
         "agent/skills/workflow-routed-study-pass/SKILL.md",
         "docs/workflow-modes.md",
         "docs/examples/thesis-reading.md",
-        "templates/project-template/README.md"
+        "templates/thesis-project-template/README.md"
       ],
       "write_back_targets": [
         "project.md",
         "session-log.md",
         "open-questions.md",
-        "distinctions.md"
+        "distinctions.md",
+        "module-map.md",
+        "thesis-map.md"
       ],
       "write_back_target_scope": "user-local-project",
-      "write_back_template_root": "templates/project-template",
+      "write_back_template_root": "templates/thesis-project-template",
       "write_back_target_tracked_repo": false,
       "use_when": [
         "argument-heavy source",

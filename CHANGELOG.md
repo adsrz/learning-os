@@ -8,12 +8,16 @@ Public top-surface maintenance after `v0.1.1`.
 
 - clearer proof-first audience split across `README.md`, `README.zh-CN.md`, and `AI_CONTEXT.md`
 - `docs/run-with-codex.md` now leads with the proof lane before the deeper architecture lane
-- `tools/Test-PublicSetup.ps1` now rejects `memory.md` references on public top surfaces
+- `tools/Test-PublicSetup.ps1` now rejects private runtime-dashboard references on public top surfaces
+- the public template and example packet files now expose a public-safe subset of the current `study` continuity model: explicit frontier state, resume support note, and `live` versus `watch` open-question structure
+- `thesis / non-textbook reading` now has its own public-safe template family with `module-map.md` and `thesis-map.md`, and the machine contracts point thesis mode at that family instead of the generic project template
 
 ### Why This Pass Exists
 
 - the `Sharper Demo Pack` lane was the highest-leverage next public packet after the boundary-hardening case
 - this pass tightens time-to-first-result without adding a new architecture surface or a second public system-evolution case
+- the public packet skeletons now also sync the continuity and review-state structure that already matured inside `study`, without exporting private maintainer state
+- the public thesis mode now follows the current `study` family split instead of collapsing back into the generic single-book packet shape
 
 ### Non-Goals
 

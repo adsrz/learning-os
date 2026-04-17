@@ -1,6 +1,15 @@
 # Open Questions
 
-- What is still unresolved?
-- Which source or workflow mode should own that question?
-- What evidence is missing?
-- What should the next bounded study packet answer?
+## Review State Convention
+
+- `live`: the issue still shapes the next bounded packet
+- `watch`: the issue is mostly repaired, but worth a lighter later revisit
+
+## Active Questions
+
+### `<theme>`
+
+- Status: `live`
+- Why still live:
+- Next best check:
+- Last seen:

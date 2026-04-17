@@ -4,6 +4,7 @@ Use this mode when the source is argument-first rather than textbook-first.
 
 Typical outputs:
 
+- module map
 - thesis map
 - conceptual distinctions
 - claim/evidence tracking

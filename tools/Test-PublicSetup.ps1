@@ -88,7 +88,14 @@ $requiredRepoFiles = @(
     "templates/multi-book-project-template/open-questions.md",
     "templates/multi-book-project-template/distinctions.md",
     "templates/multi-book-project-template/module-map.md",
-    "templates/multi-book-project-template/source-registry.json"
+    "templates/multi-book-project-template/source-registry.json",
+    "templates/thesis-project-template/README.md",
+    "templates/thesis-project-template/project.md",
+    "templates/thesis-project-template/session-log.md",
+    "templates/thesis-project-template/open-questions.md",
+    "templates/thesis-project-template/distinctions.md",
+    "templates/thesis-project-template/module-map.md",
+    "templates/thesis-project-template/thesis-map.md"
 )
 
 foreach ($relativePath in $requiredRepoFiles) {
@@ -107,7 +114,8 @@ $maintainerStateFileNames = @(
 $allowedMaintainerStatePrefixes = @(
     "examples/",
     "templates/project-template/",
-    "templates/multi-book-project-template/"
+    "templates/multi-book-project-template/",
+    "templates/thesis-project-template/"
 )
 $maintainerStateFiles = Get-ChildItem -Path $repoRoot -Recurse -File | Where-Object { $maintainerStateFileNames -contains $_.Name }
 foreach ($file in $maintainerStateFiles) {
@@ -129,11 +137,14 @@ $forbiddenReferencePatterns = @(
 $forbiddenReferenceFiles = @(
     "README.md",
     "README.zh-CN.md",
+    "CHANGELOG.md",
+    "ROADMAP.md",
     "AI_CONTEXT.md",
     "ai-context.json",
     "task-router.json",
     "system_detail.md",
-    "docs/run-with-codex.md"
+    "docs/run-with-codex.md",
+    "docs/public-setup.md"
 )
 
 foreach ($relativePath in $forbiddenReferenceFiles) {
@@ -153,7 +164,8 @@ $forkFreeWriteBackSurfaceFiles = @(
     "docs/demo-flow.md",
     "templates/README.md",
     "templates/project-template/README.md",
-    "templates/multi-book-project-template/README.md"
+    "templates/multi-book-project-template/README.md",
+    "templates/thesis-project-template/README.md"
 )
 
 foreach ($relativePath in $forkFreeWriteBackSurfaceFiles) {

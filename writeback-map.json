@@ -28,6 +28,16 @@
         "module-map.md",
         "source-registry.json"
       ]
+    },
+    "templates/thesis-project-template": {
+      "allowed_targets": [
+        "project.md",
+        "session-log.md",
+        "open-questions.md",
+        "distinctions.md",
+        "module-map.md",
+        "thesis-map.md"
+      ]
     }
   },
   "workflow_modes": {
@@ -65,17 +75,19 @@
     "thesis / non-textbook reading": {
       "target_scope": "user-local-project",
       "target_tracked_repo": false,
-      "target_template_root": "templates/project-template",
+      "target_template_root": "templates/thesis-project-template",
       "required_targets": [
         "project.md",
-        "session-log.md"
+        "session-log.md",
+        "module-map.md",
+        "thesis-map.md"
       ],
       "recommended_targets": [
         "open-questions.md",
         "distinctions.md"
       ],
       "completion_rule": "The packet should preserve thesis structure and conceptual pressure points, not only chapter progression.",
-      "example_packet": null
+      "example_packet": "examples/thesis-reading-packet"
     },
     "research / paper workflow": {
       "target_scope": "user-local-project",

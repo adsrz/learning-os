@@ -15,6 +15,6 @@
 
 ## Operating Notes
 
-- `durable_outputs_to_keep`: thesis, claim/evidence split, distinctions, pressure-test questions
+- `durable_outputs_to_keep`: thesis, claim/evidence split, distinctions, pressure-test questions, and a forward thesis-first route
 - `validation_requirements`: the packet should preserve argument structure and should not claim outside evidence inspection
-- `write_back_targets`: `session-log.md`, `open-questions.md`, `distinctions.md`
+- `write_back_targets`: `session-log.md`, `open-questions.md`, `distinctions.md`, `module-map.md`, `thesis-map.md`

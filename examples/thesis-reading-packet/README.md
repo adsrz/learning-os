@@ -24,3 +24,5 @@ It shows what the harness should leave behind when the source is argument-first 
 - `session-log.md`
 - `open-questions.md`
 - `distinctions.md`
+- `module-map.md`
+- `thesis-map.md`

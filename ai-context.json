@@ -62,9 +62,11 @@
       "templates/README.md",
       "templates/project-template/README.md",
       "templates/multi-book-project-template/README.md",
+      "templates/thesis-project-template/README.md",
       "examples/research-intake-packet",
       "examples/single-book-packet",
-      "examples/multi-book-packet"
+      "examples/multi-book-packet",
+      "examples/thesis-reading-packet"
     ]
   },
   "core_contract": [
@@ -98,7 +100,7 @@
   "workflow_mode_template_roots": {
     "single-book deep reading": "templates/project-template",
     "multi-book synthesis": "templates/multi-book-project-template",
-    "thesis / non-textbook reading": "templates/project-template",
+    "thesis / non-textbook reading": "templates/thesis-project-template",
     "research / paper workflow": "templates/project-template"
   },
   "durable_write_back_targets": [
@@ -111,6 +113,10 @@
     "multi-book synthesis": [
       "module-map.md",
       "source-registry.json"
+    ],
+    "thesis / non-textbook reading": [
+      "module-map.md",
+      "thesis-map.md"
     ]
   },
   "hard_boundaries": [

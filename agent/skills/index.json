@@ -60,13 +60,17 @@
       "workflow_mode_template_roots": {
         "single-book deep reading": "templates/project-template",
         "multi-book synthesis": "templates/multi-book-project-template",
-        "thesis / non-textbook reading": "templates/project-template",
+        "thesis / non-textbook reading": "templates/thesis-project-template",
         "research / paper workflow": "templates/project-template"
       },
       "workflow_mode_additional_targets": {
         "multi-book synthesis": [
           "module-map.md",
           "source-registry.json"
+        ],
+        "thesis / non-textbook reading": [
+          "module-map.md",
+          "thesis-map.md"
         ]
       },
       "write_back_target_tracked_repo": false

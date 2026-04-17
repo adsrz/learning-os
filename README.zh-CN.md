@@ -36,6 +36,8 @@
 - `open-questions.md`
 - `distinctions.md`
 
+具体用哪套模板取决于 workflow mode。`Multi-book synthesis` 通常还会保留 `module-map.md` 和 `source-registry.json`。`Thesis / non-textbook reading` 通常还会保留 `module-map.md` 和 `thesis-map.md`。
+
 ## 它怎么工作
 
 ### 一份资料进去，一个有用的 packet 出来
@@ -150,8 +152,14 @@ pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
   更简单的公开架构视图。
 - [agent/README.md](agent/README.md)
   最小公开 agent layer。
+- [templates/README.md](templates/README.md)
+  用于 durable write-back 的公开模板族入口。
 - [templates/project-template](templates/project-template)
-  用于 durable write-back 的最小项目骨架。
+  单书和 research packet 的最小项目骨架。
+- [templates/multi-book-project-template](templates/multi-book-project-template)
+  面向多书综合的公开模板。
+- [templates/thesis-project-template](templates/thesis-project-template)
+  面向 thesis-first 路线的公开模板。
 - [examples](examples)
   可以直接对照的公开示例 packet。
 - [tools](tools)

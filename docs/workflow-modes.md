@@ -28,7 +28,7 @@ See [multi-book-synthesis.md](examples/multi-book-synthesis.md).
 - argument-heavy, essay-like, or theory-first reading
 - emphasize thesis maps and conceptual pressure-testing
 - useful when chapter progression alone is not the real structure
-- the public minimal starting point is [templates/project-template](../templates/project-template)
+- the public minimal starting point is [templates/thesis-project-template](../templates/thesis-project-template)
 
 See [thesis-reading.md](examples/thesis-reading.md).
 

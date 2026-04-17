@@ -37,6 +37,7 @@ When you open this repository in Codex, the most important public surfaces are:
 - [templates/README.md](../templates/README.md)
 - [templates/project-template/README.md](../templates/project-template/README.md)
 - [templates/multi-book-project-template/README.md](../templates/multi-book-project-template/README.md)
+- [templates/thesis-project-template/README.md](../templates/thesis-project-template/README.md)
 - [docs/architecture.md](architecture.md)
 - [docs/agent-architecture.md](agent-architecture.md)
 
@@ -57,24 +58,26 @@ Those files tell Codex:
 pwsh -NoProfile -File ./tools/Test-All.ps1 -RepoOnly
 ```
 
-3. Add your own lawfully obtained materials through the local ignored roots.
-4. Import them:
+3. If this is your first BYOS run, start with the [First Real Source Import](public-setup.md#first-real-source-import) block in [docs/public-setup.md](public-setup.md) before widening to a larger local source folder.
+4. Add your own lawfully obtained materials through the local ignored roots.
+5. Import them:
 
 ```powershell
 $SOURCE_ROOT = "/absolute/path/to/your/files" # or C:\path\to\your\files on Windows
 pwsh -NoProfile -File ./tools/Import-LocalSources.ps1 -SourceRoot $SOURCE_ROOT
 ```
 
-5. Validate the local setup:
+6. Validate the local setup:
 
 ```powershell
 pwsh -NoProfile -File ./tools/Test-PublicSetup.ps1
 ```
 
-6. Copy the template that matches your workflow mode into your own local project area so the agent has a clear write-back target.
-   - use [templates/project-template](../templates/project-template) for `single-book deep reading`, `thesis / non-textbook reading`, or `research / paper workflow`
+7. Copy the template that matches your workflow mode into your own local project area so the agent has a clear write-back target.
+   - use [templates/project-template](../templates/project-template) for `single-book deep reading` or `research / paper workflow`
    - use [templates/multi-book-project-template](../templates/multi-book-project-template) for `multi-book synthesis`
-7. Compare your first packet against the worked public-safe examples under [examples](../examples).
+   - use [templates/thesis-project-template](../templates/thesis-project-template) for `thesis / non-textbook reading`
+8. Compare your first packet against the worked public-safe examples under [examples](../examples).
 
 Windows `.cmd` wrappers still exist, but the primary documented path is `pwsh` for a more portable public surface.
 
